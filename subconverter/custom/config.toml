@@ -42,6 +42,15 @@ import = "custom/emoji.toml"
 
 
 # define proxy control group
+{% if default(request.include_info, "false") == "true" %}
+[[custom_groups]]
+name = "ℹ️ 订阅信息"
+type = "select"
+rule = [
+    "ℹ️ .+\\: \\d.+ (?i:KB|MB|GB|TB) \\| \\d.+ (?i:KB|MB|GB|TB).*"
+]
+{% endif %}
+
 [[custom_groups]]
 name = "🔰 节点选择"
 type = "select"

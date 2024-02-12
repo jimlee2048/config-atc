@@ -39,7 +39,8 @@ subconverter-config
     - `tun={true|false}`：是否开启TUN模式, 默认为`false`
     - `clash_type={meta|stash}`：Clash配置文件类型，如不配置默认为原版Clash格式
     - `clash_dns={redir-host|fake-ip}`：Clash DNS模式，默认为`redir-host`
-    - `include_private={true|false}`：是否包含私有节点，默认为 false。启用后将会添加单独的策略组`Private`，用于显示私有节点。
+    - `include_private={true|false}`：是否包含私有节点，默认为 false。启用后将会添加单独的策略组`私有节点`，用于显示私有节点。
+    - `include_info={true|false}`：是否用节点展示订阅信息，默认为 false。启用后将会添加单独的策略组`订阅信息`，用于显示订阅信息。
 
 - **注意：** 参数需要进行URLEncode，参数间用`&`分隔
 
