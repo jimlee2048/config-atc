@@ -22,7 +22,10 @@ jobs:
         run: pip install -r requirements.txt
       - name: "Update rules: Tailscale_OfficialDERP"
         run: python update-Tailscale_OfficialDERP.py
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Automatic update rules"
+          commit_message: "Automatic update rules: Tailscale_OfficialDERP - ${{ steps.date.outputs.date }}"
