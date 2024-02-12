@@ -1,0 +1,3 @@
+/subconverter/profiles/*
+!/subconverter/profiles/example-profile.ini
+.prettierignore

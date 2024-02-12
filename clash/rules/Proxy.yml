@@ -1,0 +1,4 @@
+payload:
+  - DOMAIN-SUFFIX,mikanani.me
+  - DOMAIN-SUFFIX,themoviedb.org
+  - DOMAIN,pkgs.tailscale.com

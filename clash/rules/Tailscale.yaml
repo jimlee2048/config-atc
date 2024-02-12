@@ -1,0 +1,9 @@
+payload:
+  - DOMAIN-SUFFIX,ts.net
+  - DOMAIN,login.tailscale.com
+  - DOMAIN,login.tailscale.io
+  - DOMAIN,log.tailscale.com
+  - DOMAIN,log.tailscale.io
+  - DOMAIN,controlplane.tailscale.com
+  - DOMAIN-KEYWORD,derp
+  - PROCESS-NAME,tailscaled

@@ -1,0 +1,968 @@
+version = 1
+[custom]
+
+# Enable generating rules with rulesets
+enable_rule_generator = true
+
+# Overwrite the existing rules in rule_base
+overwrite_original_rules = true
+
+# Options for custom base configuration file
+{% if exists("request.online") and request.online == "true" %}
+clash_rule_base = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/subconverter/custom/base/clash.base.yml"
+{% else %}
+clash_rule_base = "custom/base/clash.base.yml"
+# surge_rule_base = "custom/base/surge.conf"
+# surfboard_rule_base = "custom/base/surfboard.conf"
+# mellow_rule_base = "custom/base/mellow.conf"
+# quan_rule_base = "custom/base/quan.conf"
+# quanx_rule_base = "custom/base/quanx.conf"
+{% endif %}
+
+# Options for filtering nodes
+# include_remarks = []
+# exclude_remarks = []
+
+# Options for adding emojis
+add_emoji = true
+remove_old_emoji = true
+
+{% if exists("request.online") and request.online == "true" %}
+[[emoji]]
+import = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/subconverter/custom/emoji.toml"
+{% else %}
+[[emoji]]
+import = "custom/emoji.toml"
+{% endif %}
+
+# Import custom emoji
+# [[emoji]]
+# match = '(流量|时间|应急)'
+# emoji = '🏳️‍🌈'
+
+
+# define proxy control group
+[[custom_groups]]
+name = "🔰 节点选择"
+type = "select"
+rule = [
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "✈️ 手动选择"
+type = "select"
+rule = [
+    ".*",
+]
+
+[[custom_groups]]
+name = "🍭 谷歌服务"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "Ⓜ️ 微软服务"
+type = "select"
+rule = [
+    "[]🎯 全部直连",
+    "[]🔰 节点选择",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "☁️ Onedrive"
+type = "select"
+rule = [
+    "[]📥 大流量分流",
+    "[]Ⓜ️ 微软服务",
+    "[]🎯 全部直连",
+    "[]🔰 节点选择",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🤖 Developer"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🍎 苹果服务"
+type = "select"
+rule = [
+    "[]🎯 全部直连",
+    "[]🔰 节点选择",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎮 Steam"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎮 游戏平台"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎵 Spotify"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]📥 大流量分流",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎵 Qobuz"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]📥 大流量分流",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎵 TIDAL"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]📥 大流量分流",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎥 Emby 服务"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+    "(?i:Emby)",
+]
+
+[[custom_groups]]
+name = "🎥 Youtube"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]📥 大流量分流",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎥 Netflix"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]📥 大流量分流",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎥 TikTok"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]📥 大流量分流",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🌍 国外媒体"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]📥 大流量分流",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎵 网易云音乐"
+type = "select"
+rule = [
+    "[]🎯 全部直连",
+    "[]🔰 节点选择",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇨🇳 回国线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🌍 国内媒体-港澳台版切换"
+type = "select"
+rule = [
+    "[]🎯 全部直连",
+    "[]🔰 节点选择",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇨🇳 回国线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "📲 Telegram"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "📲 Twitter"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "📥 大流量分流"
+type = "select"
+rule = [
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🔰 节点选择",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+    "(?i:0\\.\\d*x)",
+]
+
+[[custom_groups]]
+name = "📶 测速切换"
+type = "select"
+rule = [
+    "[]🎯 全部直连",
+    "[]🔰 节点选择",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+]
+
+[[custom_groups]]
+name = "🎯 全部直连"
+type = "select"
+rule = ["[]DIRECT"]
+
+[[custom_groups]]
+name = "🛑 全部拦截"
+type = "select"
+rule = ["[]REJECT"]
+
+[[custom_groups]]
+name = "🐟 漏网之鱼"
+type = "select"
+rule = [
+    "[]🔰 节点选择",
+    "[]🎯 全部直连",
+    "[]✈️ 手动选择",
+{% if default(request.include_private, "false") == "true" %}
+    "[]🎩 私有节点",
+{% endif %}
+    "[]🇭🇰 香港接入",
+    "[]🇺🇸 美国接入",
+    "[]🇯🇵 日本接入",
+    "[]🇨🇳 台湾接入",
+    "[]🇸🇬 新加坡接入",
+    "[]🇰🇷 韩国接入",
+{% if exists("request.region.size") and request.region.size == "full" %}
+    "[]🇮🇳 印度接入",
+    "[]🇬🇧 英国接入",
+    "[]🇫🇷 法国接入",
+    "[]🇨🇦 加拿大接入",
+    "[]🇦🇺 澳大利亚接入",
+    "[]🇮🇪 爱尔兰接入",
+    "[]🇷🇺 俄罗斯接入",
+    "[]🇹🇷 土耳其接入",
+    "[]🇦🇷 阿根廷接入",
+    "[]🇧🇷 巴西接入",
+    "[]🇨🇳 回国线路",
+{% endif %}
+{% if default(request.ipv6, "false") == "true" %}
+    "[]🏳️‍🌈 IPV6线路",
+{% endif %}
+]
+
+{% if default(request.include_private, "false") == "true" %}
+[[custom_groups]]
+name = "🎩 私有节点"
+type = "select"
+rule = [
+    "(?i:Private)",
+]
+{% endif %}
+
+# define node area subset groups
+[[custom_groups]]
+name = "🇭🇰 香港接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bHK[G]?\\b|Hong.*?Kong|\\bHKT\\b|\\bHKBN\\b|\\bHGC\\b|\\bWTT\\b|\\bCMI\\b|[^-]港)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇺🇸 美国接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bUS[A]?\\b|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇯🇵 日本接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bJP[N]?\\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇨🇳 台湾接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bTW[N]?\\b|Taiwan|新北|彰化|\\bCHT\\b|台湾|[^-]台|\\bHINET\\b)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇸🇬 新加坡接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bSG[P]?\\b|Singapore|新加坡|狮城|[^-]新)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇰🇷 韩国接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bK[O]?R\\b|Korea|首尔|韩|韓)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+{% if exists("request.region.size") and request.region.size == "full" %}
+[[custom_groups]]
+name = "🇮🇳 印度接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bIN[D]?\\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇬🇧 英国接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bUK\\b|\\bGB[R]?\\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇫🇷 法国接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bFR[A]?\\b|France|Paris|法国|巴黎)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇨🇦 加拿大接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bCA[N]?\\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇦🇺 澳大利亚接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bAU[S]?\\b|Australia|Sydney|澳大利亚|澳洲|悉尼)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇮🇪 爱尔兰接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:Ireland|Dublin|爱尔兰|都柏林)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇷🇺 俄罗斯接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bRU[S]?\\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇹🇷 土耳其接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:Turkey|土耳其|伊斯坦布尔)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇦🇷 阿根廷接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:Argentina|阿根廷)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+[[custom_groups]]
+name = "🇧🇷 巴西接入"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:Brazil|Paulo|巴西|圣保罗)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+
+{% if default(request.ipv6, "false") == "true" %}
+[[custom_groups]]
+name = "🏳️‍🌈 IPV6线路"
+type = "select"
+rule = [
+    "(?i:ipv6)",
+]
+{% endif %}
+
+[[custom_groups]]
+name = "🇨🇳 回国线路"
+type = "{{ default(request.region.mode, "url-test") }}"
+rule = [
+    "(?i:\\bC[H]?N\\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)",
+]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
+{% endif %}
+
+
+# import rulesets
+{% if exists("request.online") and request.online == "true" %}
+[[rulesets]]
+import = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/subconverter/custom/rulesets/lan.toml"
+
+{% if exists("request.ad") %}
+{% if request.ad == "full" %}
+[[rulesets]]
+import = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/subconverter/custom/rulesets/ad.toml"
+{% else if request.ad == "lite" %}
+[[rulesets]]
+import = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/subconverter/custom/rulesets/ad-lite.toml"
+{% else if request.ad == "false" %}
+{% endif %}
+{% else %}
+[[rulesets]]
+import = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/subconverter/custom/rulesets/pri&hjk.toml"
+{% endif %}
+
+[[rulesets]]
+import = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/subconverter/custom/rulesets/main.toml"
+
+
+{% else %}
+[[rulesets]]
+import = "custom/rulesets/lan.toml"
+
+{% if exists("request.ad") %}
+{% if request.ad == "full" %}
+[[rulesets]]
+import = "custom/rulesets/ad.toml"
+{% else if request.ad == "lite" %}
+[[rulesets]]
+import = "custom/rulesets/ad-lite.toml"
+{% else if request.ad == "false" %}
+{% endif %}
+{% else %}
+[[rulesets]]
+import = "custom/rulesets/pri&hjk.toml"
+{% endif %}
+
+[[rulesets]]
+import = "custom/rulesets/main.toml"
+{% endif %}

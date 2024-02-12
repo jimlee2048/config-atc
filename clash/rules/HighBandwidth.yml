@@ -1,0 +1,6 @@
+payload:
+  - DOMAIN-KEYWORD,civitai
+  - DOMAIN-SUFFIX,civitai.com
+  - DOMAIN-KEYWORD,huggingface
+  - DOMAIN-SUFFIX,huggingface.co
+  - DOMAIN,cdn-lfs.huggingface.co

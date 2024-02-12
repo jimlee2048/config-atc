@@ -1,0 +1,28 @@
+name: Update rules
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * *"
+
+jobs:
+  update-rules:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+        run:
+          working-directory: clash/rules/scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: "Update rules: Tailscale_OfficialDERP"
+        run: python update-Tailscale_OfficialDERP.py
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Automatic update rules"
