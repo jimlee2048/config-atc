@@ -28,4 +28,4 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Automatic update rules: Tailscale_OfficialDERP - ${{ steps.date.outputs.date }}"
+          commit_message: "Automatic update rules - ${{ steps.date.outputs.date }}"
