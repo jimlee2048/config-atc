@@ -7,9 +7,10 @@ async function operator(proxies = [], targetPlatform, env) {
   } = parseFlowHeaders(
     await getFlowHeaders(env.source[proxies[0].subName].url)
   );
-  const date = expires
+  const expiresDate = expires
     ? new Date(expires * 1000).toISOString().split("T")[0]
     : "";
+  const remainDays = Math.floor((expires * 1000 - Date.now()) / 86400000);
 
   const prefixName =
     env.source[proxies[0].subName].displayName ||
@@ -25,7 +26,7 @@ async function operator(proxies = [], targetPlatform, env) {
     port: 8080,
     cipher: "aes-128-gcm",
     password: "password",
-    name: `ℹ️ ${prefixName}: ${currT.value} ${currT.unit} / ${totalT.value} ${totalT.unit} ${date}`,
+    name: `ℹ️ ${prefixName}: ${currT.value} ${currT.unit} / ${totalT.value} ${totalT.unit} ${expiresDate} (${remainDays}d)`,
   });
   return proxies;
 }
