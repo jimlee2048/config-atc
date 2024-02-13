@@ -5,7 +5,7 @@ async function operator(proxies = [], targetPlatform, env) {
       total,
       usage: { upload, download },
     } = parseFlowHeaders(await getFlowHeaders(env.source[proxies[0].subName].url))
-    const date = expires ? new Date(expires * 1000).toLocaleDateString('zh-CN') : ''
+    const date = expires ? new Date(expires * 1000).toISOString().split('T')[0] : '';
   
     const prefixName = env.source[proxies[0].subName].displayName || env.source[proxies[0].subName].name
     const current = upload + download
