@@ -503,7 +503,7 @@ rule-providers:
   Emby:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/Repcz/Tool@X/Clash/Rules/Emby.list
-    path: ./providers/rule-provider_Emby.yaml
+    path: ./providers/rule-provider_Emby.list
     format: text
   YouTube:
     <<: *x-rp-classical
