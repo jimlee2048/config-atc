@@ -16,25 +16,25 @@ type = "clash-classic"
 # US Only
 ## OpenAI
 [[rulesets]]
-group = "🇺🇸 美国优选"
+group = "🇺🇸 美国接入"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
 type = "clash-classic"
 
 ## Google Voice
 [[rulesets]]
-group = "🇺🇸 美国优选"
+group = "🇺🇸 美国接入"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.yaml"
 type = "clash-classic"
 
 ## Anthropic
 [[rulesets]]
-group = "🇺🇸 美国优选"
+group = "🇺🇸 美国接入"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Anthropic/Anthropic.yaml"
 type = "clash-classic"
 
 ## Bing
 [[rulesets]]
-group = "🇺🇸 美国优选"
+group = "🇺🇸 美国接入"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
 type = "clash-classic"
 
@@ -161,7 +161,7 @@ type = "clash-classic"
 
 # 巴哈姆特
 [[rulesets]]
-group = "🇹🇼 台湾优选"
+group = "🇹🇼 台湾接入"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.yaml"
 type = "clash-classic"
 

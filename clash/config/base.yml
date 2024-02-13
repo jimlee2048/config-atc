@@ -236,7 +236,7 @@ proxy-groups:
   - name: 🎥 Netflix
     <<: *x-pp-select-region
     include-all: true
-    filter: "(?i:Netflix|网飞)"
+    filter: "(?i:Netflix|网飞|奈飞|NF)"
 
   - name: 🎥 TikTok
     <<: *x-pp-select-region
