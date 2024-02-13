@@ -14,24 +14,24 @@ ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/
 type = "clash-classic"
 
 # 绕过 Tailscale 相关
-[[rulesets]]
-group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/clash/rules/Tailscale_OfficialDERP.yaml"
-type = "clash-classic"
-
 # [[rulesets]]
 # group = "🎯 全部直连"
-# ruleset = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/clash/rules/Tailscale_OfficialDERP_IP.yaml"
-# type = "clash-ipcidr"
-
-# [[rulesets]]
-# group = "🎯 全部直连"
-# ruleset = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/clash/rules/Tailscale_OfficialDERP_Domain.yaml"
-# type = "clash-domain"
+# ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP.yaml"
+# type = "clash-classic"
 
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/clash/rules/Tailscale.yaml"
+ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_IP.yaml"
+type = "clash-ipcidr"
+
+[[rulesets]]
+group = "🎯 全部直连"
+ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_Domain.yaml"
+type = "clash-domain"
+
+[[rulesets]]
+group = "🎯 全部直连"
+ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale.yaml"
 type = "clash-classic"
 
 # 绕过 BT 与下载器
@@ -49,5 +49,5 @@ type = "clash-classic"
 # 自定义直连规则
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/clash/rules/Direct.yml"
+ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Direct.yml"
 type = "clash-classic"

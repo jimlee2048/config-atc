@@ -10,31 +10,31 @@
 # 自定义代理规则
 [[rulesets]]
 group = "🔰 节点选择"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/clash/rules/Proxy.yml"
+ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Proxy.yml"
 type = "clash-classic"
 
 # US Only
 ## OpenAI
 [[rulesets]]
-group = "🇺🇸 美国接入"
+group = "🇺🇸 美国优选"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
 type = "clash-classic"
 
 ## Google Voice
 [[rulesets]]
-group = "🇺🇸 美国接入"
+group = "🇺🇸 美国优选"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.yaml"
 type = "clash-classic"
 
 ## Anthropic
 [[rulesets]]
-group = "🇺🇸 美国接入"
+group = "🇺🇸 美国优选"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Anthropic/Anthropic.yaml"
 type = "clash-classic"
 
 ## Bing
 [[rulesets]]
-group = "🇺🇸 美国接入"
+group = "🇺🇸 美国优选"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
 type = "clash-classic"
 
@@ -138,7 +138,7 @@ type = "clash-classic"
 
 [[rulesets]]
 group = "🎥 Emby 服务"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/clash/rules/Emby.yml"
+ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.yml"
 type = "clash-classic"
 
 # Youtube
@@ -157,6 +157,12 @@ type = "clash-classic"
 [[rulesets]]
 group = "🎥 TikTok"
 ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml"
+type = "clash-classic"
+
+# 巴哈姆特
+[[rulesets]]
+group = "🇹🇼 台湾优选"
+ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.yaml"
 type = "clash-classic"
 
 # 国外媒体
@@ -192,7 +198,7 @@ type = "clash-classic"
 # 大流量分流
 [[rulesets]]
 group = "📥 大流量分流"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2002/atc-config@main/clash/rules/HighBandwidth.yml"
+ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/HighBandwidth.yml"
 type = "clash-classic"
 
 # 测速相关

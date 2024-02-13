@@ -24,6 +24,25 @@ dns:
     - "+.lan"
     - "+.local"
     - "+.ts.net"
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
+    # Google Voices
+    - 'lens.l.google.com'
+    # Nintendo Switch
+    - '*.n.n.srv.nintendo.net'
+    # PlayStation
+    - '+.stun.playstation.net'
+    # XBox
+    - 'xbox.*.*.microsoft.com'
+    - '*.*.xboxlive.com'
+    # Microsoft
+    - '*.msftncsi.com'
+    - '*.msftconnecttest.com'
+    # Bilibili CDN
+    - '*.mcdn.bilivideo.cn'
+    # QQ
     - "localhost.ptlogin2.qq.com"
 {% endif %}
   default-nameserver:
