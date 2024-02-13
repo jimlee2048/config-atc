@@ -63,7 +63,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -104,7 +104,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -138,7 +138,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -174,7 +174,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -208,7 +208,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入", 
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -242,7 +242,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -276,7 +276,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -310,7 +310,7 @@ rule = [
 #     "[]🇭🇰 香港接入",
 #     "[]🇺🇸 美国接入",
 #     "[]🇯🇵 日本接入",
-#     "[]�� 台湾接入",
+#     "[]🇹🇼 台湾接入",
 #     "[]🇸🇬 新加坡接入",
 #     "[]🇰🇷 韩国接入",
 # {% if exists("request.region.size") and request.region.size == "full" %}
@@ -345,7 +345,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -380,7 +380,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -415,7 +415,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -460,7 +460,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -495,7 +495,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -530,7 +530,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -565,7 +565,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -612,7 +612,7 @@ rule = [
     "[]🎩 私有节点",
 {% endif %}
     "[]🇭🇰 香港接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
     "[]🇨🇳 回国接入",
@@ -632,7 +632,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -666,7 +666,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -735,7 +735,7 @@ rule = [
     "[]🇭🇰 香港接入",
     "[]🇺🇸 美国接入",
     "[]🇯🇵 日本接入",
-    "[]�� 台湾接入",
+    "[]🇹🇼 台湾接入",
     "[]🇸🇬 新加坡接入",
     "[]🇰🇷 韩国接入",
 {% if exists("request.region.size") and request.region.size == "full" %}
@@ -794,7 +794,7 @@ url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
-name = "�� 台湾接入"
+name = "🇹🇼 台湾接入"
 type = "{{ default(request.region.mode, "url-test") }}"
 rule = [
     "(?i:🇹🇼|\\bTW[N]?\\b|Taiwan|新北|彰化|\\bCHT\\b|台湾|[^-]台|\\bHINET\\b)",
