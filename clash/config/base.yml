@@ -67,7 +67,6 @@ tun:
 x-pg:
   select-region-full: &x-pp-select-region
     type: select
-    exclude-filter: '(?i:专用)'
     proxies:
       - 🔰 节点选择
       - 🎯 全部直连
@@ -94,7 +93,6 @@ x-pg:
 
   select-region-full-direct: &x-pp-select-region-direct
     type: select
-    exclude-filter: '(?i:专用)'
     proxies:
       - 🎯 全部直连
       - 🔰 节点选择
@@ -156,6 +154,7 @@ x-pg:
     lazy: true
     include-all: true
     hidden: true
+    exclude-filter: '(?i:专用)'
 
   # select-region: &x-pp-region
   #   type: select
@@ -344,7 +343,7 @@ proxy-groups:
 
   - name: 🇬🇧 英国优选
     <<: *x-pp-region
-    filter: '(?i:🇬🇧|\bUK\b|\bGB[R]?\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)'
+    filter: '(?i:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)'
 
   - name: 🇫🇷 法国优选
     <<: *x-pp-region
