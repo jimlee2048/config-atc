@@ -6,4 +6,5 @@ payload:
   - DOMAIN,log.tailscale.io
   - DOMAIN,controlplane.tailscale.com
   - DOMAIN-KEYWORD,derp
+  - PROCESS-NAME,tailscale
   - PROCESS-NAME,tailscaled

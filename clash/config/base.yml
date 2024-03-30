@@ -17,7 +17,6 @@ dns:
   fake-ip-filter:
     - "+.lan"
     - "+.local"
-    - "+.ts.net"
     - "+.stun.*.*"
     - "+.stun.*.*.*"
     - "+.stun.*.*.*.*"
@@ -38,6 +37,10 @@ dns:
     - "*.mcdn.bilivideo.cn"
     # QQ
     - "localhost.ptlogin2.qq.com"
+    # Tailscale
+    - "+.ts.net"
+    - "+.tailscale.com"
+    - "+.tailscale.io"
   default-nameserver:
     - 223.5.5.5
   nameserver:
@@ -64,6 +67,7 @@ tun:
 x-pg:
   select-region-full: &x-pp-select-region
     type: select
+    exclude-filter: '(?i:专用)'
     proxies:
       - 🔰 节点选择
       - 🎯 全部直连
@@ -90,6 +94,7 @@ x-pg:
 
   select-region-full-direct: &x-pp-select-region-direct
     type: select
+    exclude-filter: '(?i:专用)'
     proxies:
       - 🎯 全部直连
       - 🔰 节点选择
