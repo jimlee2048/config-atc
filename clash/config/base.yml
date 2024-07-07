@@ -176,7 +176,7 @@ proxy-groups:
       - 📥 大流量分流
       - 🎩 私有节点
     include-all: true
-    filter: "(?i:Emby)"
+    # filter: "(?i:Emby)"
 
   - name: 🎥 Youtube
     <<: *x-pp-select-region
@@ -229,7 +229,7 @@ proxy-groups:
       - ✈️ 手动选择
       - 🎩 私有节点
     include-all: true
-    filter: '(?i:0\.\d*x|Private)'
+    # filter: '(?i:0\.\d*x|Private)'
 
   - name: 📶 测速切换
     type: select
