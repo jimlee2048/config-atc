@@ -350,6 +350,24 @@ x-rp:
     interval: 86400
 ##### anchor area END #####
 rule-providers:
+  MyDirect:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Direct.yml
+    path: ./providers/rule-provider_MyDirect.yaml
+  MyDirect02:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
+    path: ./providers/rule-provider_MyDirect02.list
+    format: text
+  MyProxy:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Proxy.yml
+    path: ./providers/rule-provider_MyProxy.yaml
+  MyProxy02:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
+    path: ./providers/rule-provider_MyProxy02.list
+    format: text
   Lan:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
@@ -376,15 +394,6 @@ rule-providers:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml
     path: ./providers/rule-provider_PrivateTracker.yaml
-  MyDirect:
-    <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Direct.yml
-    path: ./providers/rule-provider_MyDirect.yaml
-  MyDirect02:
-    <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
-    path: ./providers/rule-provider_MyDirect02.yaml
-    format: text
   # Privacy_Classical:
   #   <<: *x-rp-classical
   #   url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy_Classical.yaml
@@ -393,15 +402,6 @@ rule-providers:
   #   <<: *x-rp-classical
   #   url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Hijacking/Hijacking.yaml
   #   path: ./providers/rule-provider_Hijacking.yaml
-  MyProxy:
-    <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Proxy.yml
-    path: ./providers/rule-provider_MyProxy.yaml
-  MyProxy02:
-    <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
-    path: ./providers/rule-provider_MyProxy02.yaml
-    format: text
   OpenAI:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
@@ -514,7 +514,7 @@ rule-providers:
   RestrictedZones:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
-    path: ./providers/rule-provider_RestrictedZones.yaml
+    path: ./providers/rule-provider_RestrictedZones.list
     format: text
   Global:
     <<: *x-rp-classical
