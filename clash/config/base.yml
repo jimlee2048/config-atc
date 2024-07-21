@@ -538,18 +538,18 @@ rule-providers:
     path: ./providers/rule-provider_ChinaIPsTest_IP.yaml
 
 rules:
+  - RULE-SET,MyDirect,🎯 全部直连
+  - RULE-SET,MyDirect02,🎯 全部直连
+  - RULE-SET,MyProxy,🔰 节点选择
+  - RULE-SET,MyProxy02,🔰 节点选择
   - RULE-SET,Lan,🎯 全部直连
   - RULE-SET,Tailscale_OfficialDERP_IP,🎯 全部直连
   - RULE-SET,Tailscale_OfficialDERP_Doamin,🎯 全部直连
   - RULE-SET,Tailscale,🎯 全部直连
   - RULE-SET,Download,🎯 全部直连
   - RULE-SET,PrivateTracker,🎯 全部直连
-  - RULE-SET,MyDirect,🎯 全部直连
-  - RULE-SET,MyDirect02,🎯 全部直连
   # - RULE-SET,Privacy_Classical,🛑 全部拦截
   # - RULE-SET,Hijacking,🛑 全部拦截
-  - RULE-SET,MyProxy,🔰 节点选择
-  - RULE-SET,MyProxy02,🔰 节点选择
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
