@@ -352,20 +352,20 @@ x-rp:
 rule-providers:
   MyDirect:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Direct.yml
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Direct.yml
     path: ./providers/rule-provider_MyDirect.yaml
   MyDirect02:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
     path: ./providers/rule-provider_MyDirect02.list
     format: text
   MyProxy:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Proxy.yml
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Proxy.yml
     path: ./providers/rule-provider_MyProxy.yaml
   MyProxy02:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
     path: ./providers/rule-provider_MyProxy02.list
     format: text
   Lan:
