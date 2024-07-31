@@ -402,14 +402,23 @@ rule-providers:
   #   <<: *x-rp-classical
   #   url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Hijacking/Hijacking.yaml
   #   path: ./providers/rule-provider_Hijacking.yaml
-  OpenAI:
-    <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
-    path: ./providers/rule-provider_OpenAI.yaml
   GoogleVoice:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.yaml
     path: ./providers/rule-provider_GoogleVoice.yaml
+  OpenAI:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
+    path: ./providers/rule-provider_OpenAI.list
+    format: text
+  Gemini:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml
+    path: ./providers/rule-provider_Gemini.yaml
+  Coze:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/orangetam/Clash@main/rules/Cici.yaml
+    path: ./providers/rule-provider_Coze.yaml
   Anthropic:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Anthropic/Anthropic.yaml
@@ -550,10 +559,12 @@ rules:
   - RULE-SET,PrivateTracker,🎯 全部直连
   # - RULE-SET,Privacy_Classical,🛑 全部拦截
   # - RULE-SET,Hijacking,🛑 全部拦截
-  - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
-  - RULE-SET,Anthropic,🇺🇸 美国优选
   - RULE-SET,Bing,🇺🇸 美国优选
+  - RULE-SET,OpenAI,🇺🇸 美国优选
+  - RULE-SET,Anthropic,🇺🇸 美国优选
+  - RULE-SET,Gemini,🇺🇸 美国优选
+  - RULE-SET,Coze,🇺🇸 美国优选
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
