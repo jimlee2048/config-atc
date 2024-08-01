@@ -473,7 +473,7 @@ rule-providers:
     path: ./providers/rule-provider_TIDAL.yaml
   Emby:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/MisakaFxxk/MisakaF_Subconverter@main/Sub/Emby.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.list
     path: ./providers/rule-provider_Emby.list
     format: text
   YouTube:
@@ -564,7 +564,7 @@ rules:
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
   - RULE-SET,Gemini,🇺🇸 美国优选
-  - RULE-SET,Coze,🇺🇸 美国优选
+  - RULE-SET,Coze,🇸🇬 新加坡优选
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
