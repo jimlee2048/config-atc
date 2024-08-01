@@ -473,7 +473,7 @@ rule-providers:
     path: ./providers/rule-provider_TIDAL.yaml
   Emby:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/Repcz/Tool@X/Clash/Rules/Emby.list
+    url: https://cdn.jsdelivr.net/gh/MisakaFxxk/MisakaF_Subconverter@main/Sub/Emby.list
     path: ./providers/rule-provider_Emby.list
     format: text
   YouTube:
