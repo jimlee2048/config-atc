@@ -4,7 +4,7 @@ x-pp: &x-pp
   interval: 3600
   health-check:
     enable: true
-    url: https://www.gstatic.com/generate_204
+    url: https://cp.cloudflare.com
     interval: 300
 ######### anchor zone END #########
 
