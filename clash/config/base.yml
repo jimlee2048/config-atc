@@ -576,6 +576,7 @@ rules:
   # - RULE-SET,Hijacking,🛑 全部拦截
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Bing,🇺🇸 美国优选
+  - RULE-SET,Perplexity,🧠 Perplexity
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
   - RULE-SET,Gemini,🇺🇸 美国优选
