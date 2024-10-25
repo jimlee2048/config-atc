@@ -168,7 +168,7 @@ proxy-groups:
   - name: 🍎 苹果服务
     <<: *x-pp-select-region-direct
 
-  - name: 🎮 Steam
+  - name: 🎮 Game
     <<: *x-pp-select-region
 
   - name: 🎵 Spotify
@@ -475,10 +475,11 @@ rule-providers:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.yaml
     path: ./providers/rule-provider_SteamCN.yaml
-  Steam:
+  Game:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml
-    path: ./providers/rule-provider_Steam.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.list
+    path: ./providers/rule-provider_Game.list
+    format: text
   Spotify:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify_No_Resolve.yaml
@@ -587,7 +588,7 @@ rules:
   - RULE-SET,Google,🍭 谷歌服务
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,SteamCN,🎯 全部直连
-  - RULE-SET,Steam,🎮 Steam
+  - RULE-SET,Game,🎮 Game
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Qobuz,🎵 Qobuz
   - RULE-SET,TIDAL,🎵 TIDAL
