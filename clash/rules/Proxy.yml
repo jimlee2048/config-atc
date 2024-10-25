@@ -1,7 +1,0 @@
-payload:
-  - DOMAIN-SUFFIX,mikanani.me
-  - DOMAIN-SUFFIX,themoviedb.org
-  - DOMAIN,pkgs.tailscale.com
-  - DOMAIN,dl.tailscale.com
-  - DOMAIN,ip.istatmenus.app
-  - DOMAIN,ip6.istatmenus.app
