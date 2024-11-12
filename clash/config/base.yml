@@ -562,6 +562,7 @@ rules:
   - RULE-SET,PrivateTracker,🎯 全部直连
   # - RULE-SET,Privacy_Classical,🛑 全部拦截
   # - RULE-SET,Hijacking,🛑 全部拦截
+  - RULE-SET,RestrictedZones,🈲 禁飞空域
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Bing,🇺🇸 美国优选
   - RULE-SET,Perplexity,🧠 Perplexity
@@ -591,7 +592,6 @@ rules:
   - RULE-SET,Twitter, 𝕏 Twitter
   - RULE-SET,HighBandwidth,📥 大流量分流
   - RULE-SET,Speedtest,📶 测速切换
-  - RULE-SET,RestrictedZones,🈲 禁飞空域
   - RULE-SET,Global,🔰 节点选择
   - RULE-SET,China,🎯 全部直连
   - GEOIP,CN,🎯 全部直连
