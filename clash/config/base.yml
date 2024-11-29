@@ -396,11 +396,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.list
     path: ./providers/rule-provider_Lan.list
-  Tailscale_OfficialDERP_Doamin:
+  Tailscale_OfficialDERP:
     <<: *x-rp-text
-    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_Domain.list
-    path: ./providers/rule-provider_Tailscale_OfficialDERP_Domain.list
-    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP.list
+    path: ./providers/rule-provider_Tailscale_OfficialDERP.list
   Tailscale:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale.list
@@ -556,7 +555,7 @@ rules:
   - RULE-SET,MyProxy,🔰 节点选择
   - RULE-SET,MyProxy02,🔰 节点选择
   - RULE-SET,Lan,🎯 全部直连
-  - RULE-SET,Tailscale_OfficialDERP_Doamin,🎯 全部直连
+  - RULE-SET,Tailscale_OfficialDERP,🎯 全部直连
   - RULE-SET,Tailscale,🎯 全部直连
   - RULE-SET,Download,🎯 全部直连
   - RULE-SET,PrivateTracker,🎯 全部直连
