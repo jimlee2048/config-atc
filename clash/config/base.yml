@@ -209,6 +209,9 @@ proxy-groups:
   - name: 🎥 TikTok
     <<: *x-pp-select-region
 
+  - name: 💰 Crypto
+    <<: *x-pp-select-region
+
   - name: 🌍 国外媒体
     <<: *x-pp-select-region
 
@@ -508,6 +511,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.list
     path: ./providers/rule-provider_Bahamut.list
+  Crypto:
+    <<: *x-rp-text
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Crypto/Crypto.list
+    path: ./providers/rule-provider_Crypto.list
   GlobalMedia:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia.list
@@ -584,6 +591,7 @@ rules:
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,TikTok,🎥 TikTok
   - RULE-SET,Bahamut,🇹🇼 台湾优选
+  - RULE-SET,Crypto,💰 Crypto
   - RULE-SET,GlobalMedia,🌍 国外媒体
   - RULE-SET,NetEaseMusic,🎵 网易云音乐
   - RULE-SET,AsianMedia,🌍 国内媒体 (港澳台版切换)
