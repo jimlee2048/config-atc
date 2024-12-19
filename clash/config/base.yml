@@ -99,7 +99,7 @@ x-pg:
     interval: 300
     lazy: true
     include-all: true
-    hidden: true
+    # hidden: true
     exclude-filter: '(?i:专用)'
 
   # select-region: &x-pp-region
@@ -359,11 +359,11 @@ proxy-groups:
     <<: *x-pp-region
     filter: "(?i:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)"
 
-  - name: 🇨🇳 回国选择
-    type: select
-    include-all: true
-    hidden: true
-    filter: '(?i:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)'
+  # - name: 🇨🇳 回国选择
+  #   type: select
+  #   include-all: true
+  #   hidden: true
+  #   filter: '(?i:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)'
 
 ##### anchor area START #####
 x-rp:
