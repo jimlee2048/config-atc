@@ -60,6 +60,9 @@ DOMAIN,derp27b.tailscale.com
 DOMAIN,derp27c.tailscale.com
 DOMAIN,derp27d.tailscale.com
 DOMAIN,derp27e.tailscale.com
+DOMAIN,derp28b.tailscale.com
+DOMAIN,derp28c.tailscale.com
+DOMAIN,derp28d.tailscale.com
 DOMAIN,derp3b.tailscale.com
 DOMAIN,derp3c.tailscale.com
 DOMAIN,derp3d.tailscale.com
@@ -141,6 +144,9 @@ IP-CIDR,5.161.218.233/32,no-resolve
 IP-CIDR,178.156.152.91/32,no-resolve
 IP-CIDR,178.156.152.106/32,no-resolve
 IP-CIDR,178.156.134.232/32,no-resolve
+IP-CIDR,65.109.143.62/32,no-resolve
+IP-CIDR,95.217.2.165/32,no-resolve
+IP-CIDR,157.180.28.32/32,no-resolve
 IP-CIDR,43.245.49.105/32,no-resolve
 IP-CIDR,43.245.49.83/32,no-resolve
 IP-CIDR,43.245.49.144/32,no-resolve
@@ -222,6 +228,9 @@ IP-CIDR,2a01:4ff:f0:3db9::1/128,no-resolve
 IP-CIDR,2a01:4ff:f0:3913::1/128,no-resolve
 IP-CIDR,2a01:4ff:f0:3c8e::1/128,no-resolve
 IP-CIDR,2a01:4ff:f0:28d4::1/128,no-resolve
+IP-CIDR,2a01:4f9:c012:d55c::1/128,no-resolve
+IP-CIDR,2a01:4f9:c012:cd74::1/128,no-resolve
+IP-CIDR,2a01:4f9:c012:2e5b::1/128,no-resolve
 IP-CIDR,2403:2500:300::b0c/128,no-resolve
 IP-CIDR,2403:2500:300::57a/128,no-resolve
 IP-CIDR,2403:2500:300::df9/128,no-resolve
