@@ -210,11 +210,18 @@ PROCESS-NAME,Binance.exe
 PROCESS-NAME,Huobi.exe
 PROCESS-NAME,OKX.exe
 
-#bybit 补充
+# Bybit 补充
 DOMAIN-SUFFIX,ffbbbdc6d3c353211fe2ba39c9f744cd.com
+DOMAIN-SUFFIX,ffe390afd658c19dcbf707e0597b846d.de
 DOMAIN-SUFFIX,bybdc6.com
 DOMAIN-SUFFIX,byd3c3.com
 DOMAIN-SUFFIX,byabcde.com
 DOMAIN-SUFFIX,byapps.net
 DOMAIN-SUFFIX,byapps.biz
 DOMAIN-SUFFIX,byffbb.com
+DOMAIN-SUFFIX,bycsi.com
+DOMAIN-SUFFIX,bybitgum.com
+DOMAIN-SUFFIX,content.byabcd.com
+
+# OKX 补充
+DOMAIN-SUFFIX,contendvc.cnouyi.pizza
