@@ -2,9 +2,8 @@ DOMAIN-KEYWORD,civitai
 DOMAIN-SUFFIX,civitai.com
 DOMAIN-KEYWORD,huggingface
 DOMAIN-SUFFIX,huggingface.co
+DOMAIN-SUFFIX,hf.co
 DOMAIN-KEYWORD,cdn-lfs
-DOMAIN,cdn-lfs.huggingface.co
-DOMAIN,cdn-lfs.hf.co
 DOMAIN-SUFFIX,db.tt
 DOMAIN-SUFFIX,dropbox-dns.com
 DOMAIN-SUFFIX,dropbox.com
