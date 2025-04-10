@@ -206,6 +206,9 @@ proxy-groups:
     include-all: true
     filter: "(?i:Netflix|网飞|奈飞|NF)"
 
+  - name: 🎥 Apple TV
+    <<: *x-pp-select-region
+
   - name: 🎥 TikTok
     <<: *x-pp-select-region
 
@@ -466,6 +469,14 @@ rule-providers:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.list
     path: ./providers/rule-provider_OneDrive.list
+  YouTube:
+    <<: *x-rp-text
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list
+    path: ./providers/rule-provider_YouTube.list
+  AppleTV:
+    <<: *x-rp-text
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleTV/AppleTV.list
+    path: ./providers/rule-provider_AppleTV.list
   Microsoft:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list
@@ -474,6 +485,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list
     path: ./providers/rule-provider_Google.list
+  AppleProxy:
+    <<: *x-rp-text
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleProxy/AppleProxy.list
+    path: ./providers/rule-provider_AppleProxy.list
   Apple:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
@@ -502,10 +517,6 @@ rule-providers:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.list
     path: ./providers/rule-provider_Emby.list
-  YouTube:
-    <<: *x-rp-text
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list
-    path: ./providers/rule-provider_YouTube.list
   Netflix:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.list
@@ -590,8 +601,11 @@ rules:
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
+  - RULE-SET,YouTube,🎥 Youtube
+  - RULE-SET,AppleTV,🎥 Apple TV
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Google,🍭 谷歌服务
+  - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,SteamCN,🎯 全部直连
   - RULE-SET,Game,🎮 Game
@@ -599,7 +613,6 @@ rules:
   - RULE-SET,Qobuz,🎵 Qobuz
   - RULE-SET,TIDAL,🎵 TIDAL
   - RULE-SET,Emby,🍟 Emby 服务
-  - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,TikTok,🎥 TikTok
   - RULE-SET,Bahamut,🇹🇼 台湾优选
