@@ -627,7 +627,7 @@ rules:
   - RULE-SET,NetEaseMusic,🎵 网易云音乐
   - RULE-SET,AsianMedia,🌍 国内媒体 (港澳台版切换)
   - RULE-SET,Telegram,📲 Telegram
-  - RULE-SET,Twitter, 𝕏 Twitter
+  - RULE-SET,Twitter,𝕏 Twitter
   - RULE-SET,HighBandwidth,📥 大流量分流
   - RULE-SET,Speedtest,📶 测速切换
   - RULE-SET,Global,🔰 节点选择
