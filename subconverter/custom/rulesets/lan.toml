@@ -10,44 +10,44 @@
 # 绕过局域网
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml"
+ruleset = "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml"
 type = "clash-classic"
 
 # 绕过 Tailscale 相关
 # [[rulesets]]
 # group = "🎯 全部直连"
-# ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP.yaml"
+# ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP.yaml"
 # type = "clash-classic"
 
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_IP.yaml"
+ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_IP.yaml"
 type = "clash-ipcidr"
 
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_Domain.yaml"
+ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_Domain.yaml"
 type = "clash-domain"
 
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale.yaml"
+ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale.yaml"
 type = "clash-classic"
 
 # 绕过 BT 与下载器
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml"
+ruleset = "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml"
 type = "clash-classic"
 
 # 绕过 PT
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml"
+ruleset = "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml"
 type = "clash-classic"
 
 # 自定义直连规则
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Direct.yml"
+ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Direct.yml"
 type = "clash-classic"

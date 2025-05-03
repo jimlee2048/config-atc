@@ -7,53 +7,57 @@ enable_rule_generator = true
 # Overwrite the existing rules in rule_base
 overwrite_original_rules = true
 
-# Options for custom base configuration file
+
 {% if exists("request.online") and request.online == "true" %}
-clash_rule_base = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/base/clash.base.yml"
+# Options for custom base configuration file
+
 {% else %}
+clash_rule_base = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/base/clash.base.yml"
 clash_rule_base = "custom/base/clash.base.yml"
+
+{% endif %}
+
 # surge_rule_base = "custom/base/surge.conf"
 # surfboard_rule_base = "custom/base/surfboard.conf"
 # mellow_rule_base = "custom/base/mellow.conf"
 # quan_rule_base = "custom/base/quan.conf"
 # quanx_rule_base = "custom/base/quanx.conf"
-{% endif %}
-
 # Options for filtering nodes
 # include_remarks = []
 # exclude_remarks = []
 
 # Options for adding emojis
-add_emoji = true
-remove_old_emoji = true
+
 
 {% if exists("request.online") and request.online == "true" %}
+add_emoji = true
+remove_old_emoji = true
 [[emoji]]
-import = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/emoji.toml"
+
 {% else %}
+import = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/emoji.toml"
 [[emoji]]
-import = "custom/emoji.toml"
+
 {% endif %}
 
+import = "custom/emoji.toml"
 # Import custom emoji
 # [[emoji]]
 # match = '(流量|时间|应急)'
 # emoji = '🏳️‍🌈'
 
 
-# define proxy control group
+
 {% if default(request.include_info, "false") == "true" %}
+# define proxy control group
 [[custom_groups]]
-name = "ℹ️ 订阅信息"
-type = "select"
-rule = [
-    "ℹ️ .+\\: \\d.+ (?i:KB|MB|GB|TB) \\/ \\d.+ (?i:KB|MB|GB|TB).*"
-]
+
 {% endif %}
 
-[[custom_groups]]
-name = "🔰 节点选择"
+name = "ℹ️ 订阅信息"
 type = "select"
+rule = ["ℹ️ .+\\: \\d.+ (?i:KB|MB|GB|TB) \\/ \\d.+ (?i:KB|MB|GB|TB).*"]
+[[custom_groups]]
 rule = [
     "[]🎯 全部直连",
     "[]✈️ 手动选择",
@@ -82,18 +86,15 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "🔰 节点选择"
+type = "select"
 
 [[custom_groups]]
 name = "✈️ 手动选择"
 type = "select"
-rule = [
-    ".*",
-]
+rule = [".*"]
 
 [[custom_groups]]
-name = "🍭 谷歌服务"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]🎯 全部直连",
@@ -123,11 +124,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "🍭 谷歌服务"
+type = "select"
 
 [[custom_groups]]
-name = "Ⓜ️ 微软服务"
-type = "select"
 rule = [
     "[]🎯 全部直连",
     "[]🔰 节点选择",
@@ -157,11 +157,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "Ⓜ️ 微软服务"
+type = "select"
 
 [[custom_groups]]
-name = "☁️ Onedrive"
-type = "select"
 rule = [
     "[]📥 大流量分流",
     "[]Ⓜ️ 微软服务",
@@ -193,11 +192,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "☁️ Onedrive"
+type = "select"
 
 [[custom_groups]]
-name = "🤖 Developer"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]🎯 全部直连",
@@ -227,11 +225,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "🤖 Developer"
+type = "select"
 
 [[custom_groups]]
-name = "🍎 苹果服务"
-type = "select"
 rule = [
     "[]🎯 全部直连",
     "[]🔰 节点选择",
@@ -261,11 +258,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "� 苹果服务"
+type = "select"
 
 [[custom_groups]]
-name = "🎮 Steam"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]🎯 全部直连",
@@ -295,7 +291,8 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "🎮 Steam"
+type = "select"
 
 # [[custom_groups]]
 # name = "🎮 游戏平台"
@@ -332,8 +329,6 @@ rule = [
 # ]
 
 [[custom_groups]]
-name = "🎵 Spotify"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]📥 大流量分流",
@@ -364,11 +359,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "🎵 Spotify"
+type = "select"
 
 [[custom_groups]]
-name = "🎵 Qobuz"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]📥 大流量分流",
@@ -399,11 +393,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "🎵 Qobuz"
+type = "select"
 
 [[custom_groups]]
-name = "🎵 TIDAL"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]📥 大流量分流",
@@ -434,21 +427,15 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "🎵 TIDAL"
+type = "select"
 
 [[custom_groups]]
 name = "🎥 Emby 服务"
 type = "select"
-rule = [
-    "[]🔰 节点选择",
-    "[]🎯 全部直连",
-    "[]✈️ 手动选择",
-    "(?i:Emby)",
-]
+rule = ["[]🔰 节点选择", "[]🎯 全部直连", "[]✈️ 手动选择", "(?i:Emby)"]
 
 [[custom_groups]]
-name = "🎥 Youtube"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]📥 大流量分流",
@@ -479,11 +466,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "🎥 Youtube"
+type = "select"
 
 [[custom_groups]]
-name = "🎥 Netflix"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]📥 大流量分流",
@@ -514,11 +500,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "🎥 Netflix"
+type = "select"
 
 [[custom_groups]]
-name = "🎥 TikTok"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]📥 大流量分流",
@@ -549,11 +534,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "� TikTok"
+type = "select"
 
 [[custom_groups]]
-name = "🌍 国外媒体"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]📥 大流量分流",
@@ -584,11 +568,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "� 国外媒体"
+type = "select"
 
 [[custom_groups]]
-name = "🎵 网易云音乐"
-type = "select"
 rule = [
     "[]🎯 全部直连",
     "[]🔰 节点选择",
@@ -599,11 +582,10 @@ rule = [
 {% if exists("request.region.size") and request.region.size == "full" %}
     "[]🇨🇳 回国接入",
 {% endif %}
-]
+]name = "� 网易云音乐"
+type = "select"
 
 [[custom_groups]]
-name = "🌍 国内媒体-港澳台版切换"
-type = "select"
 rule = [
     "[]🎯 全部直连",
     "[]🔰 节点选择",
@@ -617,11 +599,10 @@ rule = [
 {% if exists("request.region.size") and request.region.size == "full" %}
     "[]🇨🇳 回国接入",
 {% endif %}
-]
+]name = "🌍 国内媒体-港澳台版切换"
+type = "select"
 
 [[custom_groups]]
-name = "📲 Telegram"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]🎯 全部直连",
@@ -651,11 +632,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "📲 Telegram"
+type = "select"
 
 [[custom_groups]]
-name = "📲 Twitter"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]🎯 全部直连",
@@ -685,11 +665,10 @@ rule = [
 {% if default(request.ipv6, "false") == "true" %}
     "[]🏳️‍🌈 IPV6线路",
 {% endif %}
-]
+]name = "� Twitter"
+type = "select"
 
 [[custom_groups]]
-name = "📥 大流量分流"
-type = "select"
 rule = [
 {% if default(request.include_private, "false") == "true" %}
     "[]🎩 私有节点",
@@ -698,11 +677,10 @@ rule = [
     "[]🎯 全部直连",
     "[]✈️ 手动选择",
     "(?i:0\\.\\d*x)",
-]
+]name = "� 大流量分流"
+type = "select"
 
 [[custom_groups]]
-name = "📶 测速切换"
-type = "select"
 rule = [
     "[]🎯 全部直连",
     "[]🔰 节点选择",
@@ -710,7 +688,8 @@ rule = [
 {% if default(request.include_private, "false") == "true" %}
     "[]🎩 私有节点",
 {% endif %}
-]
+]name = "📶 测速切换"
+type = "select"
 
 [[custom_groups]]
 name = "🎯 全部直连"
@@ -723,8 +702,6 @@ type = "select"
 rule = ["[]REJECT"]
 
 [[custom_groups]]
-name = "🐟 漏网之鱼"
-type = "select"
 rule = [
     "[]🔰 节点选择",
     "[]🎯 全部直连",
@@ -757,18 +734,19 @@ rule = [
 ]
 
 {% if default(request.include_private, "false") == "true" %}
-[[custom_groups]]
-name = "🎩 私有节点"
+name = "🐟 漏网之鱼"
 type = "select"
-rule = [
-    "(?i:Private)",
-]
+[[custom_groups]]
+
 {% endif %}
 
+name = "🎩 私有节点"
+type = "select"
+rule = ["(?i:Private)"]
 # define node area subset groups
 [[custom_groups]]
-name = "🇭🇰 香港接入"
 type = "{{ default(request.region.mode, "url-test") }}"
+name = "🇭🇰 香港接入"
 rule = [
     "(?i:🇭🇰|\\bHK[G]?\\b|Hong.*?Kong|\\bHKT\\b|\\bHKBN\\b|\\bHGC\\b|\\bWTT\\b|\\bCMI\\b|[^-]港)",
 ]
@@ -776,8 +754,8 @@ url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
-name = "🇺🇸 美国接入"
 type = "{{ default(request.region.mode, "url-test") }}"
+name = "🇺🇸 美国接入"
 rule = [
     "(?i:🇺🇸|\\bUS[A]?\\b|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)",
 ]
@@ -785,54 +763,45 @@ url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
+type = "{{ default(request.region.mode, "url-test") }}"
 name = "🇯🇵 日本接入"
-type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇯🇵|\\bJP[N]?\\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日)",
-]
+rule = ["(?i:🇯🇵|\\bJP[N]?\\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日)"]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
+type = "{{ default(request.region.mode, "url-test") }}"
 name = "🇹🇼 台湾接入"
-type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇹🇼|\\bTW[N]?\\b|Taiwan|新北|彰化|\\bCHT\\b|台湾|[^-]台|\\bHINET\\b)",
-]
+rule = ["(?i:🇹🇼|\\bTW[N]?\\b|Taiwan|新北|彰化|\\bCHT\\b|台湾|[^-]台|\\bHINET\\b)"]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
+type = "{{ default(request.region.mode, "url-test") }}"
 name = "🇸🇬 新加坡接入"
-type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇸🇬|\\bSG[P]?\\b|Singapore|新加坡|狮城|[^-]新)",
-]
+rule = ["(?i:🇸🇬|\\bSG[P]?\\b|Singapore|新加坡|狮城|[^-]新)"]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
-name = "🇰🇷 韩国接入"
 type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇰🇷|\\bK[O]?R\\b|Korea|首尔|韩|韓)",
-]
-url = "http://www.gstatic.com/generate_204"
-interval = 300
+
 
 {% if exists("request.region.size") and request.region.size == "full" %}
+name = "🇰🇷 韩国接入"
+rule = ["(?i:🇰🇷|\\bK[O]?R\\b|Korea|首尔|韩|韓)"]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
 [[custom_groups]]
-name = "🇮🇳 印度接入"
 type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇮🇳|\\bIN[D]?\\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)",
-]
+name = "🇮🇳 印度接入"
+rule = ["(?i:🇮🇳|\\bIN[D]?\\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)"]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
-name = "🇬🇧 英国接入"
 type = "{{ default(request.region.mode, "url-test") }}"
+name = "🇬🇧 英国接入"
 rule = [
     "(?i:🇬🇧|\\bUK\\b|\\bGB[R]?\\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)",
 ]
@@ -840,17 +809,15 @@ url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
-name = "🇫🇷 法国接入"
 type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇫🇷|\\bFR[A]?\\b|France|Paris|法国|巴黎)",
-]
+name = "🇫🇷 法国接入"
+rule = ["(?i:🇫🇷|\\bFR[A]?\\b|France|Paris|法国|巴黎)"]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
-name = "🇨🇦 加拿大接入"
 type = "{{ default(request.region.mode, "url-test") }}"
+name = "🇨🇦 加拿大接入"
 rule = [
     "(?i:🇨🇦|\\bCA[N]?\\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)",
 ]
@@ -858,26 +825,22 @@ url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
+type = "{{ default(request.region.mode, "url-test") }}"
 name = "🇦🇺 澳大利亚接入"
-type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇦🇺|\\bAU[S]?\\b|Australia|Sydney|澳大利亚|澳洲|悉尼)",
-]
+rule = ["(?i:🇦🇺|\\bAU[S]?\\b|Australia|Sydney|澳大利亚|澳洲|悉尼)"]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
+type = "{{ default(request.region.mode, "url-test") }}"
 name = "🇮🇪 爱尔兰接入"
-type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇮🇪|Ireland|Dublin|爱尔兰|都柏林)",
-]
+rule = ["(?i:🇮🇪|Ireland|Dublin|爱尔兰|都柏林)"]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
-name = "🇷🇺 俄罗斯接入"
 type = "{{ default(request.region.mode, "url-test") }}"
+name = "🇷🇺 俄罗斯接入"
 rule = [
     "(?i:🇷🇺|\\bRU[S]?\\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)",
 ]
@@ -885,93 +848,98 @@ url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
+type = "{{ default(request.region.mode, "url-test") }}"
 name = "🇹🇷 土耳其接入"
-type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇹🇷|Turkey|土耳其|伊斯坦布尔)",
-]
+rule = ["(?i:🇹🇷|Turkey|土耳其|伊斯坦布尔)"]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
+type = "{{ default(request.region.mode, "url-test") }}"
 name = "🇦🇷 阿根廷接入"
-type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇦🇷|Argentina|阿根廷)",
-]
+rule = ["(?i:🇦🇷|Argentina|阿根廷)"]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
 
 [[custom_groups]]
-name = "🇧🇷 巴西接入"
 type = "{{ default(request.region.mode, "url-test") }}"
-rule = [
-    "(?i:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)",
-]
-url = "http://www.gstatic.com/generate_204"
-interval = 300
+
 
 {% if default(request.ipv6, "false") == "true" %}
+name = "🇧🇷 巴西接入"
+rule = ["(?i:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)"]
+url = "http://www.gstatic.com/generate_204"
+interval = 300
 [[custom_groups]]
-name = "🏳️‍🌈 IPV6线路"
-type = "select"
-rule = [
-    "(?i:ipv6)",
-]
+
 {% endif %}
 
+name = "🏳️‍🌈 IPV6线路"
+type = "select"
+rule = ["(?i:ipv6)"]
 [[custom_groups]]
-name = "🇨🇳 回国接入"
 type = "{{ default(request.region.mode, "url-test") }}"
+
+{% endif %}
+
+
+name = "🇨🇳 回国接入"
 rule = [
     "(?i:\\bC[H]?N\\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)",
 ]
 url = "http://www.gstatic.com/generate_204"
 interval = 300
-{% endif %}
 
-
-# import rulesets
 {% if exists("request.online") and request.online == "true" %}
+# import rulesets
 [[rulesets]]
-import = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/lan.toml"
+
 
 {% if exists("request.ad") %}
 {% if request.ad == "full" %}
+import = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/lan.toml"
 [[rulesets]]
-import = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/ad.toml"
+
 {% else if request.ad == "lite" %}
+import = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/ad.toml"
 [[rulesets]]
-import = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/ad-lite.toml"
+
 {% else if request.ad == "false" %}
 {% endif %}
 {% else %}
+import = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/ad-lite.toml"
 [[rulesets]]
-import = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/pri&hjk.toml"
+
 {% endif %}
 
+import = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/pri&hjk.toml"
 [[rulesets]]
-import = "https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/main.toml"
+
 
 
 {% else %}
+import = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/subconverter/custom/rulesets/main.toml"
 [[rulesets]]
+
+
+{% if exists("request.ad") %}
+{% if request.ad == "full" %}
 import = "custom/rulesets/lan.toml"
+[[rulesets]]
 
-{% if exists("request.ad") %}
-{% if request.ad == "full" %}
-[[rulesets]]
-import = "custom/rulesets/ad.toml"
 {% else if request.ad == "lite" %}
+import = "custom/rulesets/ad.toml"
 [[rulesets]]
-import = "custom/rulesets/ad-lite.toml"
+
 {% else if request.ad == "false" %}
 {% endif %}
 {% else %}
+import = "custom/rulesets/ad-lite.toml"
 [[rulesets]]
-import = "custom/rulesets/pri&hjk.toml"
+
 {% endif %}
 
+import = "custom/rulesets/pri&hjk.toml"
 [[rulesets]]
-import = "custom/rulesets/main.toml"
-{% endif %}
+
+{% endif %}import = "custom/rulesets/main.toml"
