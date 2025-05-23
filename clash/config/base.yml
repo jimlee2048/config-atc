@@ -319,7 +319,7 @@ proxy-groups:
 
   - name: 🇸🇬 新加坡优选
     <<: *x-pp-region
-    filter: '(?i:🇸🇬|\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新)'
+    filter: '(?i:🇸🇬|\bSG[P]?\b|Singapore|新加坡|狮城)'
 
   - name: 🇰🇷 韩国优选
     <<: *x-pp-region
@@ -473,6 +473,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.list
     path: ./providers/rule-provider_GitHub.list
+  Cursor:
+    <<: *x-rp-text
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/cursor.list
+    path: ./providers/rule-provider_Cursor.list
   OneDrive:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.list
@@ -610,6 +614,7 @@ rules:
   - RULE-SET,OpenRouter,🇺🇸 美国优选
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
+  - RULE-SET,Cursor,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,AppleTV,🎥 Apple TV
