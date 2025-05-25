@@ -475,7 +475,7 @@ rule-providers:
     path: ./providers/rule-provider_GitHub.list
   Cursor:
     <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/cursor.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Cursor.list
     path: ./providers/rule-provider_Cursor.list
   OneDrive:
     <<: *x-rp-text
