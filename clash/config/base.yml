@@ -174,8 +174,11 @@ proxy-groups:
   - name: 🍎 苹果服务
     <<: *x-pp-select-region-direct
 
+  - name: 🎮 Nintendo
+    <<: *x-pp-select-region-direct
+
   - name: 🎮 Game
-    <<: *x-pp-select-region
+    <<: *x-pp-select-region-direct
 
   - name: 🎵 Spotify
     <<: *x-pp-select-region
@@ -509,6 +512,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.list
     path: ./providers/rule-provider_SteamCN.list
+  Nintendo:
+    <<: *x-rp-text
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Nintendo/Nintendo.list
+    path: ./providers/rule-provider_Nintendo.list
   Game:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.list
@@ -623,6 +630,7 @@ rules:
   - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,SteamCN,🎯 全部直连
+  - RULE-SET,Nintendo,🎮 Nintendo
   - RULE-SET,Game,🎮 Game
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Qobuz,🎵 Qobuz
