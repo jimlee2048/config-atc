@@ -95,10 +95,10 @@ x-pg:
 
   urltest-region: &x-pp-region
     type: smart
-    url: "https://www.gstatic.com/generate_204"
-    interval: 300
-    lazy: true
     include-all: true
+    uselightgbm: true
+    collectdata: true
+    interval: 300
     # hidden: true
     exclude-filter: "(?i:专用)"
 
