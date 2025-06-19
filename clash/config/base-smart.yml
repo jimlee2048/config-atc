@@ -375,6 +375,11 @@ x-rp:
     behavior: classical
     format: text
     interval: 86400
+  mrs: &x-rp-mrs
+    type: http              
+    behavior: domain        
+    format: mrs             
+    interval: 86400         
 ##### anchor area END #####
 rule-providers:
   MyDirect:
@@ -394,9 +399,9 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
     path: ./providers/rule-provider_MyProxy02.list
   Lan:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.list
-    path: ./providers/rule-provider_Lan.list
+    <<: *x-rp-mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
+    path: ./providers/rule-provider_Lan.mrs
   Tailscale_OfficialDERP:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP.list
@@ -410,9 +415,9 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.list
     path: ./providers/rule-provider_Download.list
   PrivateTracker:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.list
-    path: ./providers/rule-provider_PrivateTracker.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tracker.mrs
+    path: ./providers/rule-provider_PrivateTracker.mrs
   # Privacy_Classical:
   #   <<: *x-rp-text
   #   url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy.list
@@ -430,21 +435,21 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.list
     path: ./providers/rule-provider_GoogleVoice.list
   Perplexity:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Perplexity.list
-    path: ./providers/rule-provider_Perplexity.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/perplexity.mrs
+    path: ./providers/rule-provider_Perplexity.mrs
   OpenAI:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
-    path: ./providers/rule-provider_OpenAI.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.mrs
+    path: ./providers/rule-provider_OpenAI.mrs
   Gemini:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list
-    path: ./providers/rule-provider_Gemini.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google-gemini.mrs
+    path: ./providers/rule-provider_Gemini.mrs
   Anthropic:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Anthropic/Anthropic.list
-    path: ./providers/rule-provider_Anthropic.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/anthropic.mrs
+    path: ./providers/rule-provider_Anthropic.mrs
   Grok:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/cc63/Surge@main/Module/Grok.list
@@ -454,89 +459,89 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/OpenRouter.list
     path: ./providers/rule-provider_OpenRouter.list
   Bing:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.list
-    path: ./providers/rule-provider_Bing.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bing.mrs
+    path: ./providers/rule-provider_Bing.mrs
   Developer:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Developer/Developer.list
     path: ./providers/rule-provider_Developer.list
   GitHub:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.list
-    path: ./providers/rule-provider_GitHub.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs
+    path: ./providers/rule-provider_GitHub.mrs
   Cursor:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Cursor.list
-    path: ./providers/rule-provider_Cursor.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cursor.mrs
+    path: ./providers/rule-provider_Cursor.mrs
   OneDrive:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.list
-    path: ./providers/rule-provider_OneDrive.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs
+    path: ./providers/rule-provider_OneDrive.mrs
   YouTube:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list
-    path: ./providers/rule-provider_YouTube.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
+    path: ./providers/rule-provider_YouTube.mrs
   AppleTV:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleTV/AppleTV.list
-    path: ./providers/rule-provider_AppleTV.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-tvplus.mrs
+    path: ./providers/rule-provider_AppleTV.mrs
   Microsoft:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list
-    path: ./providers/rule-provider_Microsoft.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs
+    path: ./providers/rule-provider_Microsoft.mrs
   Google:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list
-    path: ./providers/rule-provider_Google.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
+    path: ./providers/rule-provider_Google.mrs
   AppleProxy:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleProxy/AppleProxy.list
     path: ./providers/rule-provider_AppleProxy.list
   Apple:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
-    path: ./providers/rule-provider_Apple.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs
+    path: ./providers/rule-provider_Apple.mrs
   SteamCN:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.list
-    path: ./providers/rule-provider_SteamCN.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam@cn.mrs
+    path: ./providers/rule-provider_SteamCN.mrs
   Nintendo:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Nintendo/Nintendo.list
-    path: ./providers/rule-provider_Nintendo.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nintendo.mrs
+    path: ./providers/rule-provider_Nintendo.mrs
   Game:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.list
     path: ./providers/rule-provider_Game.list
   Spotify:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.list
-    path: ./providers/rule-provider_Spotify.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
+    path: ./providers/rule-provider_Spotify.mrs
   Qobuz:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Qobuz/Qobuz.list
     path: ./providers/rule-provider_Qobuz.list
   TIDAL:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TIDAL/TIDAL.list
-    path: ./providers/rule-provider_TIDAL.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tidal.mrs
+    path: ./providers/rule-provider_TIDAL.mrs
   Emby:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.list
-    path: ./providers/rule-provider_Emby.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.mrs
+    path: ./providers/rule-provider_Emby.mrs
   Netflix:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.list
-    path: ./providers/rule-provider_Netflix.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs
+    path: ./providers/rule-provider_Netflix.mrs
   TikTok:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list
-    path: ./providers/rule-provider_TikTok.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs
+    path: ./providers/rule-provider_TikTok.mrs
   Bahamut:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.list
-    path: ./providers/rule-provider_Bahamut.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.mrs
+    path: ./providers/rule-provider_Bahamut.mrs
   Crypto:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Crypto.list
@@ -546,41 +551,41 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
     path: ./providers/rule-provider_HongKongBank.list
   GlobalMedia:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia.list
-    path: ./providers/rule-provider_GlobalMedia.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-media.mrs
+    path: ./providers/rule-provider_GlobalMedia.mrs
   AsianMedia:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AsianMedia/AsianMedia.list
     path: ./providers/rule-provider_AsianMedia.list
   Telegram:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list
-    path: ./providers/rule-provider_Telegram.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs
+    path: ./providers/rule-provider_Telegram.mrs
   Twitter:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
-    path: ./providers/rule-provider_Twitter.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitter.mrs
+    path: ./providers/rule-provider_Twitter.mrs
   HighBandwidth:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/HighBandwidth.list
     path: ./providers/rule-provider_HighBandwidth.list
   Speedtest:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Speedtest/Speedtest.list
-    path: ./providers/rule-provider_Speedtest.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/speedtest.mrs
+    path: ./providers/rule-provider_Speedtest.mrs
   RestrictedZones:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
     path: ./providers/rule-provider_RestrictedZones.list
   Global:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global.list
-    path: ./providers/rule-provider_Global.list
+    <<: *x-rp-mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs
+    path: ./providers/rule-provider_Global.mrs
   China:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.list
-    path: ./providers/rule-provider_China.list
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
+    path: ./providers/rule-provider_China.mrs
 
 rules:
   - RULE-SET,MyDirect,🎯 全部直连
