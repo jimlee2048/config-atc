@@ -380,6 +380,11 @@ x-rp:
     behavior: domain        
     format: mrs             
     interval: 86400         
+  mrs-ip: &x-rp-mrs-ip
+    type: http              
+    behavior: ipcidr        
+    format: mrs             
+    interval: 86400         
 ##### anchor area END #####
 rule-providers:
   MyDirect:
@@ -399,8 +404,8 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
     path: ./providers/rule-provider_MyProxy02.list
   Lan:
-    <<: *x-rp-mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
+    <<: *x-rp-mrs-ip
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
     path: ./providers/rule-provider_Lan.mrs
   Tailscale_OfficialDERP:
     <<: *x-rp-text
@@ -580,10 +585,10 @@ rule-providers:
     path: ./providers/rule-provider_RestrictedZones.list
   Global:
     <<: *x-rp-mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs
     path: ./providers/rule-provider_Global.mrs
   China:
-    <<: *x-rp-mrs
+    <<: *x-rp-mrs-ip
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
     path: ./providers/rule-provider_China.mrs
 
