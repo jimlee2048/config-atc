@@ -166,6 +166,9 @@ proxy-groups:
   - name: 🤖 Developer
     <<: *x-pp-select-region
 
+  - name: ✨ Gemini
+    <<: *x-pp-select-region
+
   - name: 🧠 Perplexity
     type: select
     proxies:
