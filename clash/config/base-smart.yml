@@ -614,7 +614,7 @@ rules:
   - RULE-SET,Perplexity,🧠 Perplexity
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
-  - RULE-SET,Gemini,🇺🇸 美国优选
+  - RULE-SET,Gemini,✨ Gemini
   - RULE-SET,Grok,🇺🇸 美国优选
   - RULE-SET,OpenRouter,🇺🇸 美国优选
   - RULE-SET,Developer,🤖 Developer
