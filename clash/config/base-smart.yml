@@ -97,7 +97,7 @@ x-pg:
     type: smart
     include-all: true
     uselightgbm: true
-    collectdata: true
+    collectdata: false
     interval: 300
     # hidden: true
     exclude-filter: "(?i:专用)"
