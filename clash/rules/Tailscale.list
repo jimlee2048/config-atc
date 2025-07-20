@@ -4,6 +4,10 @@ DOMAIN,login.tailscale.io
 DOMAIN,log.tailscale.com
 DOMAIN,log.tailscale.io
 DOMAIN,controlplane.tailscale.com
+DOMAIN,api.tailscale.com
+DOMAIN,login.tailscale.com
 DOMAIN-KEYWORD,derp
 PROCESS-NAME,tailscale
 PROCESS-NAME,tailscaled
+IP-CIDR,192.200.0.0/24
+IP-CIDR6,2606:B740:49::/48
