@@ -406,10 +406,6 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
     path: ./providers/rule-provider_MyProxy02.list
-  Lan:
-    <<: *x-rp-mrs-ip
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
-    path: ./providers/rule-provider_Lan.mrs
   Tailscale_OfficialDERP:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP.list
@@ -600,7 +596,6 @@ rules:
   - RULE-SET,MyDirect02,🎯 全部直连
   - RULE-SET,MyProxy,🔰 节点选择
   - RULE-SET,MyProxy02,🔰 节点选择
-  - RULE-SET,Lan,🎯 全部直连
   - RULE-SET,Tailscale_OfficialDERP,🎯 全部直连
   - RULE-SET,Tailscale,🎯 全部直连
   - RULE-SET,Download,🎯 全部直连
