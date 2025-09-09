@@ -645,7 +645,7 @@ rules:
   - RULE-SET,GenAI_Providers,✨ GenAI
   - RULE-SET,Game,🎮 Gaming
   - RULE-SET,Crypto,💰 Crypto
-  - RUle-SET,HongKongBank,💰 香港银行
+  - RULE-SET,HongKongBank,💰 香港银行
   - RULE-SET,GlobalMedia,👀 国外媒体
   - RULE-SET,AsianMedia,👀 国内媒体 (港澳台版切换)
   - RULE-SET,Speedtest,📶 测速切换
