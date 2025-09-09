@@ -274,14 +274,8 @@ proxy-groups:
     <<: *x-pp-select-region
 
   - name: 🎥 Emby 服务
-    <<: *x-pp-select-all-custom
-    proxies:
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 📥 大流量分流
-      - 🎩 私有节点
-      - 🏠 家宽节点
+    <<: *x-pp-select-region
+    include-all: true
     filter: "(?i:Emby)"
 
   - name: 🎥 Youtube
