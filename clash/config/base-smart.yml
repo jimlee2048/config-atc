@@ -9,6 +9,58 @@ profile:
 
 ##### anchor area START #####
 x-pg:
+  # full-select-region: &x-pp-select-region
+  #   type: select
+  #   proxies:
+  #     - 🔰 节点选择
+  #     - 🎯 全部直连
+  #     - 📥 大流量分流
+  #     - ✈️ 手动选择
+  #     - 🎩 私有节点
+  #     - 🏠 家宽节点
+  #     - 🇭🇰 香港优选
+  #     - 🇺🇸 美国优选
+  #     - 🇯🇵 日本优选
+  #     - 🇹🇼 台湾优选
+  #     - 🇸🇬 新加坡优选
+  #     - 🇰🇷 韩国优选
+  #     - 🇮🇳 印度优选
+  #     - 🇬🇧 英国优选
+  #     - 🇫🇷 法国优选
+  #     - 🇨🇦 加拿大优选
+  #     - 🇦🇺 澳大利亚优选
+  #     - 🇷🇺 俄罗斯优选
+  #     - 🇹🇷 土耳其优选
+  #     - 🇦🇷 阿根廷优选
+  #     - 🇧🇷 巴西优选
+  #     # - 🇨🇳 回国选择
+
+  # full-select-region-direct: &x-pp-select-region-direct
+  #   type: select
+  #   proxies:
+  #     - 🎯 全部直连
+  #     - 🔰 节点选择
+  #     - 📥 大流量分流
+  #     - ✈️ 手动选择
+  #     - 🎩 私有节点
+  #     - 🏠 家宽节点
+  #     - 🇭🇰 香港优选
+  #     - 🇺🇸 美国优选
+  #     - 🇯🇵 日本优选
+  #     - 🇹🇼 台湾优选
+  #     - 🇸🇬 新加坡优选
+  #     - 🇰🇷 韩国优选
+  #     - 🇮🇳 印度优选
+  #     - 🇬🇧 英国优选
+  #     - 🇫🇷 法国优选
+  #     - 🇨🇦 加拿大优选
+  #     - 🇦🇺 澳大利亚优选
+  #     - 🇷🇺 俄罗斯优选
+  #     - 🇹🇷 土耳其优选
+  #     - 🇦🇷 阿根廷优选
+  #     - 🇧🇷 巴西优选
+  #     # - 🇨🇳 回国选择
+
   mini-select-region: &x-pp-select-region
     type: select
     proxies:
@@ -94,6 +146,7 @@ x-pg:
 
 ##### anchor area END #####
 proxy-groups:
+  ## control groups
   - name: ℹ️ 订阅信息
     type: select
     include-all: true
@@ -112,6 +165,15 @@ proxy-groups:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
+      # - 🇮🇳 印度优选
+      # - 🇬🇧 英国优选
+      # - 🇫🇷 法国优选
+      # - 🇨🇦 加拿大优选
+      # - 🇦🇺 澳大利亚优选
+      # - 🇷🇺 俄罗斯优选
+      # - 🇹🇷 土耳其优选
+      # - 🇦🇷 阿根廷优选
+      # - 🇧🇷 巴西优选
       # - 🇨🇳 回国选择
 
   - name: ✈️ 手动选择
@@ -124,6 +186,44 @@ proxy-groups:
   - name: 🏠 家宽节点
     <<: *x-pp-select-all-custom
     filter: "(?i:家宽)"
+
+  - name: 📥 大流量分流
+    <<: *x-pp-select-all-custom
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🏠 家宽节点
+
+  - name: 📶 测速切换
+    <<: *x-pp-select-all-custom
+    proxies:
+      - 🎯 全部直连
+      - 🔰 节点选择
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🏠 家宽节点
+      - 📥 大流量分流
+
+  - name: 🐟 漏网之鱼
+    <<: *x-pp-select-region
+
+  - name: 🎯 全部直连
+    type: select
+    hidden: true
+    proxies:
+      - DIRECT
+
+  - name: 🛑 全部拦截
+    type: select
+    hidden: true
+    proxies:
+      - REJECT
+
+  ## services groups
+  - name: 🍎 苹果服务
+    <<: *x-pp-select-region-direct
 
   - name: 🍭 谷歌服务
     <<: *x-pp-select-region
@@ -155,13 +255,16 @@ proxy-groups:
   - name: 🧠 Perplexity
     <<: *x-pp-select-region-clean
 
-  - name: 🍎 苹果服务
+  - name: 🎮 Gaming
     <<: *x-pp-select-region-direct
 
   - name: 🎮 Nintendo
     <<: *x-pp-select-region-direct
 
-  - name: 🎮 Gaming
+  - name: 👀 国外媒体
+    <<: *x-pp-select-region
+
+  - name: 👀 国内媒体 (港澳台版切换)
     <<: *x-pp-select-region-direct
 
   - name: 🎵 Spotify
@@ -195,57 +298,16 @@ proxy-groups:
   - name: 💰 香港银行
     <<: *x-pp-select-region-direct
 
-  - name: 👀 国外媒体
-    <<: *x-pp-select-region
-
-  - name: 👀 国内媒体 (港澳台版切换)
-    <<: *x-pp-select-region-direct
-
   - name: 💬 Telegram
     <<: *x-pp-select-region
 
   - name: 𝕏
     <<: *x-pp-select-region
 
-  - name: 📥 大流量分流
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
-    include-all: true
-    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
-    # filter: '(?i:0\.\d*x|Private)'
-
-  - name: 📶 测速切换
-    type: select
-    proxies:
-      - 🎯 全部直连
-      - 🔰 节点选择
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
-
   - name: 🈲 禁飞空域
     <<: *x-pp-select-region-private
 
-  - name: 🎯 全部直连
-    type: select
-    hidden: true
-    proxies:
-      - DIRECT
-
-  - name: 🛑 全部拦截
-    type: select
-    hidden: true
-    proxies:
-      - REJECT
-
-  - name: 🐟 漏网之鱼
-    <<: *x-pp-select-region
-
+  ## region groups
   - name: 🇭🇰 香港优选
     <<: *x-pp-region
     filter: '(?i:🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)'
@@ -290,10 +352,6 @@ proxy-groups:
   #   <<: *x-pp-region
   #   filter: '(?i:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)'
 
-  # - name: 🇮🇪 爱尔兰优选
-  #   <<: *x-pp-region
-  #   filter: "(?i:Ireland|Dublin|爱尔兰|都柏林)"
-
   # - name: 🇷🇺 俄罗斯优选
   #   <<: *x-pp-region
   #   filter: '(?i:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)'
@@ -329,15 +387,15 @@ x-rp:
     format: text
     interval: 86400
   mrs: &x-rp-mrs
-    type: http              
-    behavior: domain        
-    format: mrs             
-    interval: 86400         
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
   mrs-ip: &x-rp-mrs-ip
-    type: http              
-    behavior: ipcidr        
-    format: mrs             
-    interval: 86400         
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
 ##### anchor area END #####
 rule-providers:
   MyDirect:
@@ -356,6 +414,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
     path: ./providers/rule-provider_MyProxy02.list
+  Lan:
+    <<: *x-rp-text
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.list
+    path: ./providers/rule-provider_Lan.list
   Tailscale_OfficialDERP:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP.list
@@ -544,6 +606,7 @@ rules:
   - RULE-SET,MyProxy,🔰 节点选择
   - RULE-SET,MyProxy02,🔰 节点选择
   # 2. direct
+  - RULE-SET,Lan,🎯 全部直连
   - RULE-SET,Tailscale_OfficialDERP,🎯 全部直连
   - RULE-SET,Tailscale,🎯 全部直连
   - RULE-SET,Download,🎯 全部直连
@@ -555,17 +618,18 @@ rules:
   # 4. special services
   - RULE-SET,HighBandwidth,📥 大流量分流
   - RULE-SET,RestrictedZones,🈲 禁飞空域
-  - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Bing,🇺🇸 美国优选
+  - RULE-SET,OneDrive,☁️ Onedrive
+  - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Telegram,💬 Telegram
   - RULE-SET,Twitter,𝕏
   - RULE-SET,GitHub,💻 Developer
   - RULE-SET,Cursor,💻 Developer
-  - RULE-SET,Perplexity,🧠 Perplexity
   - RULE-SET,OpenAI,✨ OpenAI
   - RULE-SET,Anthropic,✨ Anthropic
   - RULE-SET,Gemini,✨ Gemini
   - RULE-SET,Grok,✨ Grok
+  - RULE-SET,Perplexity,🧠 Perplexity
   - RULE-SET,SteamCN,🎯 全部直连
   - RULE-SET,Nintendo,🎮 Nintendo
   - RULE-SET,YouTube,🎥 Youtube
@@ -576,6 +640,7 @@ rules:
   - RULE-SET,Emby,🎥 Emby 服务
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Qobuz,🎵 Qobuz
+  # 5. general services
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Google,🍭 谷歌服务
   - RULE-SET,AppleProxy,🔰 节点选择
