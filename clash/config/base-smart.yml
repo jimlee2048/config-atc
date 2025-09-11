@@ -44,34 +44,34 @@ x-pg:
   mini-select-region-private: &x-pp-select-region-private
     type: select
     proxies:
-  - 🎩 私有节点
-  - 🔰 节点选择
-  - 🎯 全部直连
-  - ✈️ 手动选择
-  - 🏠 家宽节点
-  - 📥 大流量分流
-  - 🇭🇰 香港优选
-  - 🇺🇸 美国优选
-  - 🇯🇵 日本优选
-  - 🇹🇼 台湾优选
-  - 🇸🇬 新加坡优选
-  - 🇰🇷 韩国优选
+      - 🎩 私有节点
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🏠 家宽节点
+      - 📥 大流量分流
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
 
   mini-select-region-clean: &x-pp-select-region-clean
     type: select
     proxies:
-  - 🏠 家宽节点
-  - 🔰 节点选择
-  - 🎯 全部直连
-  - ✈️ 手动选择
-  - 🎩 私有节点
-  - 📥 大流量分流
-  - 🇭🇰 香港优选
-  - 🇺🇸 美国优选
-  - 🇯🇵 日本优选
-  - 🇹🇼 台湾优选
-  - 🇸🇬 新加坡优选
-  - 🇰🇷 韩国优选
+      - 🏠 家宽节点
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 📥 大流量分流
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
 
   mini-select-all-custom: &x-pp-select-all-custom
     type: select
@@ -434,10 +434,10 @@ rule-providers:
     <<: *x-rp-mrs
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cursor.mrs
     path: ./providers/rule-provider_Cursor.mrs
-    GitHub:
-      <<: *x-rp-mrs
-      url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs
-      path: ./providers/rule-provider_GitHub.mrs
+  GitHub:
+    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs
+    path: ./providers/rule-provider_GitHub.mrs
   OneDrive:
     <<: *x-rp-mrs
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs
@@ -599,6 +599,6 @@ rules:
   - RULE-SET,AsianMedia,👀 国内媒体 (港澳台版切换)
   - RULE-SET,Speedtest,📶 测速切换
   - RULE-SET,Global,🔰 节点选择
-    - RULE-SET,China,🎯 全部直连
+  - RULE-SET,China,🎯 全部直连
   - GEOIP,CN,🎯 全部直连
   - MATCH,🐟 漏网之鱼
