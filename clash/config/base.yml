@@ -9,61 +9,7 @@ profile:
 
 ##### anchor area START #####
 x-pg:
-  select-region-full: &x-pp-select-region
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - 📥 大流量分流
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
-      - 🇮🇳 印度优选
-      - 🇬🇧 英国优选
-      - 🇫🇷 法国优选
-      - 🇨🇦 加拿大优选
-      - 🇦🇺 澳大利亚优选
-      - 🇮🇪 爱尔兰优选
-      - 🇷🇺 俄罗斯优选
-      - 🇹🇷 土耳其优选
-      - 🇦🇷 阿根廷优选
-      - 🇧🇷 巴西优选
-      # - 🇨🇳 回国选择
-
-  select-region-full-direct: &x-pp-select-region-direct
-    type: select
-    proxies:
-      - 🎯 全部直连
-      - 🔰 节点选择
-      - 📥 大流量分流
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
-      - 🇮🇳 印度优选
-      - 🇬🇧 英国优选
-      - 🇫🇷 法国优选
-      - 🇨🇦 加拿大优选
-      - 🇦🇺 澳大利亚优选
-      - 🇮🇪 爱尔兰优选
-      - 🇷🇺 俄罗斯优选
-      - 🇹🇷 土耳其优选
-      - 🇦🇷 阿根廷优选
-      - 🇧🇷 巴西优选
-      # - 🇨🇳 回国选择
-
-  # select-region-mini: &x-pp-select-region
+  # full-select-region: &x-pp-select-region
   #   type: select
   #   proxies:
   #     - 🔰 节点选择
@@ -71,14 +17,25 @@ x-pg:
   #     - 📥 大流量分流
   #     - ✈️ 手动选择
   #     - 🎩 私有节点
+  #     - 🏠 家宽节点
   #     - 🇭🇰 香港优选
   #     - 🇺🇸 美国优选
   #     - 🇯🇵 日本优选
   #     - 🇹🇼 台湾优选
   #     - 🇸🇬 新加坡优选
   #     - 🇰🇷 韩国优选
+  #     - 🇮🇳 印度优选
+  #     - 🇬🇧 英国优选
+  #     - 🇫🇷 法国优选
+  #     - 🇨🇦 加拿大优选
+  #     - 🇦🇺 澳大利亚优选
+  #     - 🇷🇺 俄罗斯优选
+  #     - 🇹🇷 土耳其优选
+  #     - 🇦🇷 阿根廷优选
+  #     - 🇧🇷 巴西优选
+  #     # - 🇨🇳 回国选择
 
-  # select-region-mini-direct: &x-pp-select-region-direct
+  # full-select-region-direct: &x-pp-select-region-direct
   #   type: select
   #   proxies:
   #     - 🎯 全部直连
@@ -86,12 +43,92 @@ x-pg:
   #     - 📥 大流量分流
   #     - ✈️ 手动选择
   #     - 🎩 私有节点
+  #     - 🏠 家宽节点
   #     - 🇭🇰 香港优选
   #     - 🇺🇸 美国优选
   #     - 🇯🇵 日本优选
   #     - 🇹🇼 台湾优选
   #     - 🇸🇬 新加坡优选
   #     - 🇰🇷 韩国优选
+  #     - 🇮🇳 印度优选
+  #     - 🇬🇧 英国优选
+  #     - 🇫🇷 法国优选
+  #     - 🇨🇦 加拿大优选
+  #     - 🇦🇺 澳大利亚优选
+  #     - 🇷🇺 俄罗斯优选
+  #     - 🇹🇷 土耳其优选
+  #     - 🇦🇷 阿根廷优选
+  #     - 🇧🇷 巴西优选
+  #     # - 🇨🇳 回国选择
+
+  mini-select-region: &x-pp-select-region
+    type: select
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🏠 家宽节点
+      - 📥 大流量分流
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
+
+  mini-select-region-direct: &x-pp-select-region-direct
+    type: select
+    proxies:
+      - 🎯 全部直连
+      - 🔰 节点选择
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🏠 家宽节点
+      - 📥 大流量分流
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
+
+  mini-select-region-private: &x-pp-select-region-private
+    type: select
+    proxies:
+      - 🎩 私有节点
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🏠 家宽节点
+      - 📥 大流量分流
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
+
+  mini-select-region-clean: &x-pp-select-region-clean
+    type: select
+    proxies:
+      - 🏠 家宽节点
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 📥 大流量分流
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
+
+  mini-select-all-custom: &x-pp-select-all-custom
+    type: select
+    include-all: true
+    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
 
   urltest-region: &x-pp-region
     type: url-test
@@ -109,6 +146,7 @@ x-pg:
 
 ##### anchor area END #####
 proxy-groups:
+  ## control groups
   - name: ℹ️ 订阅信息
     type: select
     include-all: true
@@ -127,32 +165,65 @@ proxy-groups:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
-      - 🇮🇳 印度优选
-      - 🇬🇧 英国优选
-      - 🇫🇷 法国优选
-      - 🇨🇦 加拿大优选
-      - 🇦🇺 澳大利亚优选
-      - 🇮🇪 爱尔兰优选
-      - 🇷🇺 俄罗斯优选
-      - 🇹🇷 土耳其优选
-      - 🇦🇷 阿根廷优选
-      - 🇧🇷 巴西优选
+      # - 🇮🇳 印度优选
+      # - 🇬🇧 英国优选
+      # - 🇫🇷 法国优选
+      # - 🇨🇦 加拿大优选
+      # - 🇦🇺 澳大利亚优选
+      # - 🇷🇺 俄罗斯优选
+      # - 🇹🇷 土耳其优选
+      # - 🇦🇷 阿根廷优选
+      # - 🇧🇷 巴西优选
       # - 🇨🇳 回国选择
 
   - name: ✈️ 手动选择
-    type: select
-    include-all: true
-    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
+    <<: *x-pp-select-all-custom
 
   - name: 🎩 私有节点
-    type: select
-    include-all: true
+    <<: *x-pp-select-all-custom
     filter: "(?i:Private)"
 
   - name: 🏠 家宽节点
-    type: select
-    include-all: true
+    <<: *x-pp-select-all-custom
     filter: "(?i:家宽)"
+
+  - name: 📥 大流量分流
+    <<: *x-pp-select-all-custom
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🏠 家宽节点
+
+  - name: 📶 测速切换
+    <<: *x-pp-select-all-custom
+    proxies:
+      - 🎯 全部直连
+      - 🔰 节点选择
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🏠 家宽节点
+      - 📥 大流量分流
+
+  - name: 🐟 漏网之鱼
+    <<: *x-pp-select-region
+
+  - name: 🎯 全部直连
+    type: select
+    hidden: true
+    proxies:
+      - DIRECT
+
+  - name: 🛑 全部拦截
+    type: select
+    hidden: true
+    proxies:
+      - REJECT
+
+  ## services groups
+  - name: 🍎 苹果服务
+    <<: *x-pp-select-region-direct
 
   - name: 🍭 谷歌服务
     <<: *x-pp-select-region
@@ -161,33 +232,39 @@ proxy-groups:
     <<: *x-pp-select-region
 
   - name: ☁️ Onedrive
+    <<: *x-pp-select-region-direct
+
+  - name: 💻 Developer
     <<: *x-pp-select-region
 
-  - name: 🤖 Developer
+  - name: ✨ GenAI
+    <<: *x-pp-select-region
+
+  - name: ✨ OpenAI
+    <<: *x-pp-select-region-clean
+
+  - name: ✨ Gemini
+    <<: *x-pp-select-region
+
+  - name: ✨ Anthropic
+    <<: *x-pp-select-region-clean
+
+  - name: ✨ Grok
     <<: *x-pp-select-region
 
   - name: 🧠 Perplexity
-    type: select
-    proxies:
-      - 🏠 家宽节点
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
+    <<: *x-pp-select-region-clean
 
-  - name: 🍎 苹果服务
+  - name: 🎮 Gaming
     <<: *x-pp-select-region-direct
 
   - name: 🎮 Nintendo
     <<: *x-pp-select-region-direct
 
-  - name: 🎮 Game
+  - name: 👀 国外媒体
+    <<: *x-pp-select-region
+
+  - name: 👀 国内媒体 (港澳台版切换)
     <<: *x-pp-select-region-direct
 
   - name: 🎵 Spotify
@@ -196,18 +273,8 @@ proxy-groups:
   - name: 🎵 Qobuz
     <<: *x-pp-select-region
 
-  - name: 🎵 TIDAL
+  - name: 🎥 Emby 服务
     <<: *x-pp-select-region
-
-  - name: 🍟 Emby 服务
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 📥 大流量分流
-      - 🎩 私有节点
-      - 🏠 家宽节点
     include-all: true
     filter: "(?i:Emby)"
 
@@ -228,71 +295,19 @@ proxy-groups:
   - name: 💰 Crypto
     <<: *x-pp-select-region
 
-  - name: 🏦 香港银行
+  - name: 💰 香港银行
+    <<: *x-pp-select-region-direct
+
+  - name: 💬 Telegram
     <<: *x-pp-select-region
 
-  - name: 🌍 国外媒体
+  - name: 𝕏
     <<: *x-pp-select-region
-
-  - name: 🌍 国内媒体 (港澳台版切换)
-    type: select
-    proxies:
-      - 🎯 全部直连
-      - 🔰 节点选择
-      - ✈️ 手动选择
-      - 📥 大流量分流
-      - 🎩 私有节点
-      - 🏠 家宽节点
-      - 🇭🇰 香港优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      # - 🇨🇳 回国选择
-
-  - name: 📲 Telegram
-    <<: *x-pp-select-region
-
-  - name: 𝕏 Twitter
-    <<: *x-pp-select-region
-
-  - name: 📥 大流量分流
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
-    include-all: true
-    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
-    # filter: '(?i:0\.\d*x|Private)'
-
-  - name: 📶 测速切换
-    type: select
-    proxies:
-      - 🎯 全部直连
-      - 🔰 节点选择
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
 
   - name: 🈲 禁飞空域
-    <<: *x-pp-select-region
-    include-all: true
-    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
+    <<: *x-pp-select-region-private
 
-  - name: 🎯 全部直连
-    type: select
-    proxies:
-      - DIRECT
-
-  - name: 🛑 全部拦截
-    type: select
-    proxies:
-      - REJECT
-
-  - name: 🐟 漏网之鱼
-    <<: *x-pp-select-region
-
+  ## region groups
   - name: 🇭🇰 香港优选
     <<: *x-pp-region
     filter: '(?i:🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)'
@@ -317,45 +332,41 @@ proxy-groups:
     <<: *x-pp-region
     filter: '(?i:🇰🇷|\bK[O]?R\b|Korea|首尔|韩|韓)'
 
-  - name: 🇮🇳 印度优选
-    <<: *x-pp-region
-    filter: '(?i:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)'
+  # - name: 🇮🇳 印度优选
+  #   <<: *x-pp-region
+  #   filter: '(?i:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)'
 
-  - name: 🇬🇧 英国优选
-    <<: *x-pp-region
-    filter: '(?i:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)'
+  # - name: 🇬🇧 英国优选
+  #   <<: *x-pp-region
+  #   filter: '(?i:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)'
 
-  - name: 🇫🇷 法国优选
-    <<: *x-pp-region
-    filter: '(?i:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)'
+  # - name: 🇫🇷 法国优选
+  #   <<: *x-pp-region
+  #   filter: '(?i:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)'
 
-  - name: 🇨🇦 加拿大优选
-    <<: *x-pp-region
-    filter: '(?i:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)'
+  # - name: 🇨🇦 加拿大优选
+  #   <<: *x-pp-region
+  #   filter: '(?i:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)'
 
-  - name: 🇦🇺 澳大利亚优选
-    <<: *x-pp-region
-    filter: '(?i:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)'
+  # - name: 🇦🇺 澳大利亚优选
+  #   <<: *x-pp-region
+  #   filter: '(?i:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)'
 
-  - name: 🇮🇪 爱尔兰优选
-    <<: *x-pp-region
-    filter: "(?i:Ireland|Dublin|爱尔兰|都柏林)"
+  # - name: 🇷🇺 俄罗斯优选
+  #   <<: *x-pp-region
+  #   filter: '(?i:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)'
 
-  - name: 🇷🇺 俄罗斯优选
-    <<: *x-pp-region
-    filter: '(?i:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)'
+  # - name: 🇹🇷 土耳其优选
+  #   <<: *x-pp-region
+  #   filter: "(?i:🇹🇷|Turkey|土耳其|伊斯坦布尔)"
 
-  - name: 🇹🇷 土耳其优选
-    <<: *x-pp-region
-    filter: "(?i:🇹🇷|Turkey|土耳其|伊斯坦布尔)"
+  # - name: 🇦🇷 阿根廷优选
+  #   <<: *x-pp-region
+  #   filter: "(?i:🇦🇷|Argentina|阿根廷)"
 
-  - name: 🇦🇷 阿根廷优选
-    <<: *x-pp-region
-    filter: "(?i:🇦🇷|Argentina|阿根廷)"
-
-  - name: 🇧🇷 巴西优选
-    <<: *x-pp-region
-    filter: "(?i:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)"
+  # - name: 🇧🇷 巴西优选
+  #   <<: *x-pp-region
+  #   filter: "(?i:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)"
 
   # - name: 🇨🇳 回国选择
   #   type: select
@@ -379,7 +390,7 @@ x-rp:
 rule-providers:
   MyDirect:
     <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Direct.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyDirect.list
     path: ./providers/rule-provider_MyDirect.list
   MyDirect02:
     <<: *x-rp-text
@@ -387,7 +398,7 @@ rule-providers:
     path: ./providers/rule-provider_MyDirect02.list
   MyProxy:
     <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Proxy.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyProxy.list
     path: ./providers/rule-provider_MyProxy.list
   MyProxy02:
     <<: *x-rp-text
@@ -449,10 +460,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/cc63/Surge@main/Module/Grok.list
     path: ./providers/rule-provider_Grok.list
-  OpenRouter:
+  GenAI_Providers:
     <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/OpenRouter.list
-    path: ./providers/rule-provider_OpenRouter.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAI_Providers.list
+    path: ./providers/rule-provider_GenAI_Providers.list
   Bing:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.list
@@ -517,10 +528,6 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Qobuz/Qobuz.list
     path: ./providers/rule-provider_Qobuz.list
-  TIDAL:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TIDAL/TIDAL.list
-    path: ./providers/rule-provider_TIDAL.list
   Emby:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.list
@@ -583,54 +590,58 @@ rule-providers:
     path: ./providers/rule-provider_China.list
 
 rules:
+  # 1. custom override
   - RULE-SET,MyDirect,🎯 全部直连
   - RULE-SET,MyDirect02,🎯 全部直连
   - RULE-SET,MyProxy,🔰 节点选择
   - RULE-SET,MyProxy02,🔰 节点选择
+  # 2. direct
   - RULE-SET,Lan,🎯 全部直连
   - RULE-SET,Tailscale_OfficialDERP,🎯 全部直连
   - RULE-SET,Tailscale,🎯 全部直连
   - RULE-SET,Download,🎯 全部直连
   - RULE-SET,PrivateTracker,🎯 全部直连
+  # 3. block
   # - RULE-SET,Privacy_Classical,🛑 全部拦截
   # - RULE-SET,Hijacking,🛑 全部拦截
   - RULE-SET,AdobeTelemetry,🛑 全部拦截
+  # 4. special services
+  - RULE-SET,HighBandwidth,📥 大流量分流
   - RULE-SET,RestrictedZones,🈲 禁飞空域
-  - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Bing,🇺🇸 美国优选
-  - RULE-SET,Perplexity,🧠 Perplexity
-  - RULE-SET,OpenAI,🇺🇸 美国优选
-  - RULE-SET,Anthropic,🇺🇸 美国优选
-  - RULE-SET,Gemini,🇺🇸 美国优选
-  - RULE-SET,Grok,🇺🇸 美国优选
-  - RULE-SET,OpenRouter,🇺🇸 美国优选
-  - RULE-SET,Developer,🤖 Developer
-  - RULE-SET,GitHub,🤖 Developer
-  - RULE-SET,Cursor,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
+  - RULE-SET,GoogleVoice,🇺🇸 美国优选
+  - RULE-SET,Telegram,💬 Telegram
+  - RULE-SET,Twitter,𝕏
+  - RULE-SET,GitHub,💻 Developer
+  - RULE-SET,Cursor,💻 Developer
+  - RULE-SET,OpenAI,✨ OpenAI
+  - RULE-SET,Anthropic,✨ Anthropic
+  - RULE-SET,Gemini,✨ Gemini
+  - RULE-SET,Grok,✨ Grok
+  - RULE-SET,Perplexity,🧠 Perplexity
+  - RULE-SET,SteamCN,🎯 全部直连
+  - RULE-SET,Nintendo,🎮 Nintendo
   - RULE-SET,YouTube,🎥 Youtube
+  - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,AppleTV,🎥 Apple TV
+  - RULE-SET,Bahamut,🇹🇼 台湾优选
+  - RULE-SET,TikTok,🎥 TikTok
+  - RULE-SET,Emby,🎥 Emby 服务
+  - RULE-SET,Spotify,🎵 Spotify
+  - RULE-SET,Qobuz,🎵 Qobuz
+  # 5. general services
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Google,🍭 谷歌服务
   - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,Apple,🍎 苹果服务
-  - RULE-SET,SteamCN,🎯 全部直连
-  - RULE-SET,Nintendo,🎮 Nintendo
-  - RULE-SET,Game,🎮 Game
-  - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Qobuz,🎵 Qobuz
-  - RULE-SET,TIDAL,🎵 TIDAL
-  - RULE-SET,Emby,🍟 Emby 服务
-  - RULE-SET,Netflix,🎥 Netflix
-  - RULE-SET,TikTok,🎥 TikTok
-  - RULE-SET,Bahamut,🇹🇼 台湾优选
+  - RULE-SET,Developer,💻 Developer
+  - RULE-SET,GenAI_Providers,✨ GenAI
+  - RULE-SET,Game,🎮 Gaming
   - RULE-SET,Crypto,💰 Crypto
-  - RUlE-SET,HongKongBank,🏦 香港银行
-  - RULE-SET,GlobalMedia,🌍 国外媒体
-  - RULE-SET,AsianMedia,🌍 国内媒体 (港澳台版切换)
-  - RULE-SET,Telegram,📲 Telegram
-  - RULE-SET,Twitter,𝕏 Twitter
-  - RULE-SET,HighBandwidth,📥 大流量分流
+  - RULE-SET,HongKongBank,💰 香港银行
+  - RULE-SET,GlobalMedia,👀 国外媒体
+  - RULE-SET,AsianMedia,👀 国内媒体 (港澳台版切换)
   - RULE-SET,Speedtest,📶 测速切换
   - RULE-SET,Global,🔰 节点选择
   - RULE-SET,China,🎯 全部直连

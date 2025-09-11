@@ -1,9 +1,12 @@
+# NAME: HighBandwidth
+# AUTHOR: jimlee2048
+# REPO: https://github.com/jimlee2048/config-atc
+
 DOMAIN-KEYWORD,civitai
 DOMAIN-SUFFIX,civitai.com
 DOMAIN-KEYWORD,huggingface
 DOMAIN-SUFFIX,huggingface.co
 DOMAIN-SUFFIX,hf.co
-DOMAIN-KEYWORD,cdn-lfs
 DOMAIN-SUFFIX,db.tt
 DOMAIN-SUFFIX,dropbox-dns.com
 DOMAIN-SUFFIX,dropbox.com
