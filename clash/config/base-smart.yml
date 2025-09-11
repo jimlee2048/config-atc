@@ -44,34 +44,34 @@ x-pg:
   mini-select-region-private: &x-pp-select-region-private
     type: select
     proxies:
-      - 🎩 私有节点
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - � 家宽节点
-      - 📥 大流量分流
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
+  - 🎩 私有节点
+  - 🔰 节点选择
+  - 🎯 全部直连
+  - ✈️ 手动选择
+  - 🏠 家宽节点
+  - 📥 大流量分流
+  - 🇭🇰 香港优选
+  - 🇺🇸 美国优选
+  - 🇯🇵 日本优选
+  - 🇹🇼 台湾优选
+  - 🇸🇬 新加坡优选
+  - 🇰🇷 韩国优选
 
   mini-select-region-clean: &x-pp-select-region-clean
     type: select
     proxies:
-      - � 家宽节点
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 📥 大流量分流
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
+  - 🏠 家宽节点
+  - 🔰 节点选择
+  - 🎯 全部直连
+  - ✈️ 手动选择
+  - 🎩 私有节点
+  - 📥 大流量分流
+  - 🇭🇰 香港优选
+  - 🇺🇸 美国优选
+  - 🇯🇵 日本优选
+  - 🇹🇼 台湾优选
+  - 🇸🇬 新加坡优选
+  - 🇰🇷 韩国优选
 
   mini-select-all-custom: &x-pp-select-all-custom
     type: select
@@ -148,7 +148,6 @@ proxy-groups:
     <<: *x-pp-select-region
 
   - name: ✨ GenAI
-    - name: 🎥 Emby 服务
     <<: *x-pp-select-region
 
   - name: ✨ OpenAI
@@ -171,7 +170,6 @@ proxy-groups:
 
   - name: 🎮 Nintendo
     <<: *x-pp-select-region-direct
-    - name: 💬 Telegram
 
   - name: 🎮 Gaming
     <<: *x-pp-select-region-direct
@@ -182,7 +180,7 @@ proxy-groups:
   - name: 🎵 Qobuz
     <<: *x-pp-select-region
 
-  - name: � Emby 服务
+  - name: 🎥 Emby 服务
     <<: *x-pp-select-region
     include-all: true
     filter: "(?i:Emby)"
@@ -213,7 +211,7 @@ proxy-groups:
   - name: 👀 国内媒体 (港澳台版切换)
     <<: *x-pp-select-region-direct
 
-  - name: � Telegram
+  - name: 💬 Telegram
     <<: *x-pp-select-region
 
   - name: 𝕏
@@ -436,6 +434,10 @@ rule-providers:
     <<: *x-rp-mrs
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cursor.mrs
     path: ./providers/rule-provider_Cursor.mrs
+    GitHub:
+      <<: *x-rp-mrs
+      url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs
+      path: ./providers/rule-provider_GitHub.mrs
   OneDrive:
     <<: *x-rp-mrs
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs
@@ -569,6 +571,7 @@ rules:
   - RULE-SET,Twitter,𝕏
   - RULE-SET,GitHub,💻 Developer
   - RULE-SET,Cursor,💻 Developer
+  - RULE-SET,Perplexity,🧠 Perplexity
   - RULE-SET,OpenAI,✨ OpenAI
   - RULE-SET,Anthropic,✨ Anthropic
   - RULE-SET,Gemini,✨ Gemini
@@ -584,19 +587,18 @@ rules:
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Qobuz,🎵 Qobuz
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Google,🍭 谷歌服务
   - RULE-SET,AppleProxy,🔰 节点选择
-    - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Developer,💻 Developer
   - RULE-SET,GenAI_Providers,✨ GenAI
-    - RULE-SET,Game,🎮 Gaming
-  - RULE-SET,Crypto,💰 Crypto
-  - RULE-SET,TikTok,🎥 TikTok
-  - RULE-SET,Emby,🎥 Emby 服务
-  - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Qobuz,🎵 Qobuz
-  - RULE-SET,Global,🔰 节点选择
-  - RULE-SET,Google,🍭 谷歌服务
-  - RULE-SET,China,🎯 全部直连
-  - MATCH,🐟 漏网之鱼
-
   - RULE-SET,Game,🎮 Gaming
+  - RULE-SET,Crypto,💰 Crypto
+  - RULE-SET,HongKongBank,💰 香港银行
+  - RULE-SET,GlobalMedia,👀 国外媒体
+  - RULE-SET,AsianMedia,👀 国内媒体 (港澳台版切换)
+  - RULE-SET,Speedtest,📶 测速切换
+  - RULE-SET,Global,🔰 节点选择
+    - RULE-SET,China,🎯 全部直连
+  - GEOIP,CN,🎯 全部直连
+  - MATCH,🐟 漏网之鱼
