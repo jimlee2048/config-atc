@@ -405,8 +405,8 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
 
   Lan:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.list
+    <<: *x-rp-yaml
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan_No_Resolve.yaml
 
   Tailscale_OfficialDERP:
     <<: *x-rp-text
