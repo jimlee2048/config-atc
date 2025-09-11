@@ -241,19 +241,19 @@ proxy-groups:
     <<: *x-pp-select-region
 
   - name: ✨ OpenAI
-    <<: *x-pp-select-region-clean
+    <<: *x-pp-select-region
 
   - name: ✨ Gemini
     <<: *x-pp-select-region
 
   - name: ✨ Anthropic
-    <<: *x-pp-select-region-clean
+    <<: *x-pp-select-region
 
   - name: ✨ Grok
     <<: *x-pp-select-region
 
   - name: 🧠 Perplexity
-    <<: *x-pp-select-region-clean
+    <<: *x-pp-select-region
 
   - name: 🎮 Gaming
     <<: *x-pp-select-region-direct
@@ -301,7 +301,7 @@ proxy-groups:
   - name: 💬 Telegram
     <<: *x-pp-select-region
 
-  - name: 𝕏
+  - name: 𝕏 Twitter
     <<: *x-pp-select-region
 
   - name: 🈲 禁飞空域
@@ -612,7 +612,7 @@ rules:
   - RULE-SET,OneDrive,☁️ Onedrive
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Telegram,💬 Telegram
-  - RULE-SET,Twitter,𝕏
+  - RULE-SET,Twitter,𝕏 Twitter
   - RULE-SET,GitHub,💻 Developer
   - RULE-SET,Cursor,💻 Developer
   - RULE-SET,OpenAI,✨ OpenAI
