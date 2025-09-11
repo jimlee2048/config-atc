@@ -1,3 +1,7 @@
+# NAME: MyDirect
+# AUTHOR: jimlee2048
+# REPO: https://github.com/jimlee2048/config-atc
+
 DOMAIN-SUFFIX,jiml.ee
 DOMAIN-SUFFIX,ubits.club
 DOMAIN-SUFFIX,hdvideo.one
@@ -7,4 +11,3 @@ DOMAIN-SUFFIX,egesyx.lol
 DOMAIN,sub.nexconvert.com
 DOMAIN-SUFFIX,hf-mirror.com
 DOMAIN-SUFFIX,civitai.work
-DOMAIN-SUFFIX,r2.cloudflarestorage.com
