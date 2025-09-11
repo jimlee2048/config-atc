@@ -49,5 +49,6 @@ type = "clash-classic"
 # 自定义直连规则
 [[rulesets]]
 group = "🎯 全部直连"
-ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Direct.yml"
+ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyDirect.list"
 type = "clash-classic"
+format = "text"

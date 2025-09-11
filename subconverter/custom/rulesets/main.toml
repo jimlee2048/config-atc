@@ -10,8 +10,9 @@
 # 自定义代理规则
 [[rulesets]]
 group = "🔰 节点选择"
-ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Proxy.yml"
+ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyProxy.list"
 type = "clash-classic"
+format = "text"
 
 # US Only
 ## OpenAI
@@ -138,8 +139,9 @@ type = "clash-classic"
 
 [[rulesets]]
 group = "🎥 Emby 服务"
-ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.yml"
+ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.list"
 type = "clash-classic"
+format = "text"
 
 # Youtube
 [[rulesets]]
@@ -198,8 +200,9 @@ type = "clash-classic"
 # 大流量分流
 [[rulesets]]
 group = "📥 大流量分流"
-ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/HighBandwidth.yml"
+ruleset = "https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/HighBandwidth.list"
 type = "clash-classic"
+format = "text"
 
 # 测速相关
 [[rulesets]]
