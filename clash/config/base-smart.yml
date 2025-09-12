@@ -555,7 +555,7 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.mrs
 
   Crypto:
-    <<: *x-rp-yaml
+    <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Crypto.list
 
   HongKongBank:

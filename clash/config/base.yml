@@ -545,7 +545,7 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.list
 
   Crypto:
-    <<: *x-rp-yaml
+    <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Crypto.list
 
   HongKongBank:
