@@ -185,7 +185,7 @@ proxy-groups:
 
   - name: 🏠 家宽节点
     <<: *x-pp-select-all-custom
-    filter: "(?i:家宽)"
+    filter: "(?i:家宽|Clean)"
 
   - name: 📥 大流量分流
     <<: *x-pp-select-all-custom
