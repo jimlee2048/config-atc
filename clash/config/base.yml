@@ -137,7 +137,7 @@ x-pg:
     lazy: true
     include-all: true
     # hidden: true
-    exclude-filter: "(?i:专用)"
+    exclude-filter: "(?i:专用|noauto)"
 
   # select-region: &x-pp-region
   #   type: select
@@ -181,7 +181,7 @@ proxy-groups:
 
   - name: 🎩 私有节点
     <<: *x-pp-select-all-custom
-    filter: "(?i:Private)"
+    filter: "(?i:Private|PRIV)"
 
   - name: 🏠 家宽节点
     <<: *x-pp-select-all-custom
