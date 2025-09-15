@@ -12,6 +12,8 @@ dns:
     - "+.stun.*.*.*"
     - "+.stun.*.*.*.*"
     - "+.stun.*.*.*.*.*"
+    # xiaomi
+    - "+.market.xiaomi.com"
     # Google Voices
     - "lens.l.google.com"
     # Nintendo Switch
@@ -48,8 +50,9 @@ dns:
 
 tun:
   enable: true
-  stack: system
+  stack: mixed
   auto-route: true
   auto-detect-interface: true
   dns-hijack:
     - any:53
+    - "tcp://any:53"
