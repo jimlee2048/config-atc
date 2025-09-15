@@ -433,8 +433,9 @@ rule-providers:
   #   url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Hijacking/Hijacking.list
   #
   AdobeTelemetry:
-    <<: *x-rp-yaml
-    url: https://fastly.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/clash.yaml
+    <<: *x-rp-text
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
 
   GoogleVoice:
     <<: *x-rp-text
