@@ -391,11 +391,6 @@ x-rp:
     behavior: domain
     format: mrs
     interval: 86400
-  mrs-ip: &x-rp-mrs-ip
-    type: http
-    behavior: ipcidr
-    format: mrs
-    interval: 86400
 ##### anchor area END #####
 rule-providers:
   MyDirect:
