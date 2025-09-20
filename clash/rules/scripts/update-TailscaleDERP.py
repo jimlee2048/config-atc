@@ -41,13 +41,13 @@ if __name__ == "__main__":
     list_classical = ["DOMAIN,"+d for d in list_domain] + ["IP-CIDR,"+i+",no-resolve" for i in list_ip_cidr] + ["IP-CIDR,"+i+",no-resolve" for i in list_ip_cidr6]
 
     # save in clash text format (.list)
-    save_text(list_domain, "../Tailscale_OfficialDERP_Domain.list")
-    save_text(list_ip, "../Tailscale_OfficialDERP_IP.list")
-    save_text(list_classical, "../Tailscale_OfficialDERP.list")
+    save_text(list_domain, "../TailscaleDERP_domain.list")
+    save_text(list_ip, "../TailscaleDERP_ip.list")
+    save_text(list_classical, "../TailscaleDERP_classical.list")
 
     # save in clash yaml format
-    save_yaml(list_domain, "../Tailscale_OfficialDERP_Domain.yaml", quoted=True)
-    save_yaml(list_ip, "../Tailscale_OfficialDERP_IP.yaml", quoted=True)
-    save_yaml(list_classical, "../Tailscale_OfficialDERP.yaml")
+    save_yaml(list_domain, "../TailscaleDERP_domain.yaml", quoted=True)
+    save_yaml(list_ip, "../TailscaleDERP_ip.yaml", quoted=True)
+    save_yaml(list_classical, "../TailscaleDERP_classical.yaml")
 
     print("Finished")

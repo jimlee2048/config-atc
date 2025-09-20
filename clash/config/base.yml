@@ -406,15 +406,15 @@ rule-providers:
   TailscaleDERP:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/Tailscale_OfficialDERP_Domain.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/TailscaleDERP_domain.list
   TailscaleDomain:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/TailscaleDomain.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/Tailscale_domain.list
   TailscaleIP:
     <<: *x-rp-text
     behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/TailscaleIP.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/Tailscale_ip.list
   Tracker:
     <<: *x-rp-mrs
     behavior: domain
