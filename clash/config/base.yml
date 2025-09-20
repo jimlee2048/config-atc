@@ -370,11 +370,11 @@ x-rp:
 ##### anchor area END #####
 rule-providers:
   # 1. lan
-  PrivateDomain:
+  Private_domain:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs
-  PrivateIP:
+  Private_ip:
     <<: *x-rp-mrs
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
@@ -407,11 +407,11 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/TailscaleDERP_domain.list
-  TailscaleDomain:
+  Tailscale_domain:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/Tailscale_domain.list
-  TailscaleIP:
+  Tailscale_ip:
     <<: *x-rp-text
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/Tailscale_ip.list
@@ -444,19 +444,19 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/GoogleVoice.list
-  TelegramDomain:
+  Telegram_domain:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs
-  TelegramIP:
+  Telegram_ip:
     <<: *x-rp-mrs
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs
-  TwitterDomain:
+  Twitter_domain:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitter.mrs
-  TwitterIP:
+  Twitter_ip:
     <<: *x-rp-mrs
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/twitter.mrs
@@ -468,11 +468,11 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
-  NetflixDomain:
+  Netflix_domain:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs
-  NetflixIP:
+  Netflix_ip:
     <<: *x-rp-mrs
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs
@@ -565,11 +565,11 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs
-  GoogleDomain:
+  Google_domain:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
-  GoogleIP:
+  Google_ip:
     <<: *x-rp-mrs
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs
@@ -583,15 +583,15 @@ rule-providers:
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
-  ChinaDomain:
+  China_domain:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs
-  OverseasDomain:
+  Overseas_domain:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.list
-  ChinaIP:
+  China_ip:
     <<: *x-rp-mrs
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
@@ -599,8 +599,8 @@ rule-providers:
 rules:
   # domain > classical > ipcidr
   # 1. local
-  - RULE-SET,PrivateDomain,🎯 全部直连
-  - RULE-SET,PrivateIP,🎯 全部直连,no-resolve
+  - RULE-SET,Private_domain,🎯 全部直连
+  - RULE-SET,Private_ip,🎯 全部直连,no-resolve
   # 2. block
   - RULE-SET,AdobeTelemetry,🛑 Block
   # 3. custom override
@@ -610,8 +610,8 @@ rules:
   - RULE-SET,MyProxy02,🔰 节点选择
   # 4. main: p1
   - RULE-SET,TailscaleDERP,🎯 全部直连
-  - RULE-SET,TailscaleDomain,🎯 全部直连
-  - RULE-SET,TailscaleIP,🎯 全部直连,no-resolve
+  - RULE-SET,Tailscale_domain,🎯 全部直连
+  - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
   - RULE-SET,Tracker,🎯 全部直连
   - RULE-SET,PT,🎯 全部直连
   - RULE-SET,Speedtest,📶 Speedtest
@@ -625,14 +625,14 @@ rules:
   - RULE-SET,Bing,🇺🇸 美国优选
   - RULE-SET,OneDrive,☁️ Onedrive
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
-  - RULE-SET,TelegramDomain,💬 Telegram
-  - RULE-SET,TelegramIP,💬 Telegram,no-resolve
-  - RULE-SET,TwitterDomain,𝕏 Twitter
-  - RULE-SET,TwitterIP,𝕏 Twitter,no-resolve
+  - RULE-SET,Telegram_domain,💬 Telegram
+  - RULE-SET,Telegram_ip,💬 Telegram,no-resolve
+  - RULE-SET,Twitter_domain,𝕏 Twitter
+  - RULE-SET,Twitter_ip,𝕏 Twitter,no-resolve
   - RULE-SET,Nintendo,🎮 Nintendo
   - RULE-SET,YouTube,🎥 Youtube
-  - RULE-SET,NetflixDomain,🎥 Netflix
-  - RULE-SET,NetflixIP,🎥 Netflix,no-resolve
+  - RULE-SET,Netflix_domain,🎥 Netflix
+  - RULE-SET,Netflix_ip,🎥 Netflix,no-resolve
   - RULE-SET,AppleTV,🎥 Apple TV
   - RULE-SET,Bahamut,🇹🇼 台湾优选
   - RULE-SET,TikTok,🎥 TikTok
@@ -651,12 +651,12 @@ rules:
   # 7. main: p4
   - RULE-SET,MicrosoftDirect,🎯 全部直连
   - RULE-SET,Microsoft,Ⓜ️ Microsoft
-  - RULE-SET,GoogleDomain,🍭 Google
-  - RULE-SET,GoogleIP,🍭 Google,no-resolve
+  - RULE-SET,Google_domain,🍭 Google
+  - RULE-SET,Google_ip,🍭 Google,no-resolve
   - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,Apple,🍎 Apple
   # 8. final
-  - RULE-SET,ChinaDomain,🎯 全部直连
-  - RULE-SET,OverseasDomain,🔰 节点选择
-  - RULE-SET,ChinaIP,🎯 全部直连,no-resolve
+  - RULE-SET,China_domain,🎯 全部直连
+  - RULE-SET,Overseas_domain,🔰 节点选择
+  - RULE-SET,China_ip,🎯 全部直连,no-resolve
   - MATCH,🐟 漏网之鱼
