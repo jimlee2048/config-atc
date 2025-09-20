@@ -385,20 +385,18 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
   # 3. custom override
   MyDirect:
-    # TODO: switch to domain behavior
     <<: *x-rp-text
-    behavior: classical
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyDirect.list
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/MyDirect.list
   MyDirect02:
     # TODO: switch to domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
   MyProxy:
-    # TODO: switch to domain behavior
     <<: *x-rp-text
-    behavior: classical
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyProxy.list
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/MyProxy.list
   MyProxy02:
     # TODO: switch to domain behavior
     <<: *x-rp-text
@@ -408,15 +406,15 @@ rule-providers:
   TailscaleDERP:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_Domain.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/Tailscale_OfficialDERP_Domain.list
   TailscaleDomain:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDomain.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/TailscaleDomain.list
   TailscaleIP:
     <<: *x-rp-text
     behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleIP.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/TailscaleIP.list
   Tracker:
     <<: *x-rp-mrs
     behavior: domain
@@ -432,7 +430,7 @@ rule-providers:
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/ProxyHighBandwidth.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/ProxyHighBandwidth.list
   # 5. main: p2
   Bing:
     <<: *x-rp-mrs
@@ -445,7 +443,7 @@ rule-providers:
   GoogleVoice:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/GoogleVoice.list
   TelegramDomain:
     <<: *x-rp-mrs
     behavior: domain
@@ -544,7 +542,7 @@ rule-providers:
   GenAIOverseasExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/GenAIExtra.list
   Crypto:
     <<: *x-rp-mrs
     behavior: domain
@@ -552,7 +550,7 @@ rule-providers:
   CryptoExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/CryptoExtra.list
   HongKongBank:
     # TODO: switch to domain behavior
     <<: *x-rp-text
