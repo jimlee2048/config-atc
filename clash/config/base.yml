@@ -385,18 +385,22 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
   # 3. custom override
   MyDirect:
+    # TODO: switch to domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyDirect.list
   MyDirect02:
+    # TODO: switch to domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
   MyProxy:
+    # TODO: switch to domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyProxy.list
   MyProxy02:
+    # TODO: switch to domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
@@ -495,11 +499,13 @@ rule-providers:
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
   Qobuz:
+    # TODO: switch to domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Qobuz/Qobuz.list
   # 6. main: p3
   RestrictedZones:
+    # TODO: switch to domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
@@ -548,6 +554,7 @@ rule-providers:
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
   HongKongBank:
+    # TODO: switch to domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
@@ -569,10 +576,12 @@ rule-providers:
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs
   AppleProxy:
+    # TODO: switch to mrs + domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleProxy/AppleProxy.list
   Apple:
+    # TODO: switch to mrs + domain behavior
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
