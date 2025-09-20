@@ -357,17 +357,14 @@ proxy-groups:
 x-rp:
   yaml: &x-rp-yaml
     type: http
-    # behavior: classical
     format: yaml
     interval: 86400
   text: &x-rp-text
     type: http
-    # behavior: classical
     format: text
     interval: 86400
   mrs: &x-rp-mrs
     type: http
-    # behavior: domain
     format: mrs
     interval: 86400
 ##### anchor area END #####
