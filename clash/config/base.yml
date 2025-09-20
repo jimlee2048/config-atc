@@ -262,8 +262,6 @@ proxy-groups:
 
   - name: 🎥 Netflix
     <<: *x-pp-select-region
-    include-all: true
-    filter: "(?i:Netflix|网飞|奈飞|NF)"
 
   - name: 🎥 Apple TV
     <<: *x-pp-select-region
