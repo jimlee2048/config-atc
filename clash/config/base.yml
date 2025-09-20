@@ -424,7 +424,7 @@ rule-providers:
   Speedtest:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/speedtest.mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-speedtest.mrs
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
