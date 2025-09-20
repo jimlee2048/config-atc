@@ -1,9 +1,5 @@
-# NAME: MyDirect
-# AUTHOR: jimlee2048
-# REPO: https://github.com/jimlee2048/config-atc
-
-DOMAIN-SUFFIX,jiml.ee
-DOMAIN-SUFFIX,egesyx.lol
-DOMAIN,sub.nexconvert.com
-DOMAIN-SUFFIX,hf-mirror.com
-DOMAIN-SUFFIX,civitai.work
++.jiml.ee
++.egesyx.lol
+sub.nexconvert.com
++.hf-mirror.com
++.civitai.work
