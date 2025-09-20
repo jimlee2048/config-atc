@@ -503,11 +503,15 @@ rule-providers:
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
-  GameDirect:
+  GamesDownload:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-game-platforms-download.mrs
+  GamesDirect:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs
-  GameOverseas:
+  GamesOverseas:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs
@@ -605,7 +609,8 @@ rules:
   - RULE-SET,PT,🎯 全部直连
   - RULE-SET,Speedtest,📶 Speedtest
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
-  - RULE-SET,GameDirect,🎯 全部直连
+  - RULE-SET,GamesDownload,🎯 全部直连
+  - RULE-SET,GamesDirect,🎯 全部直连
   - RULE-SET,DeveloperDirect,🎯 全部直连
   - RULE-SET,DeveloperCN,🎯 全部直连
   - RULE-SET,GenAICN,🎯 全部直连
@@ -629,7 +634,7 @@ rules:
   - RULE-SET,Qobuz,🎵 Qobuz,no-resolve
   # 6. main: p3
   - RULE-SET,RestrictedZones,🈲 Restricted,no-resolve
-  - RULE-SET,GameOverseas,🎮 Games
+  - RULE-SET,GamesOverseas,🎮 Games
   - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,GenAIOverseas,✨ GenAI
   - RULE-SET,GenAIOverseasExtra,✨ GenAI
