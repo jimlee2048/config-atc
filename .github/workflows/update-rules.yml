@@ -24,7 +24,7 @@ jobs:
         run: python update-Tailscale_OfficialDERP.py
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
+        run: echo "date=$(date +'%Y-%m-%d %H:%M:%S')" >> "$GITHUB_OUTPUT"
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
