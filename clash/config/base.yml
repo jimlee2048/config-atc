@@ -489,7 +489,7 @@ rule-providers:
   Emby:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.list
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.mrs
   Spotify:
     <<: *x-rp-mrs
     behavior: domain
@@ -558,7 +558,7 @@ rule-providers:
   MicrosoftDirect:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.list
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs
   Microsoft:
     <<: *x-rp-mrs
     behavior: domain
@@ -588,7 +588,7 @@ rule-providers:
   Overseas_domain:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.list
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs
   China_ip:
     <<: *x-rp-mrs
     behavior: ipcidr
@@ -638,7 +638,7 @@ rules:
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Qobuz,🎵 Qobuz,no-resolve
   # 6. main: p3
-  - RULE-SET,RestrictedZones,🈲 Restricted,no-resolve
+  - RULE-SET,RestrictedZones,🈲 Restricted
   - RULE-SET,GamesOverseas,🎮 Games
   - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,GenAIOverseas,✨ GenAI
