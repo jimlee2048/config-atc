@@ -495,10 +495,9 @@ rule-providers:
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
   Qobuz:
-    # TODO: switch to domain behavior
     <<: *x-rp-text
-    behavior: classical
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Qobuz/Qobuz.list
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@refactor-config-next/clash/rules/Qobuz.list
   # 6. main: p3
   RestrictedZones:
     # TODO: switch to domain behavior
@@ -636,7 +635,7 @@ rules:
   - RULE-SET,TikTok,🎥 TikTok
   - RULE-SET,Emby,🎥 Emby Providers
   - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Qobuz,🎵 Qobuz,no-resolve
+  - RULE-SET,Qobuz,🎵 Qobuz
   # 6. main: p3
   - RULE-SET,RestrictedZones,🈲 Restricted
   - RULE-SET,GamesOverseas,🎮 Games
