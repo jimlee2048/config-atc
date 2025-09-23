@@ -1,10 +1,6 @@
-# NAME: MyProxy
-# AUTHOR: jimlee2048
-# REPO: https://github.com/jimlee2048/config-atc
-
-DOMAIN-SUFFIX,mikanani.me
-DOMAIN-SUFFIX,themoviedb.org
-DOMAIN,pkgs.tailscale.com
-DOMAIN,dl.tailscale.com
-DOMAIN,ip.istatmenus.app
-DOMAIN,ip6.istatmenus.app
++.mikanani.me
++.themoviedb.org
+pkgs.tailscale.com
+dl.tailscale.com
+ip.istatmenus.app
+ip6.istatmenus.app
