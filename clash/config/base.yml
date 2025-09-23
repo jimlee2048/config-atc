@@ -253,8 +253,7 @@ proxy-groups:
     <<: *x-pp-select-region
 
   - name: 🎥 Emby Providers
-    <<: *x-pp-select-region
-    include-all: true
+    <<: *x-pp-select-all-custom
     filter: "(?i:Emby)"
 
   - name: 🎥 Youtube
@@ -346,9 +345,7 @@ proxy-groups:
   #   filter: "(?i:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)"
 
   # - name: 🇨🇳 回国选择
-  #   type: select
-  #   include-all: true
-  #   hidden: true
+  #   <<: *x-pp-select-all-custom
   #   filter: '(?i:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)'
 
 ##### anchor area START #####
