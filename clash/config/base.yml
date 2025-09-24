@@ -513,10 +513,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs
-  DeveloperCN:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-dev-cn.mrs
   DeveloperDirect:
     <<: *x-rp-mrs
     behavior: domain
@@ -525,10 +521,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-dev.mrs
-  GenAICN:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-cn.mrs
   GenAIOverseas:
     <<: *x-rp-mrs
     behavior: domain
@@ -613,8 +605,6 @@ rules:
   - RULE-SET,GamesDownload,🎯 全部直连
   - RULE-SET,GamesDirect,🎯 全部直连
   - RULE-SET,DeveloperDirect,🎯 全部直连
-  - RULE-SET,DeveloperCN,🎯 全部直连
-  - RULE-SET,GenAICN,🎯 全部直连
   # 5. main: p2
   - RULE-SET,Bing,🇺🇸 美国优选
   - RULE-SET,OneDrive,☁️ Onedrive
