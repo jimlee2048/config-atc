@@ -219,6 +219,7 @@ dns: &base-dns
     - "rule-set:Speedtest"
     - "rule-set:Finance,HongKongBank"
     - "rule-set:China_domain"
+  respect-rules: true
   nameserver: *x-dns-overseas
   proxy-server-nameserver: *x-dns-china
   nameserver-policy:
