@@ -28,7 +28,7 @@ dns:
     "rule-set:Tracker,PT": *x-dns-china
     "rule-set:GamesDownload,GamesDirect": *x-dns-system
     "rule-set:DeveloperDirect": *x-dns-system
-    "rule-set:MicrosoftDirect,OneDrive": *x-dns-system
+    "rule-set:MicrosoftDirect": *x-dns-system
     "rule-set:China_domain": *x-dns-system
 
 tun:
