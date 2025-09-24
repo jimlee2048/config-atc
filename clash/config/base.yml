@@ -4,8 +4,6 @@ x-misc:
     '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
   regex-exclude-info-node: &x-regex-exclude-info-node
     '(?i)^(?!ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB)).*$'
-  regex-exclude-special-node: &x-regex-exclude-special-node
-    '(?i)^(?!.*(?:专用|noauto)).*$'
 
 x-dns:
   system: &x-dns-system
@@ -136,12 +134,10 @@ x-proxy-groups:
     interval: 300
     lazy: true
     include-all: true
-    filter: *x-regex-exclude-special-node
     # hidden: true
   region-select: &x-pg-region-select
     type: select
     include-all: true
-    filter: *x-regex-exclude-special-node
     # hidden: true
 
 x-rule-providers:
@@ -380,67 +376,67 @@ proxy-groups: &base-proxy-groups
   ## region groups
   - name: 🇭🇰 香港优选
     <<: *x-pg-region-urltest
-    filter: '(?i:🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)'
+    filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)).*$'
 
   - name: 🇺🇸 美国优选
     <<: *x-pg-region-urltest
-    filter: '(?i:🇺🇸|\bUS[A]?\b|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)'
+    filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇺🇸|\bUS[A]?\b|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)).*$'
 
   - name: 🇯🇵 日本优选
     <<: *x-pg-region-urltest
-    filter: '(?i:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-尼]日)'
+    filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-尼]日)).*$'
 
   - name: 🇹🇼 台湾优选
     <<: *x-pg-region-urltest
-    filter: '(?i:🇹🇼|\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b)'
+    filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇹🇼|\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b)).*$'
 
   - name: 🇸🇬 新加坡优选
     <<: *x-pg-region-urltest
-    filter: '(?i:🇸🇬|\bSG[P]?\b|Singapore|新加坡|狮城)'
+    filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇸🇬|\bSG[P]?\b|Singapore|新加坡|狮城)).*$'
 
   - name: 🇰🇷 韩国优选
     <<: *x-pg-region-urltest
-    filter: '(?i:🇰🇷|\bK[O]?R\b|Korea|首尔|韩|韓)'
+    filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇰🇷|\bK[O]?R\b|Korea|首尔|韩|韓)).*$'
 
   # - name: 🇮🇳 印度优选
   #   <<: *x-pg-region-urltest
-  #   filter: '(?i:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)'
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)).*$'
 
   # - name: 🇬🇧 英国优选
   #   <<: *x-pg-region-urltest
-  #   filter: '(?i:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)'
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)).*$'
 
   # - name: 🇫🇷 法国优选
   #   <<: *x-pg-region-urltest
-  #   filter: '(?i:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)'
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)).*$'
 
   # - name: 🇨🇦 加拿大优选
   #   <<: *x-pg-region-urltest
-  #   filter: '(?i:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)'
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)).*$'
 
   # - name: 🇦🇺 澳大利亚优选
   #   <<: *x-pg-region-urltest
-  #   filter: '(?i:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)'
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)).*$'
 
   # - name: 🇷🇺 俄罗斯优选
   #   <<: *x-pg-region-urltest
-  #   filter: '(?i:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)'
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)).*$'
 
   # - name: 🇹🇷 土耳其优选
   #   <<: *x-pg-region-urltest
-  #   filter: "(?i:🇹🇷|Turkey|土耳其|伊斯坦布尔)"
+  #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇹🇷|Turkey|土耳其|伊斯坦布尔)).*$"
 
   # - name: 🇦🇷 阿根廷优选
   #   <<: *x-pg-region-urltest
-  #   filter: "(?i:🇦🇷|Argentina|阿根廷)"
+  #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇦🇷|Argentina|阿根廷)).*$"
 
   # - name: 🇧🇷 巴西优选
   #   <<: *x-pg-region-urltest
-  #   filter: "(?i:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)"
+  #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)).*$"
 
   # - name: 🇨🇳 回国选择
   #   <<: *x-pg-control-select-all
-  #   filter: '(?i:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)'
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)).*$'
 
 rule-providers: &base-rule-providers
   # 1. lan
