@@ -1,3 +1,10 @@
+name: '🎩 Jim's Custom Override'
+desc: |-
+  Jim's Custom Override
+author: |-
+  jimlee2048[https://github.com/jimlee2048]
+homepage: 'https://github.com/jimlee2048/config-atc'
+
 dns: #!replace
   nameserver:
     - 119.29.29.29
