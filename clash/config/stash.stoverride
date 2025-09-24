@@ -7,6 +7,7 @@ dns: #!replace
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
   fallback-filter:
+    # source: https://github.com/vernesong/OpenClash/blob/master/luci-app-openclash/root/etc/openclash/custom/openclash_custom_fallback_filter.yaml
     geoip: true
     geoip-code: CN
     ipcidr:
@@ -38,6 +39,7 @@ dns: #!replace
       - "+.msftconnecttest.com"
       - "+.msftncsi.com"
   fake-ip-filter:
+    # source: https://github.com/vernesong/OpenClash/blob/master/luci-app-openclash/root/etc/openclash/custom/openclash_custom_fake_filter.list
     # LAN
     - "*.lan"
     - "*.localdomain"

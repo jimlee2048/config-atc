@@ -217,6 +217,7 @@ dns: &base-dns
     - "rule-set:Games"
     - "rule-set:GoogleVoice"
     - "rule-set:Speedtest"
+    - "rule-set:Finance"
     - "rule-set:China_domain"
   nameserver: *x-dns-overseas
   nameserver-policy:
@@ -666,6 +667,10 @@ rule-providers: &base-rule-providers
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games.mrs
+  Finance:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-finance.mrs
 
 rules: &base-rules
   # domain > classical > ipcidr
