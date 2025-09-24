@@ -217,7 +217,7 @@ dns: &base-dns
     - "rule-set:Games"
     - "rule-set:GoogleVoice"
     - "rule-set:Speedtest"
-    - "rule-set:Finance"
+    - "rule-set:Finance,HongKongBank"
     - "rule-set:China_domain"
   nameserver: *x-dns-overseas
   nameserver-policy:
