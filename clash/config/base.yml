@@ -231,9 +231,6 @@ proxy-groups:
   - name: Ⓜ️ Microsoft
     <<: *x-pp-select-region
 
-  - name: ☁️ Onedrive
-    <<: *x-pp-select-region-direct
-
   - name: 💻 Developer
     <<: *x-pp-select-region
 
@@ -431,10 +428,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bing.mrs
-  OneDrive:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs
   GoogleVoice:
     <<: *x-rp-text
     behavior: domain
@@ -543,6 +536,10 @@ rule-providers:
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
   # 7. main: p4
+  OneDrive:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs
   MicrosoftDirect:
     <<: *x-rp-mrs
     behavior: domain
@@ -607,7 +604,6 @@ rules:
   - RULE-SET,DeveloperDirect,🎯 全部直连
   # 5. main: p2
   - RULE-SET,Bing,🇺🇸 美国优选
-  - RULE-SET,OneDrive,☁️ Onedrive
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Telegram_domain,💬 Telegram
   - RULE-SET,Telegram_ip,💬 Telegram,no-resolve
@@ -633,6 +629,7 @@ rules:
   - RULE-SET,CryptoExtra,💰 Crypto
   - RULE-SET,HongKongBank,💰 Banking@HK,no-resolve
   # 7. main: p4
+  - RULE-SET,OneDrive,🎯 全部直连
   - RULE-SET,MicrosoftDirect,🎯 全部直连
   - RULE-SET,Microsoft,Ⓜ️ Microsoft
   - RULE-SET,Google_domain,🍭 Google
