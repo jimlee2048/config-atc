@@ -221,14 +221,14 @@ dns: &base-dns
     - "rule-set:China_domain"
   nameserver: *x-dns-overseas
   nameserver-policy:
-    "rule-set:Private_domain": *x-dns-system
-    "rule-set:MyDirect,MyDirect02": *x-dns-system
+    "rule-set:Private_domain": *x-dns-china
+    "rule-set:MyDirect,MyDirect02": *x-dns-china
     "rule-set:TailscaleDERP,Tailscale_domain": *x-dns-china
     "rule-set:Tracker,PT": *x-dns-china
-    "rule-set:GamesDownload,GamesDirect": *x-dns-system
-    "rule-set:DeveloperDirect": *x-dns-system
-    "rule-set:MicrosoftDirect": *x-dns-system
-    "rule-set:China_domain": *x-dns-system
+    "rule-set:GamesDownload,GamesDirect": *x-dns-china
+    "rule-set:DeveloperDirect": *x-dns-china
+    "rule-set:MicrosoftDirect": *x-dns-china
+    "rule-set:China_domain": *x-dns-china
 tun:
   enable: true
   stack: mixed
