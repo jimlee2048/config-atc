@@ -208,7 +208,7 @@ dns: &base-dns
     - "rule-set:ConnectivityCheck"
     - "rule-set:Private_domain"
     - "rule-set:MyDirect,MyDirect02"
-    - "rule-set:TailscaleDERP,Tailscale_domain"
+    - "rule-set:TailscaleDERP_domain,Tailscale_domain"
     - "rule-set:Tracker,PT"
     - "rule-set:Games"
     - "rule-set:GoogleVoice"
@@ -221,7 +221,7 @@ dns: &base-dns
   nameserver-policy:
     "rule-set:Private_domain": *x-dns-china
     "rule-set:MyDirect,MyDirect02": *x-dns-china
-    "rule-set:TailscaleDERP,Tailscale_domain": *x-dns-china
+    "rule-set:TailscaleDERP_domain,Tailscale_domain": *x-dns-china
     "rule-set:Tracker,PT": *x-dns-china
     "rule-set:GamesDownload,GamesDirect": *x-dns-china
     "rule-set:DeveloperDirect": *x-dns-china
@@ -473,10 +473,14 @@ rule-providers: &base-rule-providers
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
   # 4. main: p1
-  TailscaleDERP:
+  TailscaleDERP_domain:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_domain.list
+  TailscaleDERP_ip:
+    <<: *x-rp-text
+    behavior: ipcidr
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_ip.list
   Tailscale_domain:
     <<: *x-rp-text
     behavior: domain
@@ -683,8 +687,9 @@ rules: &base-rules
   - RULE-SET,MyProxy,🔰 节点选择
   - RULE-SET,MyProxy02,🔰 节点选择
   # 4. main: p1
-  - RULE-SET,TailscaleDERP,🎯 全部直连
+  - RULE-SET,TailscaleDERP_domain,🎯 全部直连
   - RULE-SET,Tailscale_domain,🎯 全部直连
+  - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
   - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
   - RULE-SET,Tracker,🎯 全部直连
   - RULE-SET,PT,🎯 全部直连
