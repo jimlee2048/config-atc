@@ -20,25 +20,16 @@ dns:
   fake-ip-filter:
     - "rule-set:GeneralFakeIPFilter"
     - "rule-set:MyFakeIPFilter"
-  nameserver:
-    <<: *x-dns-overseas
+  nameserver: *x-dns-overseas
   nameserver-policy:
-    "rule-set:Private_domain":
-      <<: *x-dns-system
-    "rule-set:MyDirect,MyDirect02":
-      <<: *x-dns-system
-    "rule-set:TailscaleDERP,Tailscale_domain":
-      <<: *x-dns-china
-    "rule-set:Tracker,PT":
-      <<: *x-dns-china
-    "rule-set:GamesDownload,GamesDirect":
-      <<: *x-dns-system
-    "rule-set:DeveloperDirect":
-      <<: *x-dns-system
-    "rule-set:MicrosoftDirect,OneDrive":
-      <<: *x-dns-system
-    "rule-set:China_domain":
-      <<: *x-dns-system
+    "rule-set:Private_domain": *x-dns-system
+    "rule-set:MyDirect,MyDirect02": *x-dns-system
+    "rule-set:TailscaleDERP,Tailscale_domain": *x-dns-china
+    "rule-set:Tracker,PT": *x-dns-china
+    "rule-set:GamesDownload,GamesDirect": *x-dns-system
+    "rule-set:DeveloperDirect": *x-dns-system
+    "rule-set:MicrosoftDirect,OneDrive": *x-dns-system
+    "rule-set:China_domain": *x-dns-system
 
 tun:
   enable: true
