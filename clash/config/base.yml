@@ -459,18 +459,16 @@ rule-providers: &base-rule-providers
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyDirect.list
   MyDirect02:
-    # TODO: switch to domain behavior
     <<: *x-rp-text
-    behavior: classical
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
   MyProxy:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyProxy.list
   MyProxy02:
-    # TODO: switch to domain behavior
     <<: *x-rp-text
-    behavior: classical
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
   # 4. main: p1
   TailscaleDERP_domain:
@@ -617,9 +615,8 @@ rule-providers: &base-rule-providers
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
   HongKongBank:
-    # TODO: switch to domain behavior
     <<: *x-rp-text
-    behavior: classical
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
   # 7. main: p4
   MicrosoftDirect:
