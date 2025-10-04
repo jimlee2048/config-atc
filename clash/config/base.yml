@@ -679,6 +679,7 @@ rules: &base-rules
   # 1. local
   - RULE-SET,Private_domain,🎯 全部直连
   - RULE-SET,Private_ip,🎯 全部直连,no-resolve
+  - RULE-SET,DstPortDirect,🎯 全部直连
   # 2. block
   - RULE-SET,AdobeTelemetry,🛑 Block
   # 3. custom override
