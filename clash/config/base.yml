@@ -448,6 +448,10 @@ rule-providers: &base-rule-providers
     <<: *x-rp-mrs
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
+  DstPortDirect:
+    <<: *x-rp-text
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/DstPortDirect.list
   # 2. block
   AdobeTelemetry:
     <<: *x-rp-text
