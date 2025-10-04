@@ -574,9 +574,8 @@ rule-providers: &base-rule-providers
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Qobuz.list
   # 6. main: p3
   RestrictedZones:
-    # TODO: switch to domain behavior
     <<: *x-rp-text
-    behavior: classical
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
   GamesDownload:
     <<: *x-rp-mrs
