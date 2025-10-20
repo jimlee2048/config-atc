@@ -8,3 +8,5 @@ cdn-lfs.huggingface.co
 cdn-uploads.huggingface.co
 cdn-telegram.org
 +.production.cloudflare.docker.com
++.mediafire.com
++.mediafire.dev
