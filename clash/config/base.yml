@@ -158,17 +158,42 @@ x-rule-providers:
 
 ##### config area START #####
 # general
-mixed-port: 7890
+mode: rule
 ipv6: false
+mixed-port: 7890
 allow-lan: true
-external-controller: 127.0.0.1:9090
+lan-allowed-ips:
+  - 127.0.0.1/32
+  - 192.168.0.0/16
+  - 10.0.0.0/8
+  - 172.16.0.0/12
+  - 100.64.0.0/10
+tun:
+  enable: true
+  mtu: 1500
+  stack: mixed
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
 profile:
   store-selected: true
   store-fake-ip: true
 # meta general
+external-controller: 127.0.0.1:9090
 unified-delay: true
 tcp-concurrent: true
 global-client-fingerprint: chrome
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"
 
 ## meta sniffer (for redir-host)
 # sniffer:
@@ -219,14 +244,6 @@ dns: &base-dns
   nameserver: *x-dns-overseas
   proxy-server-nameserver: *x-dns-china
   direct-nameserver: *x-dns-china
-tun:
-  enable: true
-  stack: mixed
-  auto-route: true
-  auto-detect-interface: true
-  dns-hijack:
-    - any:53
-    - "tcp://any:53"
 
 # proxies
 proxy-groups: &base-proxy-groups
