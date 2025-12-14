@@ -315,12 +315,6 @@ proxy-groups: &base-proxy-groups
     proxies:
       - DIRECT
 
-  - name: 🛑 Block
-    type: select
-    hidden: true
-    proxies:
-      - REJECT
-
   ## services groups
   - name: 🍎 Apple
     <<: *x-pg-control-select-direct
@@ -525,30 +519,30 @@ rule-providers: &base-rule-providers
 rules: &base-rules
   # domain > classical > ipcidr
   # 1. local
-  - GEOSITE,private,🎯 全部直连
-  - GEOIP,private,🎯 全部直连,no-resolve
-  - RULE-SET,DstPortDirect,🎯 全部直连
+  - GEOSITE,private,DIRECT
+  - GEOIP,private,DIRECT,no-resolve
+  - RULE-SET,DstPortDirect,DIRECT
   # 2. block
-  - RULE-SET,AdobeTelemetry,🛑 Block
+  - RULE-SET,AdobeTelemetry,REJECT
   # 3. custom override
-  - RULE-SET,MyDirect,🎯 全部直连
-  - RULE-SET,MyDirect02,🎯 全部直连
+  - RULE-SET,MyDirect,DIRECT
+  - RULE-SET,MyDirect02,DIRECT
   - RULE-SET,MyProxy,🔰 节点选择
   - RULE-SET,MyProxy02,🔰 节点选择
   # 4. main: p1
-  - RULE-SET,TailscaleDERP_domain,🎯 全部直连
-  - RULE-SET,Tailscale_domain,🎯 全部直连
-  - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
-  - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
-  - GEOSITE,tracker,🎯 全部直连
-  - GEOSITE,category-pt,🎯 全部直连
+  - RULE-SET,TailscaleDERP_domain,DIRECT
+  - RULE-SET,Tailscale_domain,DIRECT
+  - RULE-SET,TailscaleDERP_ip,DIRECT,no-resolve
+  - RULE-SET,Tailscale_ip,DIRECT,no-resolve
+  - GEOSITE,tracker,DIRECT
+  - GEOSITE,category-pt,DIRECT
   - GEOSITE,category-speedtest,📶 Speedtest
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
-  - GEOSITE,category-game-platforms-download,🎯 全部直连
-  - GEOSITE,category-games@cn,🎯 全部直连
-  - GEOSITE,category-dev@cn,🎯 全部直连
-  - GEOSITE,microsoft@cn,🎯 全部直连
-  - RULE-SET,AppleCDN,🎯 全部直连
+  - GEOSITE,category-game-platforms-download,DIRECT
+  - GEOSITE,category-games@cn,DIRECT
+  - GEOSITE,category-dev@cn,DIRECT
+  - GEOSITE,microsoft@cn,DIRECT
+  - RULE-SET,AppleCDN,DIRECT
   # 5. main: p2
   - GEOSITE,bing,🇺🇸 美国优选
   - GEOSITE,onedrive,☁️ Onedrive
@@ -582,9 +576,9 @@ rules: &base-rules
   - GEOIP,google,🍭 Google,no-resolve
   - GEOSITE,apple,🍎 Apple
   # 8. final
-  - GEOSITE,cn,🎯 全部直连
+  - GEOSITE,cn,DIRECT
   - GEOSITE,geolocation-!cn,🔰 节点选择
-  - GEOIP,cn,🎯 全部直连,no-resolve
+  - GEOIP,cn,DIRECT,no-resolve
   - MATCH,🐟 漏网之鱼
 
 ###### config area END #####
