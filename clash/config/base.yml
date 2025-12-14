@@ -244,7 +244,19 @@ dns: &base-dns
   respect-rules: true
   nameserver: *x-dns-overseas
   proxy-server-nameserver: *x-dns-china
-  direct-nameserver: *x-dns-china
+  nameserver-policy:
+    "geosite:private": *x-dns-china
+    "rule-set:MyDirect,MyDirect02": *x-dns-china
+    "rule-set:TailscaleDERP_domain,Tailscale_domain": *x-dns-china
+    "geosite:tracker": *x-dns-china
+    "geosite:category-pt": *x-dns-china
+    "geosite:category-game-platforms-download": *x-dns-china
+    "geosite:category-games@cn": *x-dns-china
+    "geosite:category-dev@cn": *x-dns-china
+    "geosite:microsoft@cn": *x-dns-china
+    "rule-set:AppleCDN": *x-dns-china
+    "geosite:cn": *x-dns-china
+  # direct-nameserver: *x-dns-china
 
 # proxies
 proxy-groups: &base-proxy-groups
