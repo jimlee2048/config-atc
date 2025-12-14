@@ -229,16 +229,18 @@ dns: &base-dns
     - "+.stun.*.*.*"
     - "+.stun.*.*.*.*"
     - "+.stun.*.*.*.*.*"
-    - "rule-set:ConnectivityCheck"
-    - "rule-set:Private_domain"
+    - "geosite:connectivity-check"
+    - "geosite:private"
     - "rule-set:MyDirect,MyDirect02"
     - "rule-set:TailscaleDERP_domain,Tailscale_domain"
-    - "rule-set:Tracker,PT"
-    - "rule-set:Games"
+    - "geosite:tracker"
+    - "geosite:category-pt"
+    - "geosite:category-games"
     - "rule-set:GoogleVoice"
-    - "rule-set:Speedtest"
-    - "rule-set:Finance,HongKongBank"
-    - "rule-set:China_domain"
+    - "geosite:category-speedtest"
+    - "geosite:category-finance"
+    - "rule-set:HongKongBank"
+    - "geosite:cn"
   respect-rules: true
   nameserver: *x-dns-overseas
   proxy-server-nameserver: *x-dns-china
@@ -447,25 +449,14 @@ proxy-groups: &base-proxy-groups
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)).*$'
 
 rule-providers: &base-rule-providers
-  # 1. lan
-  Private_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs
-  Private_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
   DstPortDirect:
     <<: *x-rp-text
     behavior: classical
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/DstPortDirect.list
-  # 2. block
   AdobeTelemetry:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
-  # 3. custom override
   MyDirect:
     <<: *x-rp-text
     behavior: domain
@@ -482,7 +473,6 @@ rule-providers: &base-rule-providers
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
-  # 4. main: p1
   TailscaleDERP_domain:
     <<: *x-rp-text
     behavior: domain
@@ -499,128 +489,26 @@ rule-providers: &base-rule-providers
     <<: *x-rp-text
     behavior: ipcidr
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_ip.list
-  Tracker:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tracker.mrs
-  PT:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-pt.mrs
-  Speedtest:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-speedtest.mrs
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/ProxyHighBandwidth.list
-  # 5. main: p2
-  Bing:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bing.mrs
-  OneDrive:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs
   GoogleVoice:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
-  Telegram_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs
-  Telegram_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs
-  Twitter_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitter.mrs
-  Twitter_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/twitter.mrs
-  Nintendo:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nintendo.mrs
-  YouTube:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
-  Netflix_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs
-  Netflix_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs
-  AppleTV:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-tvplus.mrs
-  Bahamut:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.mrs
-  TikTok:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs
-  Emby:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.mrs
-  Spotify:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
   Qobuz:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Qobuz.list
-  # 6. main: p3
   RestrictedZones:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
-  GamesDownload:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-game-platforms-download.mrs
-  GamesDirect:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs
-  GamesOverseas:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs
-  DeveloperDirect:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-dev@cn.mrs
-  DeveloperOverseas:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-dev.mrs
-  GenAIOverseas:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs
-  GenAIOverseasExtra:
+  GenAIExtra:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
-  Crypto:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-cryptocurrency.mrs
   CryptoExtra:
     <<: *x-rp-text
     behavior: domain
@@ -629,62 +517,16 @@ rule-providers: &base-rule-providers
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
-  # 7. main: p4
-  MicrosoftDirect:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs
-  Microsoft:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs
-  Google_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
-  Google_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs
   AppleCDN:
     <<: *x-rp-text
     behavior: domain
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
-  Apple:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs
-  China_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs
-  Overseas_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs
-  China_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
-  # ex1. dns policy assists
-  ConnectivityCheck:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/connectivity-check.mrs
-  Games:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games.mrs
-  Finance:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-finance.mrs
 
 rules: &base-rules
   # domain > classical > ipcidr
   # 1. local
-  - RULE-SET,Private_domain,🎯 全部直连
-  - RULE-SET,Private_ip,🎯 全部直连,no-resolve
+  - GEOSITE,private,🎯 全部直连
+  - GEOIP,private,🎯 全部直连,no-resolve
   - RULE-SET,DstPortDirect,🎯 全部直连
   # 2. block
   - RULE-SET,AdobeTelemetry,🛑 Block
@@ -698,51 +540,51 @@ rules: &base-rules
   - RULE-SET,Tailscale_domain,🎯 全部直连
   - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
   - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
-  - RULE-SET,Tracker,🎯 全部直连
-  - RULE-SET,PT,🎯 全部直连
-  - RULE-SET,Speedtest,📶 Speedtest
+  - GEOSITE,tracker,🎯 全部直连
+  - GEOSITE,category-pt,🎯 全部直连
+  - GEOSITE,category-speedtest,📶 Speedtest
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
-  - RULE-SET,GamesDownload,🎯 全部直连
-  - RULE-SET,GamesDirect,🎯 全部直连
-  - RULE-SET,DeveloperDirect,🎯 全部直连
-  - RULE-SET,MicrosoftDirect,🎯 全部直连
+  - GEOSITE,category-game-platforms-download,🎯 全部直连
+  - GEOSITE,category-games@cn,🎯 全部直连
+  - GEOSITE,category-dev@cn,🎯 全部直连
+  - GEOSITE,microsoft@cn,🎯 全部直连
   - RULE-SET,AppleCDN,🎯 全部直连
   # 5. main: p2
-  - RULE-SET,Bing,🇺🇸 美国优选
-  - RULE-SET,OneDrive,☁️ Onedrive
+  - GEOSITE,bing,🇺🇸 美国优选
+  - GEOSITE,onedrive,☁️ Onedrive
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
-  - RULE-SET,Telegram_domain,💬 Telegram
-  - RULE-SET,Telegram_ip,💬 Telegram,no-resolve
-  - RULE-SET,Twitter_domain,𝕏 Twitter
-  - RULE-SET,Twitter_ip,𝕏 Twitter,no-resolve
-  - RULE-SET,Nintendo,🎮 Nintendo
-  - RULE-SET,YouTube,🎥 Youtube
-  - RULE-SET,Netflix_domain,🎥 Netflix
-  - RULE-SET,Netflix_ip,🎥 Netflix,no-resolve
-  - RULE-SET,AppleTV,🎥 Apple TV
-  - RULE-SET,Bahamut,🇹🇼 台湾优选
-  - RULE-SET,TikTok,🎥 TikTok
-  - RULE-SET,Emby,🎥 Emby Providers
-  - RULE-SET,Spotify,🎵 Spotify
+  - GEOSITE,telegram,💬 Telegram
+  - GEOIP,telegram,💬 Telegram,no-resolve
+  - GEOSITE,twitter,𝕏 Twitter
+  - GEOIP,twitter,𝕏 Twitter,no-resolve
+  - GEOSITE,nintendo,🎮 Nintendo
+  - GEOSITE,youtube,🎥 Youtube
+  - GEOSITE,netflix,🎥 Netflix
+  - GEOIP,netflix,🎥 Netflix,no-resolve
+  - GEOSITE,apple-tvplus,🎥 Apple TV
+  - GEOSITE,bahamut,🇹🇼 台湾优选
+  - GEOSITE,tiktok,🎥 TikTok
+  - GEOSITE,category-emby,🎥 Emby Providers
+  - GEOSITE,spotify,🎵 Spotify
   - RULE-SET,Qobuz,🎵 Qobuz
   # 6. main: p3
   - RULE-SET,RestrictedZones,🈲 Restricted
-  - RULE-SET,GamesOverseas,🎮 Games
-  - RULE-SET,DeveloperOverseas,💻 Developer
-  - RULE-SET,GenAIOverseas,✨ GenAI
-  - RULE-SET,GenAIOverseasExtra,✨ GenAI
-  - RULE-SET,Crypto,💰 Crypto
+  - GEOSITE,category-games-!cn,🎮 Games
+  - GEOSITE,category-dev,💻 Developer
+  - GEOSITE,category-ai-!cn,✨ GenAI
+  - RULE-SET,GenAIExtra,✨ GenAI
+  - GEOSITE,category-cryptocurrency,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
   - RULE-SET,HongKongBank,💰 Banking@HK
   # 7. main: p4
-  - RULE-SET,Microsoft,Ⓜ️ Microsoft
-  - RULE-SET,Google_domain,🍭 Google
-  - RULE-SET,Google_ip,🍭 Google,no-resolve
-  - RULE-SET,Apple,🍎 Apple
+  - GEOSITE,microsoft,Ⓜ️ Microsoft
+  - GEOSITE,google,🍭 Google
+  - GEOIP,google,🍭 Google,no-resolve
+  - GEOSITE,apple,🍎 Apple
   # 8. final
-  - RULE-SET,China_domain,🎯 全部直连
-  - RULE-SET,Overseas_domain,🔰 节点选择
-  - RULE-SET,China_ip,🎯 全部直连,no-resolve
+  - GEOSITE,cn,🎯 全部直连
+  - GEOSITE,geolocation-!cn,🔰 节点选择
+  - GEOIP,cn,🎯 全部直连,no-resolve
   - MATCH,🐟 漏网之鱼
 
 ###### config area END #####
