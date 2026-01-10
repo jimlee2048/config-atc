@@ -231,8 +231,10 @@ dns: &base-dns
     - "+.stun.*.*.*.*.*"
     - "geosite:connectivity-check"
     - "geosite:private"
-    - "rule-set:MyDirect,MyDirect02"
-    - "rule-set:TailscaleDERP_domain,Tailscale_domain"
+    - "rule-set:MyDirect"
+    - "rule-set:MyDirect02"
+    - "rule-set:TailscaleDERP_domain"
+    - "rule-set:Tailscale_domain"
     - "geosite:tracker"
     - "geosite:category-pt"
     - "geosite:category-games"
@@ -245,8 +247,10 @@ dns: &base-dns
   proxy-server-nameserver: *x-dns-china
   nameserver-policy:
     "geosite:private": *x-dns-china
-    "rule-set:MyDirect,MyDirect02": *x-dns-china
-    "rule-set:TailscaleDERP_domain,Tailscale_domain": *x-dns-china
+    "rule-set:MyDirect": *x-dns-china
+    "rule-set:MyDirect02": *x-dns-china
+    "rule-set:TailscaleDERP_domain": *x-dns-china
+    "rule-set:Tailscale_domain": *x-dns-china
     "geosite:tracker": *x-dns-china
     "geosite:category-pt": *x-dns-china
     "geosite:category-game-platforms-download": *x-dns-china
