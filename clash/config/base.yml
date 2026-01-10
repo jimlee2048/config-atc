@@ -239,7 +239,6 @@ dns: &base-dns
     - "rule-set:GoogleVoice"
     - "geosite:category-speedtest"
     - "geosite:category-finance"
-    - "rule-set:HongKongBank"
     - "geosite:cn"
   respect-rules: true
   nameserver: *x-dns-overseas
@@ -253,6 +252,7 @@ dns: &base-dns
     "geosite:category-game-platforms-download": *x-dns-china
     "geosite:category-games@cn": *x-dns-china
     "geosite:category-dev@cn": *x-dns-china
+    "geosite:category-finance@cn": *x-dns-china
     "geosite:microsoft@cn": *x-dns-china
     "rule-set:AppleCDN": *x-dns-china
     "geosite:cn": *x-dns-china
@@ -374,11 +374,11 @@ proxy-groups: &base-proxy-groups
   - name: 🎥 TikTok
     <<: *x-pg-control-select-proxy
 
-  - name: 💰 Crypto
+  - name: 💰 Finance
     <<: *x-pg-control-select-proxy
 
-  - name: 💰 Banking@HK
-    <<: *x-pg-control-select-direct
+  - name: 💰 Crypto
+    <<: *x-pg-control-select-proxy
 
   - name: 💬 Telegram
     <<: *x-pg-control-select-proxy
@@ -519,10 +519,6 @@ rule-providers: &base-rule-providers
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
-  HongKongBank:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
   AppleCDN:
     <<: *x-rp-text
     behavior: domain
@@ -553,6 +549,7 @@ rules: &base-rules
   - GEOSITE,category-game-platforms-download,DIRECT
   - GEOSITE,category-games@cn,DIRECT
   - GEOSITE,category-dev@cn,DIRECT
+  - GEOSITE,category-finance@cn,DIRECT
   - GEOSITE,microsoft@cn,DIRECT
   - RULE-SET,AppleCDN,DIRECT
   # 5. main: p2
@@ -577,11 +574,11 @@ rules: &base-rules
   - RULE-SET,RestrictedZones,🈲 Restricted
   - GEOSITE,category-games-!cn,🎮 Games
   - GEOSITE,category-dev,💻 Developer
+  - GEOSITE,category-finance,💰 Finance
   - GEOSITE,category-ai-!cn,✨ GenAI
   - RULE-SET,GenAIExtra,✨ GenAI
   - GEOSITE,category-cryptocurrency,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
-  - RULE-SET,HongKongBank,💰 Banking@HK
   # 7. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft
   - GEOSITE,google,🍭 Google
