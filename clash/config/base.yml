@@ -574,11 +574,11 @@ rules: &base-rules
   - RULE-SET,RestrictedZones,🈲 Restricted
   - GEOSITE,category-games-!cn,🎮 Games
   - GEOSITE,category-dev,💻 Developer
-  - GEOSITE,category-finance,💰 Finance
   - GEOSITE,category-ai-!cn,✨ GenAI
   - RULE-SET,GenAIExtra,✨ GenAI
   - GEOSITE,category-cryptocurrency,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
+  - GEOSITE,category-finance,💰 Finance
   # 7. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft
   - GEOSITE,google,🍭 Google
