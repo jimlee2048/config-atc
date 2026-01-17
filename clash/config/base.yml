@@ -241,6 +241,7 @@ dns: &base-dns
     - "rule-set:GoogleVoice"
     - "geosite:category-speedtest"
     - "geosite:category-finance"
+    - "rule-set:FinanceExtra"
     - "geosite:cn"
   respect-rules: true
   nameserver: *x-dns-overseas
@@ -523,6 +524,10 @@ rule-providers: &base-rule-providers
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
+  FinanceExtra:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/FinanceExtra.list
   AppleCDN:
     <<: *x-rp-text
     behavior: domain
@@ -583,6 +588,7 @@ rules: &base-rules
   - GEOSITE,category-cryptocurrency,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
   - GEOSITE,category-finance,💰 Finance
+  - RULE-SET,FinanceExtra,💰 Finance
   # 7. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft
   - GEOSITE,google,🍭 Google
