@@ -1,5 +1,6 @@
 pkgs.tailscale.com
 dl.tailscale.com
 ip.istatmenus.app
+ip4.istatmenus.app
 ip6.istatmenus.app
 +.openwrt.ai
