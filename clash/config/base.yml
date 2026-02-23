@@ -592,7 +592,9 @@ rules: &base-rules
   - GEOSITE,cn,DIRECT
   - GEOSITE,geolocation-!cn,🔰 节点选择
   - GEOIP,cn,DIRECT,no-resolve
-  - DST-PORT,80/443,🐟 漏网之鱼
+  - DST-PORT,80,🐟 漏网之鱼
+  - DST-PORT,443,🐟 漏网之鱼
+  - DST-PORT,853,🐟 漏网之鱼
   - MATCH,DIRECT
 
 ###### config area END #####
