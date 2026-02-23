@@ -459,10 +459,6 @@ proxy-groups: &base-proxy-groups
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)).*$'
 
 rule-providers: &base-rule-providers
-  DstPortDirect:
-    <<: *x-rp-text
-    behavior: classical
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/DstPortDirect.list
   AdobeTelemetry:
     <<: *x-rp-text
     behavior: domain
@@ -537,7 +533,6 @@ rules: &base-rules
   # 1. local
   - GEOSITE,private,DIRECT
   - GEOIP,private,DIRECT,no-resolve
-  - RULE-SET,DstPortDirect,DIRECT
   # 2. block
   - RULE-SET,AdobeTelemetry,REJECT
   # 3. custom override
@@ -597,6 +592,7 @@ rules: &base-rules
   - GEOSITE,cn,DIRECT
   - GEOSITE,geolocation-!cn,🔰 节点选择
   - GEOIP,cn,DIRECT,no-resolve
-  - MATCH,🐟 漏网之鱼
+  - DST-PORT,80/443,🐟 漏网之鱼
+  - MATCH,DIRECT
 
 ###### config area END #####
