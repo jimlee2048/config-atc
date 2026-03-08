@@ -554,7 +554,6 @@ rules: &base-rules
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
   - GEOSITE,category-game-platforms-download,DIRECT
   - GEOSITE,category-games@cn,DIRECT
-  - GEOSITE,steam@cn,DIRECT
   - GEOSITE,category-dev@cn,DIRECT
   - GEOSITE,category-finance@cn,DIRECT
   - GEOSITE,microsoft@cn,DIRECT
