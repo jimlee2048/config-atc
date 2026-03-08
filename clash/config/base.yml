@@ -356,6 +356,9 @@ proxy-groups: &base-proxy-groups
   - name: 🎮 Nintendo
     <<: *x-pg-control-select-direct
 
+  - name: 🎮 Steam
+    <<: *x-pg-control-select-proxy
+
   - name: 🎵 Spotify
     <<: *x-pg-control-select-proxy
 
@@ -551,6 +554,7 @@ rules: &base-rules
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
   - GEOSITE,category-game-platforms-download,DIRECT
   - GEOSITE,category-games@cn,DIRECT
+  - GEOSITE,steam@cn,DIRECT
   - GEOSITE,category-dev@cn,DIRECT
   - GEOSITE,category-finance@cn,DIRECT
   - GEOSITE,microsoft@cn,DIRECT
@@ -564,6 +568,7 @@ rules: &base-rules
   - GEOSITE,twitter,𝕏 Twitter
   - GEOIP,twitter,𝕏 Twitter,no-resolve
   - GEOSITE,nintendo,🎮 Nintendo
+  - GEOSITE,steam,🎮 Steam
   - GEOSITE,youtube,🎥 Youtube
   - GEOSITE,netflix,🎥 Netflix
   - GEOIP,netflix,🎥 Netflix,no-resolve
