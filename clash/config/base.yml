@@ -155,7 +155,6 @@ x-rule-providers:
     interval: 86400
 ##### anchor area END #####
 
-
 ##### config area START #####
 # general
 mode: rule
@@ -354,6 +353,9 @@ proxy-groups: &base-proxy-groups
     <<: *x-pg-control-select-direct
 
   - name: 🎮 Nintendo
+    <<: *x-pg-control-select-direct
+
+  - name: 🎮 PlayStation
     <<: *x-pg-control-select-direct
 
   - name: 🎮 Steam
@@ -567,6 +569,7 @@ rules: &base-rules
   - GEOSITE,twitter,𝕏 Twitter
   - GEOIP,twitter,𝕏 Twitter,no-resolve
   - GEOSITE,nintendo,🎮 Nintendo
+  - GEOSITE,playstation,🎮 PlayStation
   - GEOSITE,steam,🎮 Steam
   - GEOSITE,youtube,🎥 Youtube
   - GEOSITE,netflix,🎥 Netflix
