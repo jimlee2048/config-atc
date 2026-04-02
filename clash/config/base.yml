@@ -1,9 +1,7 @@
 ##### anchor area START #####
 x-misc:
-  regex-include-info-node: &x-regex-include-info-node
-    '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
-  regex-exclude-info-node: &x-regex-exclude-info-node
-    '(?i)^(?!ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB)).*$'
+  regex-include-info-node: &x-regex-include-info-node '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
+  regex-exclude-info-node: &x-regex-exclude-info-node '(?i)^(?!ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB)).*$'
 
 x-dns:
   system: &x-dns-system
@@ -244,6 +242,8 @@ dns: &base-dns
   respect-rules: true
   nameserver: *x-dns-overseas
   proxy-server-nameserver: *x-dns-china
+  proxy-server-nameserver-policy:
+    "*.oix_nodes.com": 124.221.68.73:1053
   nameserver-policy:
     "geosite:private": *x-dns-china
     "rule-set:MyDirect": *x-dns-china
@@ -262,8 +262,7 @@ dns: &base-dns
   # direct-nameserver: *x-dns-china
 
 # proxies
-proxy-groups: &base-proxy-groups
-  ## control groups
+proxy-groups: &base-proxy-groups ## control groups
   - name: ℹ️ 订阅信息
     <<: *x-pg-control-select-all
     filter: *x-regex-include-info-node
