@@ -3,13 +3,14 @@ desc: |-
   Jim's Custom Override
 author: |-
   jimlee2048[https://github.com/jimlee2048]
-homepage: 'https://github.com/jimlee2048/config-atc'
-
+homepage: "https://github.com/jimlee2048/config-atc"
 dns: #!replace
   nameserver:
     - 119.29.29.29
     - 223.5.5.5
     - system
+  nameserver-policy:
+    "*.oix_nodes.com": "124.221.68.73:1053"
   fallback:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
@@ -174,7 +175,7 @@ dns: #!replace
     - "*.mcdn.bilivideo.cn"
     #Disney Plus
     - "+.media.dssott.com"
-    #shark007 Codecs 
+    #shark007 Codecs
     - "shark007.net"
     #Mijia
     - "Mijia Cloud"
