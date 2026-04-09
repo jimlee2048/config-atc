@@ -243,7 +243,7 @@ dns: &base-dns
   nameserver: *x-dns-overseas
   proxy-server-nameserver: *x-dns-china
   proxy-server-nameserver-policy:
-    "*.oix_nodes.com": "124.221.68.73:1053"
+    "+.cloud-nodes.com": ["140.205.1.13", "124.221.68.73:1053"]
   nameserver-policy:
     "geosite:private": *x-dns-china
     "rule-set:MyDirect": *x-dns-china
