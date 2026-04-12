@@ -10,7 +10,9 @@ dns: #!replace
     - 223.5.5.5
     - system
   nameserver-policy:
-    "+.cloud-nodes.com": ["140.205.1.13", "124.221.68.73:1053"]
+    "+.cloud-nodes.com":
+      - "140.205.1.13"
+      - "124.221.68.73:1053"
   fallback:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
