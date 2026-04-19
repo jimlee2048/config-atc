@@ -229,8 +229,7 @@ dns: &base-dns
     - "geosite:private"
     - "rule-set:MyDirect"
     - "rule-set:MyDirect02"
-    - "rule-set:TailscaleDERP_domain"
-    - "rule-set:Tailscale_domain"
+    - "geosite:tailscale"
     - "geosite:tracker"
     - "geosite:category-pt"
     - "geosite:category-games"
@@ -248,8 +247,7 @@ dns: &base-dns
     "geosite:private": *x-dns-china
     "rule-set:MyDirect": *x-dns-china
     "rule-set:MyDirect02": *x-dns-china
-    "rule-set:TailscaleDERP_domain": *x-dns-china
-    "rule-set:Tailscale_domain": *x-dns-china
+    "geosite:tailscale": *x-dns-china
     "geosite:tracker": *x-dns-china
     "geosite:category-pt": *x-dns-china
     "geosite:category-game-platforms-download": *x-dns-china
@@ -259,7 +257,6 @@ dns: &base-dns
     "geosite:microsoft@cn": *x-dns-china
     "rule-set:AppleCDN": *x-dns-china
     "geosite:cn": *x-dns-china
-  # direct-nameserver: *x-dns-china
 
 # proxies
 proxy-groups: &base-proxy-groups ## control groups
@@ -483,22 +480,6 @@ rule-providers: &base-rule-providers
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
-  TailscaleDERP_domain:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_domain.list
-  TailscaleDERP_ip:
-    <<: *x-rp-text
-    behavior: ipcidr
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_ip.list
-  Tailscale_domain:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_domain.list
-  Tailscale_ip:
-    <<: *x-rp-text
-    behavior: ipcidr
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_ip.list
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
@@ -545,10 +526,7 @@ rules: &base-rules
   - RULE-SET,MyProxy,🔰 节点选择
   - RULE-SET,MyProxy02,🔰 节点选择
   # 4. main: p1
-  - RULE-SET,TailscaleDERP_domain,DIRECT
-  - RULE-SET,Tailscale_domain,DIRECT
-  - RULE-SET,TailscaleDERP_ip,DIRECT,no-resolve
-  - RULE-SET,Tailscale_ip,DIRECT,no-resolve
+  - GEOSITE,tailscale,DIRECT
   - GEOSITE,tracker,DIRECT
   - GEOSITE,category-pt,DIRECT
   - GEOSITE,category-speedtest,📶 Speedtest
