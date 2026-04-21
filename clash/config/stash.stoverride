@@ -7,7 +7,6 @@ homepage: "https://github.com/jimlee2048/config-atc"
 proxies:
   - name: ts-main
     type: tailscale
-    ephemeral: true
 
 rules:
   - DOMAIN-SUFFIX,ts.net,ts-main
