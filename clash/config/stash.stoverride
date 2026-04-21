@@ -57,6 +57,8 @@ dns: #!replace
       - "+.msftncsi.com"
   fake-ip-filter:
     # source: https://github.com/vernesong/OpenClash/blob/master/luci-app-openclash/root/etc/openclash/custom/openclash_custom_fake_filter.list
+    # Jim's Custom
+    - "+.jiml.ee"
     # LAN
     - "*.lan"
     - "*.localdomain"
