@@ -226,6 +226,7 @@ dns: &base-dns
     - "+.stun.*.*.*.*"
     - "+.stun.*.*.*.*.*"
     - "myip.opendns.com"
+    - "resolver1.opendns.com"
     - "geosite:connectivity-check"
     - "geosite:private"
     - "rule-set:MyDirect"
