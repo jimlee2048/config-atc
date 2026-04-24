@@ -58,6 +58,7 @@ dns: #!replace
     # source: https://github.com/vernesong/OpenClash/blob/master/luci-app-openclash/root/etc/openclash/custom/openclash_custom_fake_filter.list
     # Jim's Custom
     - "+.jiml.ee"
+    - "myip.opendns.com"
     # LAN
     - "*.lan"
     - "*.localdomain"
