@@ -10,6 +10,7 @@ proxies:
 
 rules:
   - DOMAIN-SUFFIX,ts.net,ts-main
+  - DOMAIN-SUFFIX,jiml.ee,ts-main
   - IP-CIDR,100.64.0.0/10,ts-main,no-resolve
 
 dns: #!replace
