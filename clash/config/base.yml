@@ -244,7 +244,7 @@ dns: &base-dns
   nameserver: *x-dns-overseas
   proxy-server-nameserver: *x-dns-china
   proxy-server-nameserver-policy:
-    "+.cloud-nodes.com": ["140.205.1.13", "124.221.68.73:1053"]
+    "+.cloud-nodes.com": ["124.221.68.73:1053"]
   nameserver-policy:
     "geosite:private": *x-dns-china
     "rule-set:MyDirect": *x-dns-china
@@ -562,9 +562,9 @@ rules: &base-rules
   # 6. main: p3
   - RULE-SET,RestrictedZones,🈲 Restricted
   - GEOSITE,category-games-!cn,🎮 Games
-  - GEOSITE,category-dev,💻 Developer
   - GEOSITE,category-ai-!cn,✨ GenAI
   - RULE-SET,GenAIExtra,✨ GenAI
+  - GEOSITE,category-dev,💻 Developer
   - GEOSITE,category-cryptocurrency,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
   - GEOSITE,category-finance,💰 Finance
