@@ -13,14 +13,6 @@ x-dns:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
 
-x-proxy-providers: &x-proxy-providers
-  type: http
-  interval: 3600
-  health-check:
-    enable: true
-    url: https://cp.cloudflare.com
-    interval: 300
-
 x-proxy-groups:
   control-select-proxy: &x-pg-control-select-proxy
     type: select
