@@ -1,4 +1,4 @@
-proxies:
++proxies:
   # tailscale
   - name: "tailscale"
     type: tailscale
