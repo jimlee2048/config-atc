@@ -1,0 +1,11 @@
+proxies:
+  # tailscale
+  - name: "tailscale"
+    type: tailscale
+    udp: true
+    exit-node: auto:any
+
++rules:
+  - DOMAIN-SUFFIX,ts.net,tailscale
+  - IP-CIDR,100.64.0.0/10,tailscale,no-resolve
+  - DOMAIN-SUFFIX,jiml.ee,tailscale
