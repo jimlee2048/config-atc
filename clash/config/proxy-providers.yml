@@ -6,7 +6,7 @@ x-proxy-providers-direct: &x-proxy-providers-direct
     url: https://cp.cloudflare.com
     interval: 300
 
-x-proxy-providers-replay: &x-proxy-providers-replay
+x-proxy-providers-relay: &x-proxy-providers-relay
   type: http
   interval: 3600
   health-check:
