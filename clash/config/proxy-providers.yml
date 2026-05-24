@@ -1,4 +1,4 @@
-x-proxy-providers: &x-proxy-providers
+x-proxy-providers-direct: &x-proxy-providers-direct
   type: http
   interval: 3600
   health-check:
@@ -6,7 +6,17 @@ x-proxy-providers: &x-proxy-providers
     url: https://cp.cloudflare.com
     interval: 300
 
+x-proxy-providers-replay: &x-proxy-providers-replay
+  type: http
+  interval: 3600
+  health-check:
+    enable: true
+    url: https://cp.cloudflare.com
+    interval: 300
+  override:
+    dialer-proxy: 🌏 落地中转
+
 proxy-providers:
   # example:
-  #   <<: *x-proxy-providers
+  #   <<: *x-proxy-providers-direct
   #   url: "https://example.com/config.yaml"

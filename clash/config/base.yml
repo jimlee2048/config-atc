@@ -261,6 +261,7 @@ proxy-groups: &base-proxy-groups ## control groups
   - name: ℹ️ 订阅信息
     <<: *x-pg-control-select-all
     filter: *x-regex-include-info-node
+
   - name: 🔰 节点选择
     type: select
     proxies:
@@ -284,6 +285,11 @@ proxy-groups: &base-proxy-groups ## control groups
       # - 🇦🇷 阿根廷优选
       # - 🇧🇷 巴西优选
       # - 🇨🇳 回国选择
+
+  - name: 🌏 落地中转
+    <<: *x-pg-control-select-all
+    proxies:
+      - 🎯 全部直连
 
   - name: ✈️ 手动选择
     <<: *x-pg-control-select-all
