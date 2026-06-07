@@ -243,6 +243,7 @@ dns: &base-dns
       - https://tribunal2944.com/dns-query/086b5e91-8733-4342-b887-d37db6b95a87
   nameserver-policy:
     "geosite:private": *x-dns-china
+    "+.ts.net": 100.100.100.100
     "rule-set:MyDirect": *x-dns-china
     "rule-set:MyDirect02": *x-dns-china
     "geosite:tailscale": *x-dns-china

@@ -4,7 +4,9 @@
     type: tailscale
     udp: true
     exit-node: auto:any
-
+dns:
+  nameserver-policy:
+    +<+.ts.net>: "ts://tailscale"
 +rules:
   - DOMAIN-SUFFIX,ts.net,tailscale
   - IP-CIDR,100.64.0.0/10,tailscale,no-resolve
