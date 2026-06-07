@@ -243,9 +243,9 @@ dns: &base-dns
       - https://tribunal2944.com/dns-query/086b5e91-8733-4342-b887-d37db6b95a87
   nameserver-policy:
     "geosite:private": *x-dns-china
-    "+.ts.net": 100.100.100.100
     "rule-set:MyDirect": *x-dns-china
     "rule-set:MyDirect02": *x-dns-china
+    "+.ts.net": 100.100.100.100
     "geosite:tailscale": *x-dns-china
     "geosite:tracker": *x-dns-china
     "geosite:category-pt": *x-dns-china
@@ -519,18 +519,18 @@ rule-providers: &base-rule-providers
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
 
 rules: &base-rules
-  # domain > classical > ipcidr
   # 1. local
   - GEOSITE,private,DIRECT
   - GEOIP,private,DIRECT,no-resolve
-  # 2. block
-  - RULE-SET,AdobeTelemetry,REJECT
-  # 3. custom override
+
+  # 2.1 domain: custom override
   - RULE-SET,MyDirect,DIRECT
   - RULE-SET,MyDirect02,DIRECT
   - RULE-SET,MyProxy,🔰 节点选择
   - RULE-SET,MyProxy02,🔰 节点选择
-  # 4. main: p1
+  # 2.2 domain: block
+  - RULE-SET,AdobeTelemetry,REJECT
+  # 2.3 domain: direct
   - GEOSITE,tailscale,DIRECT
   - GEOSITE,tracker,DIRECT
   - GEOSITE,category-pt,DIRECT
@@ -542,27 +542,25 @@ rules: &base-rules
   - GEOSITE,category-finance@cn,DIRECT
   - GEOSITE,microsoft@cn,DIRECT
   - RULE-SET,AppleCDN,DIRECT
-  # 5. main: p2
+  - GEOSITE,category-ip-geo-detect@cn,DIRECT
+  # 2.4 domain: service
   - GEOSITE,bing,🇺🇸 美国优选
   - GEOSITE,onedrive,☁️ Onedrive
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - GEOSITE,telegram,💬 Telegram
-  - GEOIP,telegram,💬 Telegram,no-resolve
   - GEOSITE,twitter,𝕏 Twitter
-  - GEOIP,twitter,𝕏 Twitter,no-resolve
   - GEOSITE,nintendo,🎮 Nintendo
   - GEOSITE,playstation,🎮 PlayStation
   - GEOSITE,steam,🎮 Steam
   - GEOSITE,youtube,🎥 Youtube
   - GEOSITE,netflix,🎥 Netflix
-  - GEOIP,netflix,🎥 Netflix,no-resolve
   - GEOSITE,apple-tvplus,🎥 Apple TV
   - GEOSITE,bahamut,🇹🇼 台湾优选
   - GEOSITE,tiktok,🎥 TikTok
   - GEOSITE,category-emby,🎥 Emby Providers
   - GEOSITE,spotify,🎵 Spotify
   - RULE-SET,Qobuz,🎵 Qobuz
-  # 6. main: p3
+  # 2.5 domain: category
   - RULE-SET,RestrictedZones,🈲 Restricted
   - GEOSITE,category-games-!cn,🎮 Games
   - GEOSITE,category-ai-!cn,✨ GenAI
@@ -572,15 +570,23 @@ rules: &base-rules
   - RULE-SET,CryptoExtra,💰 Crypto
   - GEOSITE,category-finance,💰 Finance
   - RULE-SET,FinanceExtra,💰 Finance
-  # 7. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft
   - GEOSITE,google,🍭 Google
-  - GEOIP,google,🍭 Google,no-resolve
   - GEOSITE,apple,🍎 Apple
-  # 8. final
+  - GEOSITE,category-ip-geo-detect,🔰 节点选择
+  # 2.6 domain: geo
   - GEOSITE,cn,DIRECT
   - GEOSITE,geolocation-!cn,🔰 节点选择
-  - GEOIP,cn,DIRECT,no-resolve
+
+  # 3.1 ip: service
+  - GEOIP,google,🍭 Google
+  - GEOIP,telegram,💬 Telegram
+  - GEOIP,twitter,𝕏 Twitter
+  - GEOIP,netflix,🎥 Netflix
+  # 3.2 ip: geo
+  - GEOIP,cn,DIRECT
+
+  # 4. final
   - DST-PORT,80,🐟 漏网之鱼
   - DST-PORT,443,🐟 漏网之鱼
   - DST-PORT,853,🐟 漏网之鱼
