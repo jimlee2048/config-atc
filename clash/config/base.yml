@@ -246,10 +246,10 @@ dns: &base-dns
       - https://subprime7404.com:44443/dns-query/086b5e91-8733-4342-b887-d37db6b95a87
       - https://tribunal2944.com/dns-query/086b5e91-8733-4342-b887-d37db6b95a87
   nameserver-policy:
+    "+.ts.net": 100.100.100.100
     "geosite:private": *x-dns-china
     "rule-set:MyDirect": *x-dns-china
     "rule-set:MyDirect02": *x-dns-china
-    "+.ts.net": 100.100.100.100
     "geosite:tailscale": *x-dns-china
     "geosite:tracker": *x-dns-china
     "geosite:category-pt": *x-dns-china
