@@ -167,6 +167,10 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
+  route-exclude-address:
+    # tailscale tailnet
+    - 100.64.0.0/10
+    - fd7a:115c:a1e0::/48
 profile:
   store-selected: true
   store-fake-ip: true
