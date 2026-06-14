@@ -1,3 +1,6 @@
+# clash party format override file
+# docs: https://clashparty.org/docs/guide/override/yaml
+
 +proxies:
   # tailscale
   - name: "tailscale"
@@ -7,7 +10,14 @@
 dns:
   nameserver-policy:
     "+.ts.net": "tailscale://tailscale"
-+rules:
-  - DOMAIN-SUFFIX,ts.net,tailscale
-  - IP-CIDR,100.64.0.0/10,tailscale,no-resolve
-  - DOMAIN-SUFFIX,jiml.ee,tailscale
+
+sub-rules:
+  +sub-rule-private:
+    - DOMAIN-SUFFIX,ts.net,PASS
+    - IP-CIDR,100.64.0.0/10,PASS,no-resolve
+    - IP-CIDR6,fd7a:115c:a1e0::/48,PASS,no-resolve
+  +sub-rule-domain:
+    - DOMAIN-SUFFIX,ts.net,tailscale
+  +sub-rule-ip:
+    - IP-CIDR,100.64.0.0/10,tailscale
+    - IP-CIDR6,fd7a:115c:a1e0::/48,tailscale
