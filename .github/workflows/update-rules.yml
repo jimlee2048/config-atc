@@ -19,12 +19,13 @@ jobs:
         with:
           python-version: "3.12"
       - name: Set up uv
-        uses: astral-sh/setup-uv@v8
+        uses: astral-sh/setup-uv@v1
         with:
+          version: "latest"
           enable-cache: true
           cache-dependency-glob: scripts/*.py
       - name: Update Tailscale Derp rules
-        run: uv run --python 3.12 --script scripts/update-TailscaleDerp.py
+        run: uv run --script scripts/update-TailscaleDerp.py
       - name: Stage generated rule artifact
         run: |
           mkdir -p .artifacts/tailscale-derp-rules
