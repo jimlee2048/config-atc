@@ -148,7 +148,6 @@ x-rule-providers:
 ##### config area START #####
 # general
 mode: rule
-ipv6: false
 mixed-port: 7890
 allow-lan: true
 lan-allowed-ips:
@@ -187,54 +186,50 @@ geox-url:
   asn: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"
 
 ## meta sniffer (for redir-host)
-# sniffer:
-#   enable: true
-#   sniff:
-#     HTTP:
-#       ports: [80, 8080-8880]
-#       override-destination: true
-#     TLS:
-#       ports: [443, 8443]
-#     QUIC:
-#       ports: [443, 8443]
-#   force-domain:
-#     - "+.netflix.com"
-#     - "+.nflxvideo.net"
-#     - "+.amazonaws.com"
-#     - "+.media.dssott.com"
-#   skip-domain:
-#     - '+.apple.com'
-#     - Mijia Cloud
-#     - dlg.io.mi.com
-#     - +.oray.com
-#     - +.sunlogin.net
-#     - +.push.apple.com
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    # https://github.com/vernesong/OpenClash/blob/master/luci-app-openclash/root/usr/share/openclash/yml_change.sh
+    - "+.netflix.com"
+    - "+.nflxvideo.net"
+    - "+.amazonaws.com"
+    - "+.media.dssott.com"
+  skip-domain:
+    # https://github.com/vernesong/OpenClash/blob/master/luci-app-openclash/root/usr/share/openclash/yml_change.sh
+    - "Mijia Cloud"
+    - "dlg.io.mi.com"
+    - "+.oray.com"
+    - "+.sunlogin.net"
+    - "+.push.apple.com"
 
 # network stack
-dns: &base-dns
+dns:
   enable: true
-  ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-    - "+.stun.*.*"
-    - "+.stun.*.*.*"
-    - "+.stun.*.*.*.*"
-    - "+.stun.*.*.*.*.*"
-    - "myip.opendns.com"
-    - "resolver1.opendns.com"
+    - "geosite:category-stun"
     - "geosite:connectivity-check"
     - "geosite:private"
-    - "rule-set:MyDirect"
-    - "rule-set:MyDirect02"
     - "geosite:tailscale"
     - "geosite:tracker"
     - "geosite:category-pt"
     - "geosite:category-games"
-    - "rule-set:GoogleVoice"
     - "geosite:category-speedtest"
     - "geosite:category-finance"
     - "rule-set:FinanceExtra"
+    - "rule-set:GoogleVoice"
+    - "rule-set:MyFakeIpFilter"
+    - "rule-set:MyDirect"
+    - "rule-set:MyDirect02"
     - "geosite:cn"
   respect-rules: true
   nameserver: *x-dns-overseas
@@ -247,8 +242,6 @@ dns: &base-dns
   nameserver-policy:
     "+.ts.net": 100.100.100.100
     "geosite:private": *x-dns-china
-    "rule-set:MyDirect": *x-dns-china
-    "rule-set:MyDirect02": *x-dns-china
     "geosite:tailscale": *x-dns-china
     "geosite:tracker": *x-dns-china
     "geosite:category-pt": *x-dns-china
@@ -257,11 +250,15 @@ dns: &base-dns
     "geosite:category-dev@cn": *x-dns-china
     "geosite:category-finance@cn": *x-dns-china
     "geosite:microsoft@cn": *x-dns-china
+    "geosite:category-ip-geo-detect@cn": *x-dns-china
     "rule-set:AppleCDN": *x-dns-china
+    "rule-set:MyDirect": *x-dns-china
+    "rule-set:MyDirect02": *x-dns-china
     "geosite:cn": *x-dns-china
 
 # proxies
-proxy-groups: &base-proxy-groups ## control groups
+proxy-groups: 
+  ## control groups
   - name: ℹ️ 订阅信息
     <<: *x-pg-control-select-all
     filter: *x-regex-include-info-node
@@ -467,11 +464,11 @@ proxy-groups: &base-proxy-groups ## control groups
   #   <<: *x-pg-control-select-all
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)).*$'
 
-rule-providers: &base-rule-providers
-  AdobeTelemetry:
+rule-providers:
+  MyFakeIpFilter:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyFakeIpFilter.list
   MyDirect:
     <<: *x-rp-text
     behavior: domain
@@ -488,6 +485,10 @@ rule-providers: &base-rule-providers
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
+  AdobeTelemetry:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
@@ -504,10 +505,10 @@ rule-providers: &base-rule-providers
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
-  GenAIExtra:
+  GenAiExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAiExtra.list
   CryptoExtra:
     <<: *x-rp-text
     behavior: domain
@@ -521,78 +522,84 @@ rule-providers: &base-rule-providers
     behavior: domain
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
 
-rules: &base-rules
-  # 1. local
-  - GEOSITE,private,DIRECT
-  - GEOIP,private,DIRECT,no-resolve
-
-  # 2.1 domain: custom override
-  - RULE-SET,MyDirect,DIRECT
-  - RULE-SET,MyDirect02,DIRECT
-  - RULE-SET,MyProxy,🔰 节点选择
-  - RULE-SET,MyProxy02,🔰 节点选择
-  # 2.2 domain: block
-  - RULE-SET,AdobeTelemetry,REJECT
-  # 2.3 domain: direct
-  - GEOSITE,tailscale,DIRECT
-  - GEOSITE,tracker,DIRECT
-  - GEOSITE,category-pt,DIRECT
-  - GEOSITE,category-speedtest,📶 Speedtest
-  - RULE-SET,ProxyHighBandwidth,📥 高耗流量
-  - GEOSITE,category-game-platforms-download,DIRECT
-  - GEOSITE,category-games@cn,DIRECT
-  - GEOSITE,category-dev@cn,DIRECT
-  - GEOSITE,category-finance@cn,DIRECT
-  - GEOSITE,microsoft@cn,DIRECT
-  - RULE-SET,AppleCDN,DIRECT
-  - GEOSITE,category-ip-geo-detect@cn,DIRECT
-  # 2.4 domain: service
-  - GEOSITE,bing,🇺🇸 美国优选
-  - GEOSITE,onedrive,☁️ Onedrive
-  - RULE-SET,GoogleVoice,🇺🇸 美国优选
-  - GEOSITE,telegram,💬 Telegram
-  - GEOSITE,twitter,𝕏 Twitter
-  - GEOSITE,nintendo,🎮 Nintendo
-  - GEOSITE,playstation,🎮 PlayStation
-  - GEOSITE,steam,🎮 Steam
-  - GEOSITE,youtube,🎥 Youtube
-  - GEOSITE,netflix,🎥 Netflix
-  - GEOSITE,apple-tvplus,🎥 Apple TV
-  - GEOSITE,bahamut,🇹🇼 台湾优选
-  - GEOSITE,tiktok,🎥 TikTok
-  - GEOSITE,category-emby,🎥 Emby Providers
-  - GEOSITE,spotify,🎵 Spotify
-  - RULE-SET,Qobuz,🎵 Qobuz
-  # 2.5 domain: category
-  - RULE-SET,RestrictedZones,🈲 Restricted
-  - GEOSITE,category-games-!cn,🎮 Games
-  - GEOSITE,category-ai-!cn,✨ GenAI
-  - RULE-SET,GenAIExtra,✨ GenAI
-  - GEOSITE,category-dev,💻 Developer
-  - GEOSITE,category-cryptocurrency,💰 Crypto
-  - RULE-SET,CryptoExtra,💰 Crypto
-  - GEOSITE,category-finance,💰 Finance
-  - RULE-SET,FinanceExtra,💰 Finance
-  - GEOSITE,microsoft,Ⓜ️ Microsoft
-  - GEOSITE,google,🍭 Google
-  - GEOSITE,apple,🍎 Apple
-  - GEOSITE,category-ip-geo-detect,🔰 节点选择
-  # 2.6 domain: geo
-  - GEOSITE,cn,DIRECT
-  - GEOSITE,geolocation-!cn,🔰 节点选择
-
-  # 3.1 ip: service
-  - GEOIP,google,🍭 Google
-  - GEOIP,telegram,💬 Telegram
-  - GEOIP,twitter,𝕏 Twitter
-  - GEOIP,netflix,🎥 Netflix
-  # 3.2 ip: geo
-  - GEOIP,cn,DIRECT
-
-  # 4. final
+rules:
+  - SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),sub-rule-private
+  - SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),sub-rule-domain
+  - SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),sub-rule-ip
+  # fallback
   - DST-PORT,80,🐟 漏网之鱼
+  - DST-PORT,8080-8880,🐟 漏网之鱼
   - DST-PORT,443,🐟 漏网之鱼
+  - DST-PORT,8443,🐟 漏网之鱼
   - DST-PORT,853,🐟 漏网之鱼
   - MATCH,DIRECT
+
+sub-rules:
+  sub-rule-private:
+    - GEOSITE,private,DIRECT
+    - GEOIP,private,DIRECT,no-resolve
+  sub-rule-domain:
+    # domain: custom override
+    - RULE-SET,MyDirect,DIRECT
+    - RULE-SET,MyDirect02,DIRECT
+    - RULE-SET,MyProxy,🔰 节点选择
+    - RULE-SET,MyProxy02,🔰 节点选择
+    # domain: block
+    - RULE-SET,AdobeTelemetry,REJECT
+    # domain: direct
+    - GEOSITE,tailscale,DIRECT
+    - GEOSITE,tracker,DIRECT
+    - GEOSITE,category-pt,DIRECT
+    - GEOSITE,category-speedtest,📶 Speedtest
+    - RULE-SET,ProxyHighBandwidth,📥 高耗流量
+    - GEOSITE,category-game-platforms-download,DIRECT
+    - GEOSITE,category-games@cn,DIRECT
+    - GEOSITE,category-dev@cn,DIRECT
+    - GEOSITE,category-finance@cn,DIRECT
+    - GEOSITE,microsoft@cn,DIRECT
+    - RULE-SET,AppleCDN,DIRECT
+    - GEOSITE,category-ip-geo-detect@cn,DIRECT
+    # domain: service
+    - GEOSITE,bing,🇺🇸 美国优选
+    - GEOSITE,onedrive,☁️ Onedrive
+    - RULE-SET,GoogleVoice,🇺🇸 美国优选
+    - GEOSITE,telegram,💬 Telegram
+    - GEOSITE,twitter,𝕏 Twitter
+    - GEOSITE,nintendo,🎮 Nintendo
+    - GEOSITE,playstation,🎮 PlayStation
+    - GEOSITE,steam,🎮 Steam
+    - GEOSITE,youtube,🎥 Youtube
+    - GEOSITE,netflix,🎥 Netflix
+    - GEOSITE,apple-tvplus,🎥 Apple TV
+    - GEOSITE,bahamut,🇹🇼 台湾优选
+    - GEOSITE,tiktok,🎥 TikTok
+    - GEOSITE,category-emby,🎥 Emby Providers
+    - GEOSITE,spotify,🎵 Spotify
+    - RULE-SET,Qobuz,🎵 Qobuz
+    # domain: category
+    - RULE-SET,RestrictedZones,🈲 Restricted
+    - GEOSITE,category-games-!cn,🎮 Games
+    - GEOSITE,category-ai-!cn,✨ GenAI
+    - RULE-SET,GenAiExtra,✨ GenAI
+    - GEOSITE,category-dev,💻 Developer
+    - GEOSITE,category-cryptocurrency,💰 Crypto
+    - RULE-SET,CryptoExtra,💰 Crypto
+    - GEOSITE,category-finance,💰 Finance
+    - RULE-SET,FinanceExtra,💰 Finance
+    - GEOSITE,microsoft,Ⓜ️ Microsoft
+    - GEOSITE,google,🍭 Google
+    - GEOSITE,apple,🍎 Apple
+    - GEOSITE,category-ip-geo-detect,🔰 节点选择
+    # domain: geo
+    - GEOSITE,cn,DIRECT
+    - GEOSITE,geolocation-!cn,🔰 节点选择
+  sub-rule-ip:
+    # ip: service
+    - GEOIP,google,🍭 Google
+    - GEOIP,telegram,💬 Telegram
+    - GEOIP,twitter,𝕏 Twitter
+    - GEOIP,netflix,🎥 Netflix
+    # ip: geo
+    - GEOIP,cn,DIRECT
 
 ###### config area END #####
