@@ -6,22 +6,24 @@ on:
     - cron: "0 8 * * *"
 
 jobs:
-  update-rules:
+  update-tailscale-derp-rules:
+    name: Update Tailscale Derp rules
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    defaults:
-        run:
-          working-directory: scripts
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v3
+      - name: Set up Python
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.10"
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: "Update rules: TailscaleDerp"
-        run: python update-TailscaleDerp.py
+          python-version: "3.12"
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v8
+        with:
+          enable-cache: true
+          cache-dependency-glob: scripts/*.py
+      - name: Update Tailscale Derp rules
+        run: uv run --python 3.12 --script scripts/update-TailscaleDerp.py
       - name: Get current date
         id: date
         run: echo "date=$(date +'%Y-%m-%d %H:%M:%S')" >> "$GITHUB_OUTPUT"

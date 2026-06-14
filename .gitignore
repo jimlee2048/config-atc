@@ -1,3 +1,19 @@
-/subconverter/profiles/*
-!/subconverter/profiles/example-profile.ini
+# Python
+__pycache__/
+*.py[cod]
+.python-version
+.venv/
+
+# uv
+.uv-cache/
+
+# Node.js
+node_modules/
+
+# local editor / OS files
+.DS_Store
+.idea/
+.vscode/
+
+# tool-local ignore files
 .prettierignore

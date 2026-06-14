@@ -1,56 +1,84 @@
-import requests
-import json
-import ruamel.yaml
-from pathlib import Path
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#   "ruamel.yaml",
+# ]
+# ///
 
+import json
+from pathlib import Path
+from urllib.request import urlopen
+
+from ruamel.yaml import YAML
+from ruamel.yaml.scalarstring import SingleQuotedScalarString
+
+DERP_MAP_URL = "https://login.tailscale.com/derpmap/default"
 RULES_DIR = Path(__file__).resolve().parents[1] / "clash" / "rules"
 
-def save_yaml(list, output_file, quoted=False):
+
+def fetch_derp_map() -> dict:
+    try:
+        with urlopen(DERP_MAP_URL, timeout=30) as response:
+            return json.load(response)
+    except Exception as error:
+        print("Error: Unable to fetch data from Tailscale")
+        raise error
+
+
+def build_rule_payloads(derp_map: dict) -> tuple[list[str], list[str], list[str]]:
+    domain_rules = []
+    ipv4_cidr_rules = []
+    ipv6_cidr_rules = []
+
+    for region in derp_map["Regions"].values():
+        for node in region["Nodes"]:
+            domain_rules.append(node["HostName"])
+            ipv4_cidr_rules.append(f"{node['IPv4']}/32")
+            ipv6_cidr_rules.append(f"{node['IPv6']}/128")
+
+    cidr_rules = ipv4_cidr_rules + ipv6_cidr_rules
+    classical_rules = (
+        [f"DOMAIN,{domain}" for domain in domain_rules]
+        + [f"IP-CIDR,{cidr},no-resolve" for cidr in ipv4_cidr_rules]
+        + [f"IP-CIDR,{cidr},no-resolve" for cidr in ipv6_cidr_rules]
+    )
+
+    return domain_rules, cidr_rules, classical_rules
+
+
+def write_yaml_rules(values: list[str], output_file: Path, quoted: bool = False) -> None:
     print(f"Updating: {output_file}")
     if quoted:
-        yaml_data = {"payload": [ruamel.yaml.scalarstring.SingleQuotedScalarString(i) for i in list]}
+        yaml_data = {"payload": [SingleQuotedScalarString(value) for value in values]}
     else:
-        yaml_data = {"payload": list}
-    yaml = ruamel.yaml.YAML()
+        yaml_data = {"payload": values}
+
+    yaml = YAML()
     yaml.indent(sequence=2, offset=2)
-    with open(output_file, "w") as f:
-        yaml.dump(yaml_data, f)
+    with output_file.open("w") as file:
+        yaml.dump(yaml_data, file)
 
-def save_text(list, output_file):
+
+def write_text_rules(values: list[str], output_file: Path) -> None:
     print(f"Updating: {output_file}")
-    with open(output_file, "w") as f:
-        for i in list:
-            f.write(f"{i}\n")
+    output_file.write_text("".join(f"{value}\n" for value in values))
 
-if __name__ == "__main__":
-    try:
-        json_data = requests.get(
-            'https://login.tailscale.com/derpmap/default').json()
-    except Exception as e:
-        print("Error: Unable to fetch data from Tailscale")
-        raise e
 
-    list_domain = []
-    list_ip_cidr = []
-    list_ip_cidr6 = []
-
-    for region in json_data["Regions"].values():
-        for node in region["Nodes"]:
-            list_domain.append(node['HostName'])
-            list_ip_cidr.append(f"{node['IPv4']}/32")
-            list_ip_cidr6.append(f"{node['IPv6']}/128")
-
-    list_ip = list_ip_cidr + list_ip_cidr6
-    list_classical = ["DOMAIN,"+d for d in list_domain] + ["IP-CIDR,"+i+",no-resolve" for i in list_ip_cidr] + ["IP-CIDR,"+i+",no-resolve" for i in list_ip_cidr6]
+def main() -> None:
+    domain_rules, cidr_rules, classical_rules = build_rule_payloads(fetch_derp_map())
 
     # save in clash text format (.list)
-    save_text(list_domain, RULES_DIR / "TailscaleDerpDomain.list")
-    save_text(list_ip, RULES_DIR / "TailscaleDerpCidr.list")
-    save_text(list_classical, RULES_DIR / "TailscaleDerpClassical.list")
+    write_text_rules(domain_rules, RULES_DIR / "TailscaleDerpDomain.list")
+    write_text_rules(cidr_rules, RULES_DIR / "TailscaleDerpCidr.list")
+    write_text_rules(classical_rules, RULES_DIR / "TailscaleDerpClassical.list")
 
     # save in clash yaml format
-    save_yaml(list_domain, RULES_DIR / "TailscaleDerpDomain.yaml", quoted=True)
-    save_yaml(list_ip, RULES_DIR / "TailscaleDerpCidr.yaml", quoted=True)
-    save_yaml(list_classical, RULES_DIR / "TailscaleDerpClassical.yaml")
+    write_yaml_rules(domain_rules, RULES_DIR / "TailscaleDerpDomain.yaml", quoted=True)
+    write_yaml_rules(cidr_rules, RULES_DIR / "TailscaleDerpCidr.yaml", quoted=True)
+    write_yaml_rules(classical_rules, RULES_DIR / "TailscaleDerpClassical.yaml")
 
     print("Finished")
+
+
+if __name__ == "__main__":
+    main()
