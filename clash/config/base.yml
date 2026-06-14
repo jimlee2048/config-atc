@@ -242,7 +242,6 @@ dns: &base-dns
   proxy-server-nameserver-policy:
     "+.cloud-nodes.com": ["124.221.68.73:1053"]
     "+.ovalyraa.com":
-      - https://hydrogen1693.com:44443/dns-query/086b5e91-8733-4342-b887-d37db6b95a87
       - https://subprime7404.com:44443/dns-query/086b5e91-8733-4342-b887-d37db6b95a87
       - https://tribunal2944.com/dns-query/086b5e91-8733-4342-b887-d37db6b95a87
   nameserver-policy:
