@@ -1,6 +1,9 @@
 import requests
 import json
 import ruamel.yaml
+from pathlib import Path
+
+RULES_DIR = Path(__file__).resolve().parents[1] / "clash" / "rules"
 
 def save_yaml(list, output_file, quoted=False):
     print(f"Updating: {output_file}")
@@ -41,13 +44,13 @@ if __name__ == "__main__":
     list_classical = ["DOMAIN,"+d for d in list_domain] + ["IP-CIDR,"+i+",no-resolve" for i in list_ip_cidr] + ["IP-CIDR,"+i+",no-resolve" for i in list_ip_cidr6]
 
     # save in clash text format (.list)
-    save_text(list_domain, "../TailscaleDERP_domain.list")
-    save_text(list_ip, "../TailscaleDERP_ip.list")
-    save_text(list_classical, "../TailscaleDERP_classical.list")
+    save_text(list_domain, RULES_DIR / "TailscaleDerpDomain.list")
+    save_text(list_ip, RULES_DIR / "TailscaleDerpCidr.list")
+    save_text(list_classical, RULES_DIR / "TailscaleDerpClassical.list")
 
     # save in clash yaml format
-    save_yaml(list_domain, "../TailscaleDERP_domain.yaml", quoted=True)
-    save_yaml(list_ip, "../TailscaleDERP_ip.yaml", quoted=True)
-    save_yaml(list_classical, "../TailscaleDERP_classical.yaml")
+    save_yaml(list_domain, RULES_DIR / "TailscaleDerpDomain.yaml", quoted=True)
+    save_yaml(list_ip, RULES_DIR / "TailscaleDerpCidr.yaml", quoted=True)
+    save_yaml(list_classical, RULES_DIR / "TailscaleDerpClassical.yaml")
 
     print("Finished")
