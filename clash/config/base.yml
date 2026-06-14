@@ -210,7 +210,7 @@ geox-url:
 #     - +.push.apple.com
 
 # network stack
-dns: &base-dns
+dns:
   enable: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -256,7 +256,8 @@ dns: &base-dns
     "geosite:cn": *x-dns-china
 
 # proxies
-proxy-groups: &base-proxy-groups ## control groups
+proxy-groups: 
+  ## control groups
   - name: ℹ️ 订阅信息
     <<: *x-pg-control-select-all
     filter: *x-regex-include-info-node
@@ -462,7 +463,7 @@ proxy-groups: &base-proxy-groups ## control groups
   #   <<: *x-pg-control-select-all
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)).*$'
 
-rule-providers: &base-rule-providers
+rule-providers:
   MyFakeIpFilter:
     <<: *x-rp-text
     behavior: domain
@@ -520,7 +521,7 @@ rule-providers: &base-rule-providers
     behavior: domain
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
 
-rules: &base-rules
+rules:
   - SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),sub-rule-private
   - SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),sub-rule-domain
   - SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),sub-rule-ip
