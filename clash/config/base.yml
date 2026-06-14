@@ -226,7 +226,7 @@ dns: &base-dns
     - "geosite:category-finance"
     - "rule-set:FinanceExtra"
     - "rule-set:GoogleVoice"
-    - "rule-set:MyFakeIPFilter"
+    - "rule-set:MyFakeIpFilter"
     - "rule-set:MyDirect"
     - "rule-set:MyDirect02"
     - "geosite:cn"
@@ -463,10 +463,10 @@ proxy-groups: &base-proxy-groups ## control groups
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)).*$'
 
 rule-providers: &base-rule-providers
-  MyFakeIPFilter:
+  MyFakeIpFilter:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyFakeIPFilter.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyFakeIpFilter.list
   MyDirect:
     <<: *x-rp-text
     behavior: domain
@@ -503,10 +503,10 @@ rule-providers: &base-rule-providers
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
-  GenAIExtra:
+  GenAiExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAiExtra.list
   CryptoExtra:
     <<: *x-rp-text
     behavior: domain
@@ -576,7 +576,7 @@ sub-rules:
     - RULE-SET,RestrictedZones,🈲 Restricted
     - GEOSITE,category-games-!cn,🎮 Games
     - GEOSITE,category-ai-!cn,✨ GenAI
-    - RULE-SET,GenAIExtra,✨ GenAI
+    - RULE-SET,GenAiExtra,✨ GenAI
     - GEOSITE,category-dev,💻 Developer
     - GEOSITE,category-cryptocurrency,💰 Crypto
     - RULE-SET,CryptoExtra,💰 Crypto
