@@ -385,6 +385,9 @@ proxy-groups:
   - name: 💰 Crypto
     <<: *x-pg-control-select-proxy
 
+  - name: 🔮 Polymarket
+    <<: *x-pg-control-select-proxy
+
   - name: 💬 Telegram
     <<: *x-pg-control-select-proxy
 
@@ -508,6 +511,10 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
+  PolymarketExtra:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/PolymarketExtra.list
   FinanceExtra:
     <<: *x-rp-text
     behavior: domain
@@ -571,6 +578,7 @@ sub-rules:
     - GEOSITE,category-emby,🎥 Emby Providers
     - GEOSITE,spotify,🎵 Spotify
     - RULE-SET,Qobuz,🎵 Qobuz
+    - RULE-SET,PolymarketExtra,🔮 Polymarket
     # domain: category
     - RULE-SET,RestrictedZones,🈲 Restricted
     - GEOSITE,category-games-!cn,🎮 Games
