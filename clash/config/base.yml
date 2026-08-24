@@ -385,6 +385,24 @@ proxy-groups:
   - name: 💰 Crypto
     <<: *x-pg-control-select-proxy
 
+  - name: 🔮 Polymarket
+    <<: *x-pg-control-select-proxy
+    # Keep Polymarket independent from Crypto; Hong Kong is the default
+    # non-Korea route, while the remaining choices stay manually selectable.
+    proxies:
+      - 🇭🇰 香港优选
+      - 🔰 节点选择
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🏠 家宽节点
+      - 📥 高耗流量
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
+      - 🎯 全部直连
+
   - name: 💬 Telegram
     <<: *x-pg-control-select-proxy
 
@@ -508,6 +526,10 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
+  PolymarketExtra:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/PolymarketExtra.list
   FinanceExtra:
     <<: *x-rp-text
     behavior: domain
@@ -577,6 +599,7 @@ sub-rules:
     - GEOSITE,category-ai-!cn,✨ GenAI
     - RULE-SET,GenAiExtra,✨ GenAI
     - GEOSITE,category-dev,💻 Developer
+    - RULE-SET,PolymarketExtra,🔮 Polymarket
     - GEOSITE,category-cryptocurrency,💰 Crypto
     - RULE-SET,CryptoExtra,💰 Crypto
     - GEOSITE,category-finance,💰 Finance
