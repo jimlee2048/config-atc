@@ -387,20 +387,6 @@ proxy-groups:
 
   - name: 🔮 Polymarket
     <<: *x-pg-control-select-proxy
-    # View-only routing: keep close-only regions available for reading markets.
-    # Korea is excluded because it is unreachable in the current environment.
-    proxies:
-      - 🇭🇰 香港优选
-      - 🔰 节点选择
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
-      - 📥 高耗流量
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🎯 全部直连
 
   - name: 💬 Telegram
     <<: *x-pg-control-select-proxy
@@ -592,13 +578,13 @@ sub-rules:
     - GEOSITE,category-emby,🎥 Emby Providers
     - GEOSITE,spotify,🎵 Spotify
     - RULE-SET,Qobuz,🎵 Qobuz
+    - RULE-SET,PolymarketExtra,🔮 Polymarket
     # domain: category
     - RULE-SET,RestrictedZones,🈲 Restricted
     - GEOSITE,category-games-!cn,🎮 Games
     - GEOSITE,category-ai-!cn,✨ GenAI
     - RULE-SET,GenAiExtra,✨ GenAI
     - GEOSITE,category-dev,💻 Developer
-    - RULE-SET,PolymarketExtra,🔮 Polymarket
     - GEOSITE,category-cryptocurrency,💰 Crypto
     - RULE-SET,CryptoExtra,💰 Crypto
     - GEOSITE,category-finance,💰 Finance
