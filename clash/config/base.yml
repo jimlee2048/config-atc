@@ -387,8 +387,8 @@ proxy-groups:
 
   - name: 🔮 Polymarket
     <<: *x-pg-control-select-proxy
-    # Keep Polymarket independent from Crypto; Hong Kong is the default
-    # non-Korea route, while the remaining choices stay manually selectable.
+    # View-only routing: keep close-only regions available for reading markets.
+    # Korea is excluded because it is unreachable in the current environment.
     proxies:
       - 🇭🇰 香港优选
       - 🔰 节点选择
@@ -400,7 +400,6 @@ proxy-groups:
       - 🇯🇵 日本优选
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
       - 🎯 全部直连
 
   - name: 💬 Telegram
