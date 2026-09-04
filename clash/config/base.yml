@@ -600,6 +600,8 @@ sub-rules:
     # ip: service
     - GEOIP,google,🍭 Google
     - GEOIP,telegram,💬 Telegram
+    # MTProto also uses TCP 5222 on access IPs outside geoip:telegram.
+    - AND,((DST-PORT,5222),(NOT,((GEOIP,cn)))),💬 Telegram
     - GEOIP,twitter,𝕏 Twitter
     - GEOIP,netflix,🎥 Netflix
     # ip: geo
