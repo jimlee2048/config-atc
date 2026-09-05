@@ -337,63 +337,63 @@ proxy-groups:
 
   ## region groups
   - name: 🇭🇰 香港节点
-    <<: *x-pg-region-urltest
+    <<: *x-pg-region-loadbalance
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)).*$'
 
   - name: 🇺🇸 美国节点
-    <<: *x-pg-region-urltest
+    <<: *x-pg-region-loadbalance
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇺🇸|\bUS[A]?\b|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)).*$'
 
   - name: 🇯🇵 日本节点
-    <<: *x-pg-region-urltest
+    <<: *x-pg-region-loadbalance
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-尼]日)).*$'
 
   - name: 🇹🇼 台湾节点
-    <<: *x-pg-region-urltest
+    <<: *x-pg-region-loadbalance
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇹🇼|\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b)).*$'
 
   - name: 🇸🇬 新加坡节点
-    <<: *x-pg-region-urltest
+    <<: *x-pg-region-loadbalance
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇸🇬|\bSG[P]?\b|Singapore|新加坡|狮城)).*$'
 
   - name: 🇰🇷 韩国节点
-    <<: *x-pg-region-urltest
+    <<: *x-pg-region-loadbalance
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇰🇷|\bK[O]?R\b|Korea|首尔|韩|韓)).*$'
 
   # - name: 🇮🇳 印度节点
-  #   <<: *x-pg-region-urltest
+  #   <<: *x-pg-region-loadbalance
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)).*$'
 
   # - name: 🇬🇧 英国节点
-  #   <<: *x-pg-region-urltest
+  #   <<: *x-pg-region-loadbalance
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)).*$'
 
   # - name: 🇫🇷 法国节点
-  #   <<: *x-pg-region-urltest
+  #   <<: *x-pg-region-loadbalance
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)).*$'
 
   # - name: 🇨🇦 加拿大节点
-  #   <<: *x-pg-region-urltest
+  #   <<: *x-pg-region-loadbalance
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)).*$'
 
   # - name: 🇦🇺 澳大利亚节点
-  #   <<: *x-pg-region-urltest
+  #   <<: *x-pg-region-loadbalance
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)).*$'
 
   # - name: 🇷🇺 俄罗斯节点
-  #   <<: *x-pg-region-urltest
+  #   <<: *x-pg-region-loadbalance
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)).*$'
 
   # - name: 🇹🇷 土耳其节点
-  #   <<: *x-pg-region-urltest
+  #   <<: *x-pg-region-loadbalance
   #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇹🇷|Turkey|土耳其|伊斯坦布尔)).*$"
 
   # - name: 🇦🇷 阿根廷节点
-  #   <<: *x-pg-region-urltest
+  #   <<: *x-pg-region-loadbalance
   #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇦🇷|Argentina|阿根廷)).*$"
 
   # - name: 🇧🇷 巴西节点
-  #   <<: *x-pg-region-urltest
+  #   <<: *x-pg-region-loadbalance
   #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)).*$"
 
   # - name: 🇨🇳 回国选择
