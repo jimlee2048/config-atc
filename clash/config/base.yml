@@ -534,6 +534,9 @@ sub-rules:
     - GEOSITE,cn,DIRECT
     - GEOSITE,geolocation-!cn,🔰 节点选择
   sub-rule-ip:
+    # ip: block
+    # https://www.reddit.com/r/techsupport/comments/1tmrpmc/comment/onsgge2/
+    - IP-CIDR,194.221.250.50/32,REJECT
     # ip: service
     - GEOIP,google,🍭 Google
     - GEOIP,telegram,💬 Telegram
