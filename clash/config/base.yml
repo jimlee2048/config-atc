@@ -152,7 +152,7 @@ dns:
     - "rule-set:MyDirect02"
     - "geosite:cn"
   respect-rules: true
-  # nameserver: *x-dns-overseas
+  nameserver: *x-dns-system
   proxy-server-nameserver: *x-dns-china
   nameserver-policy:
     "+.ts.net": 100.100.100.100
