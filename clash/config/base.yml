@@ -10,13 +10,7 @@ x-dns:
     - https://8.8.8.8/dns-query
 
 x-proxy-groups:
-  proxies-control: &x-pg-proxies-control
-    - 🔰 节点选择
-    - 🎯 全部直连
-    - ✈️ 手动选择
-    - 🎩 私有节点
-    - 🏠 家宽节点
-  proxies-control-region: &x-pg-proxies-control-region
+  proxies: &x-pg-proxies
     - 🔰 节点选择
     - 🎯 全部直连
     - ✈️ 手动选择
@@ -218,17 +212,17 @@ proxy-groups:
   - name: 📥 高耗流量
     type: select
     include-all: true
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
 
   - name: 📶 Speedtest
     type: select
     include-all: true
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🎯 全部直连
 
   - name: 🐟 漏网之鱼
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
 
   - name: 🎯 全部直连
     type: select
@@ -239,106 +233,106 @@ proxy-groups:
   ## services groups
   - name: 🍎 Apple
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🎯 全部直连
 
   - name: 🍭 Google
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇺🇸 美国优选
 
   - name: Ⓜ️ Microsoft
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇭🇰 香港优选
 
   - name: ☁️ Onedrive
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🎯 全部直连
 
   - name: 💻 Developer
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇺🇸 美国优选
 
   - name: ✨ GenAI
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇺🇸 美国优选
 
   - name: 🎮 Games
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🎯 全部直连
 
   - name: 🎮 Nintendo
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇭🇰 香港优选
 
   - name: 🎮 PlayStation
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇭🇰 香港优选
 
   - name: 🎮 Steam
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇭🇰 香港优选
 
   - name: 🎵 Spotify
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇯🇵 日本优选
 
   - name: 🎵 Qobuz
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
 
   - name: 🎥 Youtube
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
 
   - name: 🎥 Netflix
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
 
   - name: 🎥 Apple TV
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
 
   - name: 🎥 TikTok
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
 
   - name: 💰 Finance
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇭🇰 香港优选
 
   - name: 💰 Crypto
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇰🇷 韩国优选
 
   - name: 🔮 Polymarket
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇸🇬 新加坡优选
 
   - name: 💬 Telegram
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🇸🇬 新加坡优选
 
   - name: 𝕏 Twitter
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
 
   - name: 🈲 Restricted
     type: select
-    proxies: *x-pg-proxies-control-region
+    proxies: *x-pg-proxies
     default-selected: 🎩 私有节点
 
   ## region groups
