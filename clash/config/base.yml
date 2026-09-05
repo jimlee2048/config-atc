@@ -1,8 +1,4 @@
 ##### anchor area START #####
-x-misc:
-  regex-include-info-node: &x-regex-include-info-node '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
-  regex-exclude-info-node: &x-regex-exclude-info-node '(?i)^(?!ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB)).*$'
-
 x-dns:
   system: &x-dns-system
     - system
@@ -14,110 +10,34 @@ x-dns:
     - https://8.8.8.8/dns-query
 
 x-proxy-groups:
-  control-select-proxy: &x-pg-control-select-proxy
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
-      - 📥 高耗流量
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
-      # - 🇮🇳 印度优选
-      # - 🇬🇧 英国优选
-      # - 🇫🇷 法国优选
-      # - 🇨🇦 加拿大优选
-      # - 🇦🇺 澳大利亚优选
-      # - 🇷🇺 俄罗斯优选
-      # - 🇹🇷 土耳其优选
-      # - 🇦🇷 阿根廷优选
-      # - 🇧🇷 巴西优选
-      # - 🇨🇳 回国选择
-  control-select-direct: &x-pg-control-select-direct
-    type: select
-    proxies:
-      - 🎯 全部直连
-      - 🔰 节点选择
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
-      - 📥 高耗流量
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
-      # - 🇮🇳 印度优选
-      # - 🇬🇧 英国优选
-      # - 🇫🇷 法国优选
-      # - 🇨🇦 加拿大优选
-      # - 🇦🇺 澳大利亚优选
-      # - 🇷🇺 俄罗斯优选
-      # - 🇹🇷 土耳其优选
-      # - 🇦🇷 阿根廷优选
-      # - 🇧🇷 巴西优选
-      # - 🇨🇳 回国选择
-  control-select-private: &x-pg-control-select-private
-    type: select
-    proxies:
-      - 🎩 私有节点
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 🏠 家宽节点
-      - 📥 高耗流量
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
-      # - 🇮🇳 印度优选
-      # - 🇬🇧 英国优选
-      # - 🇫🇷 法国优选
-      # - 🇨🇦 加拿大优选
-      # - 🇦🇺 澳大利亚优选
-      # - 🇷🇺 俄罗斯优选
-      # - 🇹🇷 土耳其优选
-      # - 🇦🇷 阿根廷优选
-      # - 🇧🇷 巴西优选
-      # - 🇨🇳 回国选择
-  control-select-clean: &x-pg-control-select-clean
-    type: select
-    proxies:
-      - 🏠 家宽节点
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 📥 高耗流量
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
-      # - 🇮🇳 印度优选
-      # - 🇬🇧 英国优选
-      # - 🇫🇷 法国优选
-      # - 🇨🇦 加拿大优选
-      # - 🇦🇺 澳大利亚优选
-      # - 🇷🇺 俄罗斯优选
-      # - 🇹🇷 土耳其优选
-      # - 🇦🇷 阿根廷优选
-      # - 🇧🇷 巴西优选
-      # - 🇨🇳 回国选择
-  control-select-all: &x-pg-control-select-all
-    type: select
-    include-all: true
-    filter: *x-regex-exclude-info-node
+  proxies-control: &x-pg-proxies-control
+    - 🔰 节点选择
+    - 🎯 全部直连
+    - ✈️ 手动选择
+    - 🎩 私有节点
+    - 🏠 家宽节点
+  proxies-control-region: &x-pg-proxies-control-region
+    - 🔰 节点选择
+    - 🎯 全部直连
+    - ✈️ 手动选择
+    - 🎩 私有节点
+    - 🏠 家宽节点
+    - 🇭🇰 香港节点
+    - 🇺🇸 美国节点
+    - 🇯🇵 日本节点
+    - 🇹🇼 台湾节点
+    - 🇸🇬 新加坡节点
+    - 🇰🇷 韩国节点
+    # - 🇮🇳 印度节点
+    # - 🇬🇧 英国节点
+    # - 🇫🇷 法国节点
+    # - 🇨🇦 加拿大节点
+    # - 🇦🇺 澳大利亚节点
+    # - 🇷🇺 俄罗斯节点
+    # - 🇹🇷 土耳其节点
+    # - 🇦🇷 阿根廷节点
+    # - 🇧🇷 巴西节点
+    # - 🇨🇳 回国选择
   region-urltest: &x-pg-region-urltest
     type: url-test
     url: "https://www.gstatic.com/generate_204"
@@ -128,6 +48,12 @@ x-proxy-groups:
   region-select: &x-pg-region-select
     type: select
     include-all: true
+    # hidden: true
+  region-loadbalance: &x-pg-region-loadbalance
+    type: load-balance
+    lazy: true
+    include-all: true
+    strategy: consistent-hashing
     # hidden: true
 
 x-rule-providers:
@@ -257,68 +183,46 @@ proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
-      - ✈️ 手动选择
       - 🎯 全部直连
+      - ✈️ 手动选择
       - 🎩 私有节点
       - 🏠 家宽节点
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - 🇯🇵 日本优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
-      - 🇰🇷 韩国优选
-      # - 🇮🇳 印度优选
-      # - 🇬🇧 英国优选
-      # - 🇫🇷 法国优选
-      # - 🇨🇦 加拿大优选
-      # - 🇦🇺 澳大利亚优选
-      # - 🇷🇺 俄罗斯优选
-      # - 🇹🇷 土耳其优选
-      # - 🇦🇷 阿根廷优选
-      # - 🇧🇷 巴西优选
-      # - 🇨🇳 回国选择
-
-  - name: ℹ️ 订阅信息
-    <<: *x-pg-control-select-all
-    filter: *x-regex-include-info-node
+    default-selected: ✈️ 手动选择
 
   - name: ✈️ 手动选择
-    <<: *x-pg-control-select-all
+    type: select
+    include-all: true
 
   - name: 🌏 落地中转
-    <<: *x-pg-control-select-all
+    type: select
+    include-all: true
     proxies:
       - 🎯 全部直连
 
   - name: 🎩 私有节点
-    <<: *x-pg-control-select-all
-    filter: "(?i:Private|PRIV)"
+    type: select
+    include-all: true
+    filter: "(?i)Private|PRIV"
 
   - name: 🏠 家宽节点
-    <<: *x-pg-control-select-all
-    filter: "(?i:家宽|Clean)"
+    type: select
+    include-all: true
+    filter: "(?i)家宽|Clean"
 
   - name: 📥 高耗流量
-    <<: *x-pg-control-select-all
-    proxies:
-      - 🔰 节点选择
-      - 🎯 全部直连
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
+    type: select
+    include-all: true
+    proxies: *x-pg-proxies-control-region
 
   - name: 📶 Speedtest
-    <<: *x-pg-control-select-all
-    proxies:
-      - 🎯 全部直连
-      - 🔰 节点选择
-      - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
-      - 📥 高耗流量
+    type: select
+    include-all: true
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🎯 全部直连
 
   - name: 🐟 漏网之鱼
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
 
   - name: 🎯 全部直连
     type: select
@@ -328,133 +232,167 @@ proxy-groups:
 
   ## services groups
   - name: 🍎 Apple
-    <<: *x-pg-control-select-direct
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🎯 全部直连
 
   - name: 🍭 Google
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇺🇸 美国优选
 
   - name: Ⓜ️ Microsoft
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇭🇰 香港优选
 
   - name: ☁️ Onedrive
-    <<: *x-pg-control-select-direct
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🎯 全部直连
 
   - name: 💻 Developer
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇺🇸 美国优选
 
   - name: ✨ GenAI
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇺🇸 美国优选
 
   - name: 🎮 Games
-    <<: *x-pg-control-select-direct
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🎯 全部直连
 
   - name: 🎮 Nintendo
-    <<: *x-pg-control-select-direct
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇭🇰 香港优选
 
   - name: 🎮 PlayStation
-    <<: *x-pg-control-select-direct
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇭🇰 香港优选
 
   - name: 🎮 Steam
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇭🇰 香港优选
 
   - name: 🎵 Spotify
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇯🇵 日本优选
 
   - name: 🎵 Qobuz
-    <<: *x-pg-control-select-proxy
-
-  - name: 🎥 Emby Providers
-    <<: *x-pg-control-select-all
-    filter: "(?i:Emby)"
+    type: select
+    proxies: *x-pg-proxies-control-region
 
   - name: 🎥 Youtube
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
 
   - name: 🎥 Netflix
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
 
   - name: 🎥 Apple TV
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
 
   - name: 🎥 TikTok
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
 
   - name: 💰 Finance
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇭🇰 香港优选
 
   - name: 💰 Crypto
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇰🇷 韩国优选
 
   - name: 🔮 Polymarket
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇸🇬 新加坡优选
 
   - name: 💬 Telegram
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🇸🇬 新加坡优选
 
   - name: 𝕏 Twitter
-    <<: *x-pg-control-select-proxy
+    type: select
+    proxies: *x-pg-proxies-control-region
 
   - name: 🈲 Restricted
-    <<: *x-pg-control-select-private
+    type: select
+    proxies: *x-pg-proxies-control-region
+    default-selected: 🎩 私有节点
 
   ## region groups
-  - name: 🇭🇰 香港优选
+  - name: 🇭🇰 香港节点
     <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)).*$'
 
-  - name: 🇺🇸 美国优选
+  - name: 🇺🇸 美国节点
     <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇺🇸|\bUS[A]?\b|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)).*$'
 
-  - name: 🇯🇵 日本优选
+  - name: 🇯🇵 日本节点
     <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-尼]日)).*$'
 
-  - name: 🇹🇼 台湾优选
+  - name: 🇹🇼 台湾节点
     <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇹🇼|\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b)).*$'
 
-  - name: 🇸🇬 新加坡优选
+  - name: 🇸🇬 新加坡节点
     <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇸🇬|\bSG[P]?\b|Singapore|新加坡|狮城)).*$'
 
-  - name: 🇰🇷 韩国优选
+  - name: 🇰🇷 韩国节点
     <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇰🇷|\bK[O]?R\b|Korea|首尔|韩|韓)).*$'
 
-  # - name: 🇮🇳 印度优选
+  # - name: 🇮🇳 印度节点
   #   <<: *x-pg-region-urltest
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)).*$'
 
-  # - name: 🇬🇧 英国优选
+  # - name: 🇬🇧 英国节点
   #   <<: *x-pg-region-urltest
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)).*$'
 
-  # - name: 🇫🇷 法国优选
+  # - name: 🇫🇷 法国节点
   #   <<: *x-pg-region-urltest
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)).*$'
 
-  # - name: 🇨🇦 加拿大优选
+  # - name: 🇨🇦 加拿大节点
   #   <<: *x-pg-region-urltest
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)).*$'
 
-  # - name: 🇦🇺 澳大利亚优选
+  # - name: 🇦🇺 澳大利亚节点
   #   <<: *x-pg-region-urltest
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)).*$'
 
-  # - name: 🇷🇺 俄罗斯优选
+  # - name: 🇷🇺 俄罗斯节点
   #   <<: *x-pg-region-urltest
   #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)).*$'
 
-  # - name: 🇹🇷 土耳其优选
+  # - name: 🇹🇷 土耳其节点
   #   <<: *x-pg-region-urltest
   #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇹🇷|Turkey|土耳其|伊斯坦布尔)).*$"
 
-  # - name: 🇦🇷 阿根廷优选
+  # - name: 🇦🇷 阿根廷节点
   #   <<: *x-pg-region-urltest
   #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇦🇷|Argentina|阿根廷)).*$"
 
-  # - name: 🇧🇷 巴西优选
+  # - name: 🇧🇷 巴西节点
   #   <<: *x-pg-region-urltest
   #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)).*$"
 
@@ -562,9 +500,9 @@ sub-rules:
     - RULE-SET,AppleCDN,DIRECT
     - GEOSITE,category-ip-geo-detect@cn,DIRECT
     # domain: service
-    - GEOSITE,bing,🇺🇸 美国优选
+    - GEOSITE,bing,🇺🇸 美国节点
     - GEOSITE,onedrive,☁️ Onedrive
-    - RULE-SET,GoogleVoice,🇺🇸 美国优选
+    - RULE-SET,GoogleVoice,🇺🇸 美国节点
     - GEOSITE,telegram,💬 Telegram
     - GEOSITE,twitter,𝕏 Twitter
     - GEOSITE,nintendo,🎮 Nintendo
@@ -573,9 +511,8 @@ sub-rules:
     - GEOSITE,youtube,🎥 Youtube
     - GEOSITE,netflix,🎥 Netflix
     - GEOSITE,apple-tvplus,🎥 Apple TV
-    - GEOSITE,bahamut,🇹🇼 台湾优选
+    - GEOSITE,bahamut,🇹🇼 台湾节点
     - GEOSITE,tiktok,🎥 TikTok
-    - GEOSITE,category-emby,🎥 Emby Providers
     - GEOSITE,spotify,🎵 Spotify
     - RULE-SET,Qobuz,🎵 Qobuz
     - RULE-SET,PolymarketExtra,🔮 Polymarket
