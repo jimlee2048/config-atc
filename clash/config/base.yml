@@ -256,6 +256,11 @@ proxy-groups:
     proxies: *x-pg-proxies
     default-selected: 🇺🇸 美国优选
 
+  - name: ✨ OpenCode
+    type: select
+    proxies: *x-pg-proxies
+    default-selected: 🇺🇸 美国优选
+
   - name: ✨ GenAI
     type: select
     proxies: *x-pg-proxies
@@ -441,6 +446,10 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
+  OpenCode:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/OpenCode.list 
   GenAiExtra:
     <<: *x-rp-text
     behavior: domain
@@ -516,6 +525,7 @@ sub-rules:
     - GEOSITE,spotify,🎵 Spotify
     - RULE-SET,Qobuz,🎵 Qobuz
     - RULE-SET,PolymarketExtra,🔮 Polymarket
+    - RULE-SET,OpenCode,✨ OpenCode
     # domain: category
     - RULE-SET,RestrictedZones,🈲 Restricted
     - GEOSITE,category-games-!cn,🎮 Games
