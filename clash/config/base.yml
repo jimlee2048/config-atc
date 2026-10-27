@@ -256,6 +256,26 @@ proxy-groups:
     proxies: *x-pg-proxies
     default-selected: 🇺🇸 美国优选
 
+  - name: ✨ OpenAI
+    type: select
+    proxies: *x-pg-proxies
+    default-selected: 🇺🇸 美国优选
+
+  - name: ✨ Anthropic
+    type: select
+    proxies: *x-pg-proxies
+    default-selected: 🇺🇸 美国优选
+
+  - name: ✨ Google Gemini
+    type: select
+    proxies: *x-pg-proxies
+    default-selected: 🇺🇸 美国优选
+
+  - name: ✨ SpaceXAI
+    type: select
+    proxies: *x-pg-proxies
+    default-selected: 🇺🇸 美国优选
+
   - name: ✨ OpenCode
     type: select
     proxies: *x-pg-proxies
@@ -513,8 +533,11 @@ sub-rules:
     - GEOSITE,onedrive,☁️ Onedrive
     - RULE-SET,GoogleVoice,🇺🇸 美国节点
     - GEOSITE,telegram,💬 Telegram
+    - GEOSITE,openai,✨ OpenAI
+    - GEOSITE,anthropic,✨ Anthropic
+    - GEOSITE,google-gemini,✨ Anthropic
+    - GEOSITE,xai,✨ SpaceXAI
     - RULE-SET,OpenCode,✨ OpenCode
-    - GEOSITE,xai,✨ GenAI
     - GEOSITE,twitter,𝕏 Twitter
     - GEOSITE,nintendo,🎮 Nintendo
     - GEOSITE,playstation,🎮 PlayStation
