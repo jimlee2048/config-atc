@@ -409,11 +409,11 @@ rule-providers:
   MyFakeIpFilter:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyFakeIpFilter.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/MyFakeIpFilter.list
   MyDirect:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyDirect.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/MyDirect.list
   MyDirect02:
     <<: *x-rp-text
     behavior: domain
@@ -421,7 +421,7 @@ rule-providers:
   MyProxy:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyProxy.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/MyProxy.list
   MyProxy02:
     <<: *x-rp-text
     behavior: domain
@@ -433,15 +433,15 @@ rule-providers:
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/ProxyHighBandwidth.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/ProxyHighBandwidth.list
   GoogleVoice:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/GoogleVoice.list
   Qobuz:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Qobuz.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/Qobuz.list
   RestrictedZones:
     <<: *x-rp-text
     behavior: domain
@@ -449,23 +449,23 @@ rule-providers:
   OpenCode:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/OpenCode.list 
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/OpenCode.list 
   GenAiExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAiExtra.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/GenAiExtra.list
   CryptoExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/CryptoExtra.list
   PolymarketExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/PolymarketExtra.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/PolymarketExtra.list
   FinanceExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/FinanceExtra.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/FinanceExtra.list
   AppleCDN:
     <<: *x-rp-text
     behavior: domain
@@ -513,6 +513,8 @@ sub-rules:
     - GEOSITE,onedrive,☁️ Onedrive
     - RULE-SET,GoogleVoice,🇺🇸 美国节点
     - GEOSITE,telegram,💬 Telegram
+    - RULE-SET,OpenCode,✨ OpenCode
+    - GEOSITE,xai,✨ GenAI
     - GEOSITE,twitter,𝕏 Twitter
     - GEOSITE,nintendo,🎮 Nintendo
     - GEOSITE,playstation,🎮 PlayStation
@@ -525,7 +527,6 @@ sub-rules:
     - GEOSITE,spotify,🎵 Spotify
     - RULE-SET,Qobuz,🎵 Qobuz
     - RULE-SET,PolymarketExtra,🔮 Polymarket
-    - RULE-SET,OpenCode,✨ OpenCode
     # domain: category
     - RULE-SET,RestrictedZones,🈲 Restricted
     - GEOSITE,category-games-!cn,🎮 Games
