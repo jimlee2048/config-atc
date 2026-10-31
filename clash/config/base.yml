@@ -535,7 +535,7 @@ sub-rules:
     - GEOSITE,telegram,💬 Telegram
     - GEOSITE,openai,✨ OpenAI
     - GEOSITE,anthropic,✨ Anthropic
-    - GEOSITE,google-gemini,✨ Anthropic
+    - GEOSITE,google-gemini,✨ Google Gemini
     - GEOSITE,xai,✨ SpaceXAI
     - RULE-SET,OpenCode,✨ OpenCode
     - GEOSITE,twitter,𝕏 Twitter
