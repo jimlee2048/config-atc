@@ -35,36 +35,36 @@ x-proxy-groups:
     - 🎩 私有节点
     - 🏠 家宽节点
     - 🇭🇰 香港均衡
-    - 🇭🇰 香港选择
     - 🇺🇸 美国均衡
-    - 🇺🇸 美国选择
     - 🇯🇵 日本均衡
-    - 🇯🇵 日本选择
     - 🇹🇼 台湾均衡
-    - 🇹🇼 台湾选择
     - 🇸🇬 新加坡均衡
-    - 🇸🇬 新加坡选择
     - 🇰🇷 韩国均衡
-    - 🇰🇷 韩国选择
     # - 🇮🇳 印度均衡
-    # - 🇮🇳 印度选择
     # - 🇬🇧 英国均衡
-    # - 🇬🇧 英国选择
     # - 🇫🇷 法国均衡
-    # - 🇫🇷 法国选择
     # - 🇨🇦 加拿大均衡
-    # - 🇨🇦 加拿大选择
     # - 🇦🇺 澳大利亚均衡
-    # - 🇦🇺 澳大利亚选择
     # - 🇷🇺 俄罗斯均衡
-    # - 🇷🇺 俄罗斯选择
     # - 🇹🇷 土耳其均衡
-    # - 🇹🇷 土耳其选择
     # - 🇦🇷 阿根廷均衡
-    # - 🇦🇷 阿根廷选择
     # - 🇧🇷 巴西均衡
-    # - 🇧🇷 巴西选择
     # - 🇨🇳 回国均衡
+    - 🇭🇰 香港选择
+    - 🇺🇸 美国选择
+    - 🇯🇵 日本选择
+    - 🇹🇼 台湾选择
+    - 🇸🇬 新加坡选择
+    - 🇰🇷 韩国选择
+    # - 🇮🇳 印度选择
+    # - 🇬🇧 英国选择
+    # - 🇫🇷 法国选择
+    # - 🇨🇦 加拿大选择
+    # - 🇦🇺 澳大利亚选择
+    # - 🇷🇺 俄罗斯选择
+    # - 🇹🇷 土耳其选择
+    # - 🇦🇷 阿根廷选择
+    # - 🇧🇷 巴西选择
     # - 🇨🇳 回国选择
   region-select: &x-pg-region-select
     type: select
@@ -215,16 +215,16 @@ proxy-groups:
       - 🎩 私有节点
       - 🏠 家宽节点
       - 🇭🇰 香港均衡
-      - 🇭🇰 香港选择
       - 🇺🇸 美国均衡
-      - 🇺🇸 美国选择
       - 🇯🇵 日本均衡
-      - 🇯🇵 日本选择
       - 🇹🇼 台湾均衡
-      - 🇹🇼 台湾选择
       - 🇸🇬 新加坡均衡
-      - 🇸🇬 新加坡选择
       - 🇰🇷 韩国均衡
+      - 🇭🇰 香港选择
+      - 🇺🇸 美国选择
+      - 🇯🇵 日本选择
+      - 🇹🇼 台湾选择
+      - 🇸🇬 新加坡选择
       - 🇰🇷 韩国选择
     default-selected: ✈️ 手动选择
 
@@ -399,130 +399,131 @@ proxy-groups:
     proxies: *x-pg-proxies
     default-selected: 🎩 私有节点
 
-  ## region groups
+  ## region groups: load balance
   - name: 🇭🇰 香港均衡
     <<: *x-pg-region-loadbalance
-    filter: *x-filter-region-hk
-
-  - name: 🇭🇰 香港选择
-    <<: *x-pg-region-select
     filter: *x-filter-region-hk
 
   - name: 🇺🇸 美国均衡
     <<: *x-pg-region-loadbalance
     filter: *x-filter-region-us
 
-  - name: 🇺🇸 美国选择
-    <<: *x-pg-region-select
-    filter: *x-filter-region-us
-
   - name: 🇯🇵 日本均衡
     <<: *x-pg-region-loadbalance
-    filter: *x-filter-region-jp
-
-  - name: 🇯🇵 日本选择
-    <<: *x-pg-region-select
     filter: *x-filter-region-jp
 
   - name: 🇹🇼 台湾均衡
     <<: *x-pg-region-loadbalance
     filter: *x-filter-region-tw
 
-  - name: 🇹🇼 台湾选择
-    <<: *x-pg-region-select
-    filter: *x-filter-region-tw
-
   - name: 🇸🇬 新加坡均衡
     <<: *x-pg-region-loadbalance
-    filter: *x-filter-region-sg
-
-  - name: 🇸🇬 新加坡选择
-    <<: *x-pg-region-select
     filter: *x-filter-region-sg
 
   - name: 🇰🇷 韩国均衡
     <<: *x-pg-region-loadbalance
     filter: *x-filter-region-kr
 
-  - name: 🇰🇷 韩国选择
-    <<: *x-pg-region-select
-    filter: *x-filter-region-kr
-
   # - name: 🇮🇳 印度均衡
   #   <<: *x-pg-region-loadbalance
-  #   filter: *x-filter-region-in
-
-  # - name: 🇮🇳 印度选择
-  #   <<: *x-pg-region-select
   #   filter: *x-filter-region-in
 
   # - name: 🇬🇧 英国均衡
   #   <<: *x-pg-region-loadbalance
   #   filter: *x-filter-region-uk
 
-  # - name: 🇬🇧 英国选择
-  #   <<: *x-pg-region-select
-  #   filter: *x-filter-region-uk
-
   # - name: 🇫🇷 法国均衡
   #   <<: *x-pg-region-loadbalance
-  #   filter: *x-filter-region-fr
-
-  # - name: 🇫🇷 法国选择
-  #   <<: *x-pg-region-select
   #   filter: *x-filter-region-fr
 
   # - name: 🇨🇦 加拿大均衡
   #   <<: *x-pg-region-loadbalance
   #   filter: *x-filter-region-ca
 
-  # - name: 🇨🇦 加拿大选择
-  #   <<: *x-pg-region-select
-  #   filter: *x-filter-region-ca
-
   # - name: 🇦🇺 澳大利亚均衡
   #   <<: *x-pg-region-loadbalance
-  #   filter: *x-filter-region-au
-
-  # - name: 🇦🇺 澳大利亚选择
-  #   <<: *x-pg-region-select
   #   filter: *x-filter-region-au
 
   # - name: 🇷🇺 俄罗斯均衡
   #   <<: *x-pg-region-loadbalance
   #   filter: *x-filter-region-ru
 
-  # - name: 🇷🇺 俄罗斯选择
-  #   <<: *x-pg-region-select
-  #   filter: *x-filter-region-ru
-
   # - name: 🇹🇷 土耳其均衡
   #   <<: *x-pg-region-loadbalance
-  #   filter: *x-filter-region-tr
-
-  # - name: 🇹🇷 土耳其选择
-  #   <<: *x-pg-region-select
   #   filter: *x-filter-region-tr
 
   # - name: 🇦🇷 阿根廷均衡
   #   <<: *x-pg-region-loadbalance
   #   filter: *x-filter-region-ar
 
-  # - name: 🇦🇷 阿根廷选择
-  #   <<: *x-pg-region-select
-  #   filter: *x-filter-region-ar
-
   # - name: 🇧🇷 巴西均衡
   #   <<: *x-pg-region-loadbalance
-  #   filter: *x-filter-region-br
-
-  # - name: 🇧🇷 巴西选择
-  #   <<: *x-pg-region-select
   #   filter: *x-filter-region-br
 
   # - name: 🇨🇳 回国均衡
   #   <<: *x-pg-region-loadbalance
   #   filter: *x-filter-region-cn
+
+  ## region groups: select
+  - name: 🇭🇰 香港选择
+    <<: *x-pg-region-select
+    filter: *x-filter-region-hk
+
+  - name: 🇺🇸 美国选择
+    <<: *x-pg-region-select
+    filter: *x-filter-region-us
+
+  - name: 🇯🇵 日本选择
+    <<: *x-pg-region-select
+    filter: *x-filter-region-jp
+
+  - name: 🇹🇼 台湾选择
+    <<: *x-pg-region-select
+    filter: *x-filter-region-tw
+
+  - name: 🇸🇬 新加坡选择
+    <<: *x-pg-region-select
+    filter: *x-filter-region-sg
+
+  - name: 🇰🇷 韩国选择
+    <<: *x-pg-region-select
+    filter: *x-filter-region-kr
+
+  # - name: 🇮🇳 印度选择
+  #   <<: *x-pg-region-select
+  #   filter: *x-filter-region-in
+
+  # - name: 🇬🇧 英国选择
+  #   <<: *x-pg-region-select
+  #   filter: *x-filter-region-uk
+
+  # - name: 🇫🇷 法国选择
+  #   <<: *x-pg-region-select
+  #   filter: *x-filter-region-fr
+
+  # - name: 🇨🇦 加拿大选择
+  #   <<: *x-pg-region-select
+  #   filter: *x-filter-region-ca
+
+  # - name: 🇦🇺 澳大利亚选择
+  #   <<: *x-pg-region-select
+  #   filter: *x-filter-region-au
+
+  # - name: 🇷🇺 俄罗斯选择
+  #   <<: *x-pg-region-select
+  #   filter: *x-filter-region-ru
+
+  # - name: 🇹🇷 土耳其选择
+  #   <<: *x-pg-region-select
+  #   filter: *x-filter-region-tr
+
+  # - name: 🇦🇷 阿根廷选择
+  #   <<: *x-pg-region-select
+  #   filter: *x-filter-region-ar
+
+  # - name: 🇧🇷 巴西选择
+  #   <<: *x-pg-region-select
+  #   filter: *x-filter-region-br
 
   # - name: 🇨🇳 回国选择
   #   <<: *x-pg-region-select
