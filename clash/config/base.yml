@@ -66,23 +66,22 @@ x-proxy-groups:
     # - 🇧🇷 巴西选择
     # - 🇨🇳 回国均衡
     # - 🇨🇳 回国选择
+  region-select: &x-pg-region-select
+    type: select
+    include-all: true
   region-urltest: &x-pg-region-urltest
     type: url-test
     url: "https://www.gstatic.com/generate_204"
     interval: 300
     lazy: true
     include-all: true
-    # hidden: true
-  region-select: &x-pg-region-select
-    type: select
-    include-all: true
-    # hidden: true
+    hidden: true
   region-loadbalance: &x-pg-region-loadbalance
     type: load-balance
     lazy: true
     include-all: true
     strategy: consistent-hashing
-    # hidden: true
+    hidden: true
 
 x-rule-providers:
   yaml: &x-rp-yaml
@@ -279,12 +278,12 @@ proxy-groups:
   - name: 🍭 Google
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇺🇸 美国均衡
+    default-selected: 🇺🇸 美国选择
 
   - name: Ⓜ️ Microsoft
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇭🇰 香港均衡
+    default-selected: 🇭🇰 香港选择
 
   - name: ☁️ Onedrive
     type: select
@@ -294,27 +293,27 @@ proxy-groups:
   - name: 💻 Developer
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇺🇸 美国均衡
+    default-selected: 🇺🇸 美国选择
 
   - name: ✨ OpenAI
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇺🇸 美国均衡
+    default-selected: 🇺🇸 美国选择
 
   - name: ✨ Anthropic
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇺🇸 美国均衡
+    default-selected: 🇺🇸 美国选择
 
   - name: ✨ Google Gemini
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇺🇸 美国均衡
+    default-selected: 🇺🇸 美国选择
 
   - name: ✨ SpaceXAI
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇺🇸 美国均衡
+    default-selected: 🇺🇸 美国选择
 
   - name: ✨ OpenCode
     type: select
@@ -324,27 +323,27 @@ proxy-groups:
   - name: ✨ GenAI
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇺🇸 美国均衡
+    default-selected: 🇺🇸 美国选择
 
   - name: 🎮 Games
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🎯 全部直连
+    default-selected: 🎯 全部选择
 
   - name: 🎮 Nintendo
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇭🇰 香港均衡
+    default-selected: 🇭🇰 香港选择
 
   - name: 🎮 PlayStation
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇭🇰 香港均衡
+    default-selected: 🇭🇰 香港选择
 
   - name: 🎮 Steam
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇭🇰 香港均衡
+    default-selected: 🇭🇰 香港选择
 
   - name: 🎵 Spotify
     type: select
@@ -374,7 +373,7 @@ proxy-groups:
   - name: 💰 Finance
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🇭🇰 香港均衡
+    default-selected: 🇭🇰 香港选择
 
   - name: 💰 Crypto
     type: select
