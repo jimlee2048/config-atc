@@ -596,9 +596,78 @@ rule-providers:
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
 
 rules:
-  - SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),sub-rule-private
-  - SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),sub-rule-domain
-  - SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),sub-rule-ip
+  # private
+  - GEOSITE,private,DIRECT
+  - GEOIP,private,DIRECT,no-resolve
+  # domain: custom override
+  - RULE-SET,MyDirect,DIRECT
+  - RULE-SET,MyDirect02,DIRECT
+  - RULE-SET,MyProxy,🔰 节点选择
+  - RULE-SET,MyProxy02,🔰 节点选择
+  # domain: block
+  - RULE-SET,AdobeTelemetry,REJECT
+  # domain: direct
+  - GEOSITE,tailscale,DIRECT
+  - GEOSITE,tracker,DIRECT
+  - GEOSITE,category-pt,DIRECT
+  - GEOSITE,category-speedtest,📶 Speedtest
+  - RULE-SET,ProxyHighBandwidth,📥 高耗流量
+  - GEOSITE,category-game-platforms-download,DIRECT
+  - GEOSITE,category-games@cn,DIRECT
+  - GEOSITE,category-dev@cn,DIRECT
+  - GEOSITE,category-finance@cn,DIRECT
+  - GEOSITE,microsoft@cn,DIRECT
+  - RULE-SET,AppleCDN,DIRECT
+  - GEOSITE,category-ip-geo-detect@cn,DIRECT
+  # domain: service
+  - GEOSITE,bing,🇺🇸 美国均衡
+  - GEOSITE,onedrive,☁️ Onedrive
+  - RULE-SET,GoogleVoice,🇺🇸 美国均衡
+  - GEOSITE,telegram,💬 Telegram
+  - GEOSITE,openai,✨ OpenAI
+  - GEOSITE,anthropic,✨ Anthropic
+  - GEOSITE,google-gemini,✨ Google Gemini
+  - GEOSITE,xai,✨ SpaceXAI
+  - RULE-SET,OpenCode,✨ OpenCode
+  - GEOSITE,twitter,𝕏 Twitter
+  - GEOSITE,nintendo,🎮 Nintendo
+  - GEOSITE,playstation,🎮 PlayStation
+  - GEOSITE,steam,🎮 Steam
+  - GEOSITE,youtube,🎥 Youtube
+  - GEOSITE,netflix,🎥 Netflix
+  - GEOSITE,apple-tvplus,🎥 Apple TV
+  - GEOSITE,bahamut,🇹🇼 台湾均衡
+  - GEOSITE,tiktok,🎥 TikTok
+  - GEOSITE,spotify,🎵 Spotify
+  - RULE-SET,Qobuz,🎵 Qobuz
+  - RULE-SET,PolymarketExtra,🔮 Polymarket
+  # domain: category
+  - RULE-SET,RestrictedZones,🈲 Restricted
+  - GEOSITE,category-games-!cn,🎮 Games
+  - GEOSITE,category-ai-!cn,✨ GenAI
+  - RULE-SET,GenAiExtra,✨ GenAI
+  - GEOSITE,category-dev,💻 Developer
+  - GEOSITE,category-cryptocurrency,💰 Crypto
+  - RULE-SET,CryptoExtra,💰 Crypto
+  - GEOSITE,category-finance,💰 Finance
+  - RULE-SET,FinanceExtra,💰 Finance
+  - GEOSITE,microsoft,Ⓜ️ Microsoft
+  - GEOSITE,google,🍭 Google
+  - GEOSITE,apple,🍎 Apple
+  - GEOSITE,category-ip-geo-detect,🔰 节点选择
+  # domain: geo
+  - GEOSITE,cn,DIRECT
+  - GEOSITE,geolocation-!cn,🔰 节点选择
+  # ip: block
+  # https://www.reddit.com/r/techsupport/comments/1tmrpmc/comment/onsgge2/
+  - IP-CIDR,194.221.250.50/32,REJECT
+  # ip: service
+  - GEOIP,google,🍭 Google
+  - GEOIP,telegram,💬 Telegram
+  - GEOIP,twitter,𝕏 Twitter
+  - GEOIP,netflix,🎥 Netflix
+  # ip: geo
+  - GEOIP,cn,DIRECT
   # fallback
   - DST-PORT,80,🐟 漏网之鱼
   - DST-PORT,8080-8880,🐟 漏网之鱼
@@ -606,81 +675,5 @@ rules:
   - DST-PORT,8443,🐟 漏网之鱼
   - DST-PORT,853,🐟 漏网之鱼
   - MATCH,DIRECT
-
-sub-rules:
-  sub-rule-private:
-    - GEOSITE,private,DIRECT
-    - GEOIP,private,DIRECT,no-resolve
-  sub-rule-domain:
-    # domain: custom override
-    - RULE-SET,MyDirect,DIRECT
-    - RULE-SET,MyDirect02,DIRECT
-    - RULE-SET,MyProxy,🔰 节点选择
-    - RULE-SET,MyProxy02,🔰 节点选择
-    # domain: block
-    - RULE-SET,AdobeTelemetry,REJECT
-    # domain: direct
-    - GEOSITE,tailscale,DIRECT
-    - GEOSITE,tracker,DIRECT
-    - GEOSITE,category-pt,DIRECT
-    - GEOSITE,category-speedtest,📶 Speedtest
-    - RULE-SET,ProxyHighBandwidth,📥 高耗流量
-    - GEOSITE,category-game-platforms-download,DIRECT
-    - GEOSITE,category-games@cn,DIRECT
-    - GEOSITE,category-dev@cn,DIRECT
-    - GEOSITE,category-finance@cn,DIRECT
-    - GEOSITE,microsoft@cn,DIRECT
-    - RULE-SET,AppleCDN,DIRECT
-    - GEOSITE,category-ip-geo-detect@cn,DIRECT
-    # domain: service
-    - GEOSITE,bing,🇺🇸 美国均衡
-    - GEOSITE,onedrive,☁️ Onedrive
-    - RULE-SET,GoogleVoice,🇺🇸 美国均衡
-    - GEOSITE,telegram,💬 Telegram
-    - GEOSITE,openai,✨ OpenAI
-    - GEOSITE,anthropic,✨ Anthropic
-    - GEOSITE,google-gemini,✨ Google Gemini
-    - GEOSITE,xai,✨ SpaceXAI
-    - RULE-SET,OpenCode,✨ OpenCode
-    - GEOSITE,twitter,𝕏 Twitter
-    - GEOSITE,nintendo,🎮 Nintendo
-    - GEOSITE,playstation,🎮 PlayStation
-    - GEOSITE,steam,🎮 Steam
-    - GEOSITE,youtube,🎥 Youtube
-    - GEOSITE,netflix,🎥 Netflix
-    - GEOSITE,apple-tvplus,🎥 Apple TV
-    - GEOSITE,bahamut,🇹🇼 台湾均衡
-    - GEOSITE,tiktok,🎥 TikTok
-    - GEOSITE,spotify,🎵 Spotify
-    - RULE-SET,Qobuz,🎵 Qobuz
-    - RULE-SET,PolymarketExtra,🔮 Polymarket
-    # domain: category
-    - RULE-SET,RestrictedZones,🈲 Restricted
-    - GEOSITE,category-games-!cn,🎮 Games
-    - GEOSITE,category-ai-!cn,✨ GenAI
-    - RULE-SET,GenAiExtra,✨ GenAI
-    - GEOSITE,category-dev,💻 Developer
-    - GEOSITE,category-cryptocurrency,💰 Crypto
-    - RULE-SET,CryptoExtra,💰 Crypto
-    - GEOSITE,category-finance,💰 Finance
-    - RULE-SET,FinanceExtra,💰 Finance
-    - GEOSITE,microsoft,Ⓜ️ Microsoft
-    - GEOSITE,google,🍭 Google
-    - GEOSITE,apple,🍎 Apple
-    - GEOSITE,category-ip-geo-detect,🔰 节点选择
-    # domain: geo
-    - GEOSITE,cn,DIRECT
-    - GEOSITE,geolocation-!cn,🔰 节点选择
-  sub-rule-ip:
-    # ip: block
-    # https://www.reddit.com/r/techsupport/comments/1tmrpmc/comment/onsgge2/
-    - IP-CIDR,194.221.250.50/32,REJECT
-    # ip: service
-    - GEOIP,google,🍭 Google
-    - GEOIP,telegram,💬 Telegram
-    - GEOIP,twitter,𝕏 Twitter
-    - GEOIP,netflix,🎥 Netflix
-    # ip: geo
-    - GEOIP,cn,DIRECT
 
 ###### config area END #####
