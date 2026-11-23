@@ -328,7 +328,7 @@ proxy-groups:
   - name: 🎮 Games
     type: select
     proxies: *x-pg-proxies
-    default-selected: 🎯 全部选择
+    default-selected: 🎯 全部直连
 
   - name: 🎮 Nintendo
     type: select
